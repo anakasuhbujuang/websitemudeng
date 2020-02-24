@@ -152,23 +152,23 @@ import {
   mdiFormatListBulleted,
 } from '@mdi/js';
 
-import { WidthType, BorderStyle, Document, Paragraph, Packer, TextRun } from "docx";
-import { saveAs } from 'file-saver';
+// import { WidthType, BorderStyle, Document, Paragraph, Packer, TextRun } from "docx";
+// import { saveAs } from 'file-saver';
 
 export default {
   components: {
     //tiptap
     EditorContent, EditorMenuBar,
     //Download Docx
-    Document, Paragraph, Packer, TextRun, saveAs, BorderStyle, WidthType,
+    // Document, Paragraph, Packer, TextRun, saveAs, BorderStyle, WidthType,
   },
   
   data() {
     return {
 
-      state: {
-        name: 'San Luis Potosi'
-      } ,
+      // state: {
+      //   name: 'San Luis Potosi'
+      // } ,
 
       IconParagraph : mdiFormatPilcrow,
       IconH1 : mdiFormatHeader1,
@@ -214,30 +214,30 @@ export default {
   beforeDestroy() {
     this.editor.destroy()
   },
-methods: {
-      // Create a new Document an save it in a variable
-      let doc = new Document();
+// methods: {
+//       // Create a new Document an save it in a variable
+//       let doc = new Document();
 
-      // Add paragraph in the document
-      let title = new Paragraph(`Detailed Report for ${this.state.name}`).title().center();
+//       // Add paragraph in the document
+//       let title = new Paragraph(`Detailed Report for ${this.state.name}`).title().center();
 
-      // To export into a .docx file
-      let packer = new Packer();
+//       // To export into a .docx file
+//       let packer = new Packer();
 
-      packer.toBlob(doc).then(blob => {
-        saveAs(blob, "detailed_report.docx");
+//       packer.toBlob(doc).then(blob => {
+//         saveAs(blob, "detailed_report.docx");
 
-         // using sweet alert for notification
-         toast({
-          type: 'success',
-          title: 'Document created!'
-         })
-      });
+//          // using sweet alert for notification
+//          toast({
+//           type: 'success',
+//           title: 'Document created!'
+//          })
+//       });
 
-    },
-    created(){
+//     },
+//     created(){
 
-    }
+//     }
   
 
 }
