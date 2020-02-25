@@ -1,5 +1,5 @@
 <template>
-<div style="margin: 0px 0px 0px 0px;">
+<div >
     <v-container fluid>
     <v-row no-gutters>
         
@@ -157,5 +157,8 @@ export default {
 </script>
 
 <style>
-
+body {
+    margin: 0;
+    background: #FCFCFF;
+}
 </style>
