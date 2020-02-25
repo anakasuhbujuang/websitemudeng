@@ -158,7 +158,7 @@ export default {
 
 <style>
 body {
-    margin: 0;
+    margin: none;
     background: #FCFCFF;
 }
 </style>

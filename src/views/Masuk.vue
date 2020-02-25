@@ -188,6 +188,11 @@ export default {
 
 <style>
 
+body {
+    margin: none;
+    background: #FCFCFF;
+}
+
 div.bgsign{
  
   background-image: url('~@/assets/bgsign.svg');
