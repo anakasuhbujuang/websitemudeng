@@ -10,9 +10,12 @@
   "dependencies": {
     "core-js": "^3.4.4",
     "docx": "^5.0.2",
+    "express": "^4.17.1",
     "file-saver": "^2.0.2",
-    "vue": "^2.6.10",
-    "vuetify": "^2.1.0"
+    "vue": "^2.6.11",
+    "vue-server-renderer": "^2.6.11",
+    "vuetify": "^2.1.0",
+    "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
     "@mdi/font": "^4.7.95",
