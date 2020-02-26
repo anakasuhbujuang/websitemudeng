@@ -11,7 +11,6 @@
               :class="{ 'is-active': isActive.paragraph() }"
               @click="commands.paragraph"
             >
-              <!-- <icon name="paragraph" /> -->
               <v-icon >{{ IconParagraph }}</v-icon>
             </v-btn>
 
@@ -21,7 +20,6 @@
               :class="{ 'is-active': isActive.heading({ level: 1 }) }"
               @click="commands.heading({ level: 1 })"
             >
-              <!-- H1 -->
               <v-icon >{{ IconH1 }}</v-icon>
             </v-btn>
 
@@ -30,7 +28,6 @@
               :class="{ 'is-active': isActive.heading({ level: 2 }) }"
               @click="commands.heading({ level: 2 })"
             >
-              <!-- H2 -->
               <v-icon >{{ IconH2 }}</v-icon>
             </v-btn>
 
@@ -39,7 +36,6 @@
               :class="{ 'is-active': isActive.heading({ level: 3 }) }"
               @click="commands.heading({ level: 3 })"
             >
-              <!-- H3 -->
               <v-icon >{{ IconH3 }}</v-icon>
             </v-btn>
 
@@ -48,7 +44,6 @@
               :class="{ 'is-active': isActive.bold() }"
               @click="commands.bold"
             >
-              <!-- <icon name="bold" /> -->
               <v-icon >{{ IconBold }}</v-icon>
             </v-btn>
 
@@ -57,7 +52,6 @@
               :class="{ 'is-active': isActive.italic() }"
               @click="commands.italic"
             >
-              <!-- <icon name="italic" /> -->
               <v-icon >{{ IconItalic }}</v-icon>
             </v-btn>
 
@@ -66,7 +60,6 @@
               :class="{ 'is-active': isActive.underline() }"
               @click="commands.underline"
             >
-              <!-- <icon name="underline" /> -->
               <v-icon >{{ IconUnderline }}</v-icon>
             </v-btn>
 
@@ -75,7 +68,6 @@
               :class="{ 'is-active': isActive.bullet_list() }"
               @click="commands.bullet_list"
             >
-              <!-- <icon name="ul" /> -->
               <v-icon >{{ IconListBulleted }}</v-icon>
             </v-btn>
 
@@ -84,7 +76,6 @@
               :class="{ 'is-active': isActive.ordered_list() }"
               @click="commands.ordered_list"
             >
-              <!-- <icon name="ol" /> -->
               <v-icon >{{ IconListNumbered }}</v-icon>
             </v-btn>
 
@@ -105,7 +96,6 @@
          class="editor__content"
          style="border: 1px solid grey; padding: 10px; border-radius: 5px; width:450px; height:300px; overflow-y:scroll; overflow-x:hidden;" 
          :editor="editor" 
-         
          />
          
         <!-- </div> -->

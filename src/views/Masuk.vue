@@ -116,11 +116,11 @@
         
         <v-col md="7">
 
-            <!-- <v-row  justify="center" class="pr-8  pt-8 pl-4">
+            <v-row  justify="center" class="pr-8  pt-8 pl-4">
               <v-col md="10">
                   <v-img :src="SrcImgMasuk"></v-img>
               </v-col>
-            </v-row> -->
+            </v-row>
   
         </v-col>
       

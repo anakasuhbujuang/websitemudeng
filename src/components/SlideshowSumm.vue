@@ -1,5 +1,5 @@
 <template>
-<div > 
+    <div > 
 
             <v-row no-gutters >
                     <v-col md="12">
@@ -40,79 +40,92 @@
                                     </v-col>
                                   </v-row>
 
-                                  <v-row class="pl-8 pt-5">
-                                      <v-col md="4" class="pr-2">
-                                          <v-btn-toggle
-                                            v-model="formatting"
-                                            multiple
-                                            >
-                                            <v-btn color="white">
-                                                <v-icon>mdi-format-italic</v-icon>
-                                            </v-btn>
-                                    
-                                            <v-btn color="white">
-                                                <v-icon>mdi-format-bold</v-icon>
-                                            </v-btn>
-                                    
-                                            <v-btn color="white">
-                                                <v-icon>mdi-format-underline</v-icon>
-                                            </v-btn>
-                                    
-                                            <v-btn color="white">
-                                                <v-row
-                                                align="center"
-                                                class="flex-column"
-                                                justify="center"
-                                                >
-                                                <v-icon class="cols 12">mdi-format-color-text</v-icon>
-                                    
-                                                <v-sheet
-                                                    tile
-                                                    style="margin-top: -4px;"
-                                                    height="4"
-                                                    width="26"
-                                                    color="purple"
-                                                ></v-sheet>
-                                                </v-row>
-                                            </v-btn>
-                                            </v-btn-toggle>
+                                  <v-row class="pl-5 pt-5">
+                                      <v-col md="2" >
+                                          <!-- EDITOR -->
+                                           <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
+      
+                                                <div class="menubar">
 
-                                      </v-col>
+                                                    <v-btn-toggle >
+                                                    <v-btn 
+                                                    class="menubar__button"
+                                                    :class="{ 'is-active': isActive.heading({ level: 2 }) }"
+                                                    @click="commands.heading({ level: 2 })"
+                                                    >
+                                                    <v-icon small>{{ IconTitle }}</v-icon>
+                                                    </v-btn>
+                                                    
+                                                    <v-btn 
+                                                    class="menubar__button"
+                                                    :class="{ 'is-active': isActive.paragraph() }"
+                                                    @click="commands.paragraph"
+                                                    >
+                                                    <v-icon small >{{ IconParagraph }}</v-icon>
+                                                    </v-btn>
 
-                                      <v-col>
-                                    
-                                            <v-btn-toggle >
-                                            <v-btn  @click="isCenter()" v-model="isCenter"  color="white">
-                                                <v-icon>mdi-format-align-center</v-icon>
-                                            </v-btn>
-                                    
-                                            <v-btn @click="isLeft()" v-model="isLeft" color="white">
-                                                <v-icon>mdi-format-align-left</v-icon>
-                                            </v-btn>
-                                    
-                                            <v-btn  @click="isRight()" v-model="isRight" color="white">
-                                                <v-icon>mdi-format-align-right</v-icon>
-                                            </v-btn>
-                                            </v-btn-toggle>
+                                                    <v-btn 
+                                                    class="menubar__button"
+                                                    :class="{ 'is-active': isActive.bold() }"
+                                                    @click="commands.bold"
+                                                    >
+                                                    <v-icon small>{{ IconBold }}</v-icon>
+                                                    </v-btn>
+
+                                                    <v-btn 
+                                                    class="menubar__button"
+                                                    :class="{ 'is-active': isActive.italic() }"
+                                                    @click="commands.italic"
+                                                    >
+                                                    <v-icon small>{{ IconItalic }}</v-icon>
+                                                    </v-btn>
+
+                                                    <v-btn 
+                                                    class="menubar__button"
+                                                    :class="{ 'is-active': isActive.underline() }"
+                                                    @click="commands.underline"
+                                                    >
+                                                    <v-icon small>{{ IconUnderline }}</v-icon>
+                                                    </v-btn>
+
+                                                    <v-btn 
+                                                    class="menubar__button"
+                                                    :class="{ 'is-active': isActive.bullet_list() }"
+                                                    @click="commands.bullet_list"
+                                                    >
+                                                    <v-icon small>{{ IconListBulleted }}</v-icon>
+                                                    </v-btn>
+
+                                                    <v-btn 
+                                                    class="menubar__button"
+                                                    :class="{ 'is-active': isActive.ordered_list() }"
+                                                    @click="commands.ordered_list"
+                                                    >
+                                                    <v-icon small>{{ IconListNumbered }}</v-icon>
+                                                    </v-btn>
+
+                                                    </v-btn-toggle>
+                                                    
+                                                </div>
+                                                
+                                                </editor-menu-bar>
                                       </v-col>
                                   </v-row>
 
-                                  <v-row justify="center" class="px-2">
+                                  <v-row class="pl-5">
                                       <v-col md="11">
-                                               <v-textarea
-                                                    no-resize
-                                                    rows="15"
-                                                    :value="Summary"
-                                                    outlined
-                                                    flat
-                                                    v-bind:class="[{'text-center': isCenter,'text-start': isLeft, 'text-end': isRight }]"
-                                                ></v-textarea>
+                                        <!-- TEXT AREA -->
+                                          <editor-content 
+                                         class="editor__content"
+                                         style="border: 1px solid grey; padding: 10px; border-radius: 5px; width:auto; height:300px; overflow-y:scroll; overflow-x:hidden;" 
+                                         :editor="editor" 
+                                         />
                                       </v-col>
                                   </v-row>
 
-                                   <v-row justify="center" no-gutters >
-                                            <v-col md="11">
-                                                <v-row class="px-2">
+                                   <v-row no-gutters >
+                                            <v-col class="pl-5" md="11">
+                                                <v-row class="">
                                                     <v-col md="4">
                                                         <v-btn
                                                         color="teal darken-2 white--text"
@@ -127,7 +140,7 @@
                                                         <v-btn
                                                         color="teal darken-4 white--text"
                                                         block
-                                                        class="subtitle-1"
+                                                        class="subtitle-1 "
                                                         @click="nextStep(4)"
                                                         >
                                                         SELESAI
@@ -153,48 +166,84 @@
 </template>
 
 <script>
+import { Editor, EditorContent, EditorMenuBar } from 'tiptap'
+import {
+  HardBreak,
+  Heading,
+  HorizontalRule,
+  OrderedList,
+  BulletList,
+  ListItem,
+  TodoItem,
+  TodoList,
+  Bold,
+  Code,
+  Italic,
+  Underline,
+} from 'tiptap-extensions'
 
-  export default {
-      name: 'slideshow',
+
+import { 
+  mdiFormatTitle,
+  mdiFormatBold,
+  mdiFormatItalic,
+  mdiFormatUnderline,
+  mdiFormatListNumbered,
+  mdiFormatListBulleted,
+  mdiFormatPilcrow,
+} from '@mdi/js';
+
+export default {
+    
+    name: 'slideshowsumm',
+    components: {
+    //tiptap
+    EditorContent, EditorMenuBar,
+    },
+
     data () {
 
       return {
-
-        allignment: {},
         
-        isLeft: false,
-        isRight: false,
-        isCenter: false,
+      TitleMateri:'Algoritma dan Struktur Data',
 
-        isBold: false,
-        isItalic: false,
-        isUnderline: false,
-        
-        TitleMateri:'Algoritma dan Struktur Data',
-        Summary: '',
+      IconParagraph : mdiFormatPilcrow,
+      IconTitle : mdiFormatTitle,
+      IconBold : mdiFormatBold,
+      IconItalic : mdiFormatItalic,
+      IconUnderline : mdiFormatUnderline,
+      IconListBulleted : mdiFormatListBulleted,
+      IconListNumbered : mdiFormatListNumbered,
+      
+      editor: new Editor({
+        extensions: [
+          new BulletList(),
+          new HardBreak(),
+          new Heading({ levels: [1, 2, 3] }),
+          new HorizontalRule(),
+          new ListItem(),
+          new OrderedList(),
+          new TodoItem(),
+          new TodoList(),
+          new Bold(),
+          new Code(),
+          new Italic(),
+          new Underline(),
+        ],
 
-
+        content: `
+          <p>
+            Tulis ringkasan di sini.
+          </p>
+        `,
+        }),
       
       }
     },
-    methods : {
-         alignLeft() {
-            this.isLeft == true;
-            this.isCenter == false;
-            this.isRight == false;
-        },
-        alignRight() {
-            this.isLeft == false;
-            this.isCenter == false;
-            this.isRight == true;
-        },
-        alignCenter() {
-            this.isLeft == false;
-            this.isCenter == true;
-            this.isRight == false;
-        },
+
+    beforeDestroy() {
+    this.editor.destroy()
     },
-    
 }
   
 </script>

@@ -409,8 +409,8 @@
 
                     <v-stepper-content step="4" class="pa-0">
                       <!-- <controlvideo/> -->
-                      <SlideshowSumm/>
-                      <!-- <SlideshowMapp/> -->
+                      <!-- <SlideshowSumm/> -->
+                      <SlideshowMapp/>
                     </v-stepper-content>
                             
                     <!-- STEP 5 : Evaluasi Belajar -->
@@ -444,8 +444,8 @@
   
   import leaderboard from '@/components/leaderboard.vue'
   // import controlvideo from '@/components/controlvideo.vue'
-  import SlideshowSumm from '@/components/SlideshowSumm.vue'
-  // import SlideshowMapp from '@/components/SlideshowMapp.vue'
+  // import SlideshowSumm from '@/components/SlideshowSumm.vue'
+  import SlideshowMapp from '@/components/SlideshowMapp.vue'
   import Sidebar from '@/components/Sidebar.vue'
   import Evaluasi from '@/components/EvaluasiBelajar/Evaluasi.vue'
   
@@ -457,8 +457,8 @@
     components:{
       leaderboard,
       // controlvideo,
-      SlideshowSumm,
-      // SlideshowMapp,
+      // SlideshowSumm,
+      SlideshowMapp,
       Sidebar,
       Evaluasi
       

@@ -40,26 +40,48 @@
                                     </v-col>
                                   </v-row>
 
-                                  <v-row class="pl-8 pt-5">
-                                      <v-col md="4" class="pr-2">
-                                          <!-- button toogle -->
-                                      </v-col>
+                                  
 
-                                      <v-col>
-                                      </v-col>
-                                  </v-row>
-
-                                  <v-row justify="center" class="px-2">
+                                  <v-row class="pl-5 pt-5">
                                       <v-col md="11">
-                                          
+                                          <canvas id="canvas" 
+                                          v-on:mousedown="handleMouseDown" 
+                                          v-on:mouseup="handleMouseUp" 
+                                          v-on:mousemove="handleMouseMove" 
+                                          width="400px"
+                                          height="350px"
+                                          style="border: 1px solid grey;  border-radius: 5px; overflow-y:scroll; overflow-x:hidden;"></canvas>
                                       </v-col>
                                   </v-row>
 
-                                   <v-row justify="center" no-gutters >
-                                            <v-col md="11">
-                                                                              
+                                   <v-row no-gutters >
+                                            <v-col class="pl-5" md="11">
+                                                <v-row class="">
+                                                    <v-col md="4">
+                                                        <v-btn
+                                                        color="teal darken-2 white--text"
+                                                        block
+                                                        class="subtitle-1"
+                                                        @click="nextStep(4)"
+                                                        >
+                                                        UNDUH
+                                                        </v-btn>
+                                                    </v-col>
+                                                    <v-col offset-md="4" md="4">
+                                                        <v-btn
+                                                        color="teal darken-4 white--text"
+                                                        block
+                                                        class="subtitle-1 "
+                                                        @click="nextStep(4)"
+                                                        >
+                                                        SELESAI
+                                                        </v-btn>
+                                                    </v-col>
+
+                                                </v-row>                                        
                                             </v-col>
                                    </v-row>
+
 
 
 
@@ -75,76 +97,106 @@
 </div>
 </template>
 
-<script>
+<script >
 
-  export default {
-      name: 'slideshow',
-    data () {
+export default {
 
-      return {
-        
-        TitleMateri:'Algoritma dan Struktur Data',
-        Summary: '',
+  data: function () {
+    return {
 
+      TitleMateri:'Algoritma dan Struktur Data',
+
+      mouse: {
+        current: {
+          x: 0,
+          y: 0
+        },
+        previous: {
+          x: 0,
+          y: 0
+        },
+        down: false
       }
+    }
+  },
+  computed: {
+    currentMouse: function () {
+      var c = document.getElementById("canvas");
+      var rect = c.getBoundingClientRect();
+      
+      return {
+        x: this.mouse.current.x - rect.left,
+        y: this.mouse.current.y - rect.top
+      }
+    }
+  },
+  methods: {
+    draw: function () {  
+      
+      // requestAnimationFrame(this.draw);
+     if (this.mouse.down ) {
+       var c = document.getElementById("canvas");
+
+    var ctx = c.getContext("2d");
+       
+       ctx.clearRect(0,0,800,800);
+       
+  
+    ctx.lineTo(this.currentMouse.x, this.currentMouse.y);
+       ctx.strokeStyle ="#F63E02";
+       ctx.lineWidth = 2;
+    ctx.stroke()
+     }
+     
+    },
+    handleMouseDown: function (event) {
+      this.mouse.down = true;
+      this.mouse.current = {
+        x: event.pageX,
+        y: event.pageY
+      }
+
+      var c = document.getElementById("canvas");
+      var ctx = c.getContext("2d");
+
+      ctx.moveTo(this.currentMouse.x, this.currentMouse.y)
+      
+
     },
     
+    handleMouseUp: function () {
+      this.mouse.down = false;
+    },
+   
+    handleMouseMove: function (event) {
+
+      this.mouse.current = {
+        x: event.pageX,
+        y: event.pageY
+      }
+      
+      this.draw(event)
+      
+    }
+  },
+    
+    ready: function () {
+       
+    var c = document.getElementById("canvas");
+    var ctx = c.getContext("2d");
+    ctx.translate(0.5, 0.5);
+    ctx.imageSmoothingEnabled= false;
+  // this.draw();
 }
-  
+}
+
+
 </script>
 
-<style scoped>
-  .thumbnail{
-    display:flex;   
-  }
 
-  .thumbnail img{
-    width:168px;
+<style >
+  body {
+  margin: 2rem;
+  background: #eee;
 }
-
-.thumbnail-info{
-    margin-left:20px;
-}
-
-.thumbnail h3{
-    font-size:16px;
-}
-
-h3,
-p{
-    margin:0;
-    padding:0;
-}
-
-.thumbnail-views{
-    font-size:14px;
-}
-
-.video-player{
-    display:flex;
-    width:1200px;
-    margin:auto;
-}
-
-.video-container{
-    margin-right:40px;
-}
-
-.row{
-    display:flex;
-    justify-content:space-between;
-}
-
-button{
-    background:#D0021B;
-    color:white;
-    border:none;
-    padding:10px 20px;
-}
-
-/* canvas {
-    border: 2px solid black;
-} */
-
-  
 </style>
