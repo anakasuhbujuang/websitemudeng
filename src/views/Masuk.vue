@@ -1,5 +1,5 @@
 <template style="padding:0; margin:0;">
-    <v-img class="center-fit" :src="SrcBgMasuk" contain >
+    <v-img class="center-fit" :src="SrcBgMasuk"  >
 
       <v-row justify-md="center" class="pa-5 my-5">
        
