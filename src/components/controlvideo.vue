@@ -16,15 +16,12 @@
                                     </v-col>
                                   </v-row>
 
-                                  <v-row justify="center" class="pa-5">
-                                      <v-col md="11">
-                                           <div class="video-container">
-                                            <iframe styel="max-width: 100%; height: auto;" width="720" height="420" :src="this.activeVideo.youtubeURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                                <!-- <h3>{{this.activeVideo.title}}</h3>
-                                                 <div class="row">
-                                                    <p>{{this.activeVideo.views}} views</p> 
-                                                    <p>{{this.activeVideo.likes}} <button>Like</button></p>
-                                                </div> -->
+                                  <v-row class="pa-5">
+                                      <v-col class="text-center" md="12">
+                                           <div >
+                                            <iframe 
+                                            width="580px" height="320px" :src="this.activeVideo.youtubeURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                                
                                             </div>
                                       </v-col>
                                   </v-row>

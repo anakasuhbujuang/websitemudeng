@@ -351,7 +351,7 @@
 
                         <!-- <v-stepper-content step="3"> -->
 
-                          <!-- CARDS-PET START -->
+                          <!-- CARDS-PET STRATEGI -->
                               <v-row justify="center" class="mt-6">
                                 <v-col 
                                 v-for="(item, i) in Strategi"
@@ -385,12 +385,24 @@
                                     </v-row>                
                                     
                                     <v-card-actions>
-                                        <v-btn block
+                                        <v-btn v-if="item.Jenis == 'Video'" 
                                         color="teal darken-4 white--text"
-                                        height="50px"
-                                        class="title"
-                                        @click="nextStep(3)">PILIH
+                                        block height="50px" class="title"
+                                        @click="nextStepVideo(3)">PILIH
                                         </v-btn>
+                                        
+                                        <v-btn v-else-if="item.Jenis == 'Summary'"
+                                        color="teal darken-4 white--text"
+                                        block height="50px" class="title"
+                                        @click="nextStepSumm(3)">PILIH
+                                        </v-btn>
+
+                                        <v-btn v-else 
+                                        color="teal darken-4 white--text"
+                                        block height="50px" class="title"
+                                        @click="nextStepMapp(3)">PILIH
+                                        </v-btn>
+
                                     </v-card-actions>
                                           
                                   </v-card>
@@ -408,9 +420,9 @@
                     <!-- STEP 4 : SRL -->
 
                     <v-stepper-content step="4" class="pa-0">
-                      <!-- <controlvideo/> -->
-                      <!-- <SlideshowSumm/> -->
-                      <SlideshowMapp/>
+                      <controlvideo v-show="statevideo"/>
+                      <SlideshowSumm v-show="statesumm"/>
+                      <SlideshowMapp v-show="statemapp"/>
                     </v-stepper-content>
                             
                     <!-- STEP 5 : Evaluasi Belajar -->
@@ -443,8 +455,8 @@
 <script>
   
   import leaderboard from '@/components/leaderboard.vue'
-  // import controlvideo from '@/components/controlvideo.vue'
-  // import SlideshowSumm from '@/components/SlideshowSumm.vue'
+  import controlvideo from '@/components/controlvideo.vue'
+  import SlideshowSumm from '@/components/SlideshowSumm.vue'
   import SlideshowMapp from '@/components/SlideshowMapp.vue'
   import Sidebar from '@/components/Sidebar.vue'
   import Evaluasi from '@/components/EvaluasiBelajar/Evaluasi.vue'
@@ -456,8 +468,8 @@
     
     components:{
       leaderboard,
-      // controlvideo,
-      // SlideshowSumm,
+      controlvideo,
+      SlideshowSumm,
       SlideshowMapp,
       Sidebar,
       Evaluasi
@@ -538,23 +550,28 @@
           NameStrategi: 'Control Video',
           DescStrategi:'Melalui strategi belajar ini kamu akan belajar melalui media video yang akan kami sediakan.',
           Rekomendasi:'Check',
+          Jenis: 'Video',
         },
         {
           SrcImgStrategi: require('@/assets/pet/jonisumm.png'),
           NameStrategi: 'Summarization',
           DescStrategi:'Melalui strategi belajar ini kamu akan belajar dan membuat ringkasan materi yang telah kamu pelajari.',
           Rekomendasi:'',
+          Jenis: 'Summary',
         },
         {
           SrcImgStrategi: require('@/assets/pet/jonimapp.png'),
           NameStrategi: 'Mind Mapping',
           DescStrategi:'Melalui startegi belajar ini kamu akan belajar dan membuat bagan pemetaan materi yang telah kamu pelajari.',
           Rekomendasi:'',
+          Jenis:'Mapping',
         },
-         ],
+        ],
 
          //STEP 4:SLR
-
+          statevideo: false,
+          statesumm: false,
+          statemapp: false, 
          //STEP 5:Eval
             Eval: [
             {
@@ -587,13 +604,37 @@
       },
     },
     methods: {
-      nextStep (n) {
-        if (n === this.steps) {
-          this.e1 = 1
-        } else {
-          this.e1 = n + 1
-        }
-      },
+        nextStep (n) {
+          if (n === this.steps) {
+            this.e1 = 1
+          } else {
+            this.e1 = n + 1;
+          }
+        },
+
+        nextStepVideo (n){
+            this.e1 = n + 1;
+            this.statevideo=true;
+            this.statesumm=false;
+            this.statemapp=false;
+        },
+
+         nextStepSumm (n){
+            this.e1 = n + 1;
+            this.statevideo=false;
+            this.statesumm=true;
+            this.statemapp=false;
+          },
+        
+
+         nextStepMapp (n){
+            this.e1 = n + 1;
+            this.statevideo=false;
+            this.statesumm=false;
+            this.statemapp=true;
+          
+        },
+
     },
   }
 </script>
