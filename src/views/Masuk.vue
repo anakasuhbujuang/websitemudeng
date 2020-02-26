@@ -1,7 +1,4 @@
-<template class="Masuk">
-
-    <div class="hidden-sm-and-down hidden-xl-only">
-
+<template style="padding:0; margin:0;">
     <v-img :src="SrcBgMasuk" contain >
 
       <v-row justify-md="center" class="pa-5 my-5">
@@ -131,8 +128,8 @@
 
     </v-img>
 
-  </div>
-
+ 
+  
 </template>
 
 <script>
@@ -187,35 +184,5 @@ export default {
 </script>
 
 <style>
-
-body {
-    margin: 0;
-    background: #FCFCFF;
-}
-
-div.bgsign{
- 
-  background-image: url('~@/assets/bgsign.svg');
-  background-repeat: no-repeat;
-  background-position: top;
-  background-attachment: fixed;
-  width: 1920;
-  height: 1080;
-    
-  top: 0;
-  left: 0;
-    
-  /* background-size: cover; */
-   
-  /* transform: scale(1.1); */
-  z-index: -1;
-
-}
-/* url("img_tree.png") */
-
-.container {
-  width: 1280;
-  height: 960;
-}
 
 </style>
