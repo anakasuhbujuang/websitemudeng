@@ -1,5 +1,5 @@
 <template style="padding:0; margin:0;">
-    <v-img :src="SrcBgMasuk" contain >
+    <v-img class="center-fit" :src="SrcBgMasuk" contain >
 
       <v-row justify-md="center" class="pa-5 my-5">
        
@@ -184,5 +184,9 @@ export default {
 </script>
 
 <style>
-
+.center-fit {
+  max-width: 100%;
+  max-height: 100vh;
+  margin: auto;
+}
 </style>
