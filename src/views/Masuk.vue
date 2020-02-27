@@ -1,23 +1,21 @@
-<template style="padding:0; margin:0;">
+<template >
   <div class="hidden-sm-and-down hidden-xl-only">
-    <v-img  :src="SrcBgMasuk" contain position="top" max-width="2560px" max-height="1440px" >
+    <v-img  :src="SrcBgMasuk" contain position="top" max-width="1904px" max-height="1071px" >
 
       <v-row justify="center" class="pa-5 my-5">
        
-        <v-col md="5" lg="5" >
+        <v-col md="5" class="mt-10" >
 
-          <v-row class="ma-8">
-            <v-col></v-col>
-          </v-row>
+         
 
           <v-row  justify="start" class="pt-5 mt-12 ml-10 pl-12">
-            <v-col md="10" lg="10" >
+            <v-col md="10"  >
                 <p class="display-3 text-start teal--text text--darken-4 font-weight-black" style="font-size:150%; line-height: 0.4;" >MUDENG<br><span class="subtitle-1 text-start teal--text text--darken-4 font-weight-medium">Mari belajar dan bermain bersama Mudeng.</span></p>
             </v-col>
           </v-row>
 
-          <v-row justify="start" class="mt-5 ml-10 pl-12">
-            <v-col md="9" lg="9">
+          <v-row justify="start" class="mt-2 ml-10 pl-12">
+            <v-col md="9" >
                      <v-form >
                         
                         <v-text-field
@@ -32,7 +30,7 @@
                             class="caption">
                             
                         </v-text-field>
-                        <br>
+                        
                         <v-text-field            
                             v-model="Password"
                             :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
@@ -66,7 +64,7 @@
                             </v-row>
                     
                             <v-row justify="center">
-                              <v-col md="10" lg="10">
+                              <v-col md="10" >
                                   <v-text-field
                                   v-model="Email"
                                   outlined
@@ -115,10 +113,10 @@
 
         </v-col>
         
-        <v-col md="7" lg="7">
+        <v-col md="7" >
 
-            <v-row  justify="center" class="pr-8  pt-8 pl-4">
-              <v-col md="10" lg="10" >
+            <v-row  justify="center" class="pr-8 pl-4">
+              <v-col md="10" >
                   <v-img :src="SrcImgMasuk"></v-img>
               </v-col>
             </v-row>
@@ -139,7 +137,7 @@ export default {
 
           dialog: false,
      
-          SrcImgMasuk: require('@/assets/Masuk.svg'),
+          SrcImgMasuk: require('@/assets/Masuk.png'),
           SrcBgMasuk: require('@/assets/bg/bgmasuk.jpg'),
 
           valid: true, 

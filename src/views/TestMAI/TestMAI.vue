@@ -7,7 +7,7 @@
             dense
             dark>
             <v-spacer></v-spacer>
-            <v-toolbar-title class="titlefont-weight-bold">MUDENG</v-toolbar-title>
+            <v-toolbar-title class="title font-weight-bold">MUDENG</v-toolbar-title>
             <v-spacer></v-spacer>
         </v-app-bar>
 
@@ -16,7 +16,7 @@
             <!-- JUDUL START -->
             <v-row justify="center" class="mb-0  mt-2" no-gutters>
               <v-col md="6" class="text-center">
-                  <p class="title  text-center  grey--text  text--darken-3   font-weight-bold">MAI Test</p>
+                  <p class="headline text-center  grey--text  text--darken-3   font-weight-bold">MAI Test</p>
                 
               </v-col>
             </v-row>

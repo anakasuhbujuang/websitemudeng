@@ -195,7 +195,7 @@ text-align: center;
 
 }
 
-div.bgdaun{
+/* div.bgdaun{
 
   background-image: url('~@/assets/bgdaun147.svg');
   background-repeat: no-repeat;
@@ -204,18 +204,18 @@ div.bgdaun{
   /* width: 1440; */
   /* height: 900; */
     
-  top: 0;
+  /* top: 0;
   left: 0;
     
   background-size: cover;
-   
+    */
   /* transform: scale(1.1); */
-  z-index: -1;
+  /* z-index: -1;
 
-}
+} */
 
-div.bglead{
+/* div.bglead{
   background-image: url('~@/assets/bglead.png');
   background-repeat: no-repeat;
-}
+} */
 </style>

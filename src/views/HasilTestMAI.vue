@@ -62,7 +62,7 @@
 export default {
     data: () => ({
       
-      SrcBgHasilTestMAI: require('@/assets/bg/bgdaun.svg'),
+      SrcBgHasilTestMAI: require('@/assets/bg/bgdaun.jpg'),
 
       items: [
         {

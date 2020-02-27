@@ -1,14 +1,14 @@
 <template>
     <div class="hidden-sm-and-down hidden-xl-only">
 
-      <v-img :src="SrcBgPilihPet" contain >
+      <v-img :src="SrcBgPilihPet" contain position="top" max-width="1904px" max-height="1071px" >
 
         <v-app-bar 
             color="teal darken-4"
             dense
             dark>
             <v-spacer></v-spacer>
-            <v-toolbar-title class="headline font-weight-bold">MUDENG</v-toolbar-title>
+            <v-toolbar-title class="title font-weight-bold">MUDENG</v-toolbar-title>
             <v-spacer></v-spacer>
         </v-app-bar>
 
@@ -17,7 +17,7 @@
             <!-- JUDUL START -->
             <v-row justify="center" class="mb-0 mt-6" no-gutters>
               <v-col md="6">
-                  <p class="title text-center  grey--text  text--darken-3   font-weight-bold">Pilih Kawanmu</p>
+                  <p class="headline text-center  grey--text  text--darken-3   font-weight-bold">Pilih Kawanmu</p>
                 
               </v-col>
             </v-row>
@@ -47,14 +47,12 @@
 
                   <v-row justify="center" class="mt-4" no-gutters>
                     <v-col md="8">
-                          <p class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold" v-text="item.NamePet">
-                          </p>
+                          <p class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold" v-text="item.NamePet"></p>
                     </v-col>
                   </v-row>       
-                  <v-row justify="center" no-gutters class="mb-2">
-                    <v-col md="10">
-                          <p class="subtitle-2 text-center grey--text  font-weight-regular">{{item.DescPet}}<br>Maukah kau berteman<br>denganku ?
-                          </p>
+                  <v-row justify="center" no-gutters >
+                    <v-col md="9">
+                          <p class="subtitle-2 text-center grey--text  font-weight-regular">{{item.DescPet}}</p>
                     </v-col>
                   </v-row>                
                   
@@ -87,51 +85,33 @@ export default {
     data: () => ({
       
 
-      SrcBgPilihPet: require('@/assets/bg/bgdaun.svg'),
+      SrcBgPilihPet: require('@/assets/bg/bgdaun.jpg'),
 
       items: [
         {
-          SrcImgPet: require('@/assets/pet/asih200.png'),
+          SrcImgPet: require('@/assets/pet/asihprofil.jpg'),
           NamePet: 'Asih',
-          DescPet:'Hai, aku adalah cendrawasih dari Papua. Aku  senang bernyanyi.',
+          DescPet:'Hai, aku adalah cendrawasih dari Papua.',
         },
         {
-          SrcImgPet: require('@/assets/pet/joni200.png'),
+          SrcImgPet: require('@/assets/pet/joniprofil.jpg'),
           NamePet: 'Joni',
-          DescPet:'Hai, aku adalah orang utan dari Kalimantan. Aku  senang menari.',
+          DescPet:'Hai, aku adalah orang utan dari Kalimantan.',
         },
         {
-          SrcImgPet: require('@/assets/pet/budi200.png'),
+          SrcImgPet: require('@/assets/pet/budiprofil.jpg'),
           NamePet: 'Budi',
-          DescPet:'Hai, aku adalah komodo dari Pulau Komodo. Aku senang berlari.',
+          DescPet:'Hai, aku adalah komodo dari Pulau Komodo.',
         },
 
         
       ],
-  methods: {
-  }
+  
       
     }),
   }
 </script>
 
 <style >
-div.bgdaun{
 
-  background-image: url('~@/assets/bgdaun147.svg');
-  background-repeat: no-repeat;
-  background-position: top;
-  background-attachment: fixed;
-  /* width: 1440; */
-  /* height: 900; */
-    
-  top: 0;
-  left: 0;
-    
-  background-size: cover;
-   
-  /* transform: scale(1.1); */
-  z-index: -1;
-
-}
 </style>
