@@ -1,22 +1,22 @@
 <template style="padding:0; margin:0;">
-    <v-img class="center-fit" :src="SrcBgMasuk"  >
+    <v-img  :src="SrcBgMasuk" contain position="top" max-width="2560px" max-height="1440px" >
 
-      <v-row justify-md="center" class="pa-5 my-5">
+      <v-row justify="center" class="pa-5 my-5">
        
-        <v-col md="5" class="mt-10">
+        <v-col cols="5" class="mt-10">
 
           <v-row class="ma-8">
             <v-col></v-col>
           </v-row>
 
           <v-row  justify="start" class="pt-12 mt-12 ml-10 pl-12">
-            <v-col md="10" >
+            <v-col cols="10" >
                 <p class="display-3 text-start teal--text text--darken-4 font-weight-black" style="font-size:150%; line-height: 0.4;" >MUDENG<br><span class="subtitle-1 text-start teal--text text--darken-4 font-weight-medium">Mari belajar dan bermain bersama Mudeng.</span></p>
             </v-col>
           </v-row>
 
           <v-row justify="start" class="mt-5 ml-10 pl-12">
-            <v-col md="9">
+            <v-col cols="9">
                      <v-form >
                         
                         <v-text-field
@@ -65,7 +65,7 @@
                             </v-row>
                     
                             <v-row justify="center">
-                              <v-col md="10">
+                              <v-col cols="10">
                                   <v-text-field
                                   v-model="Email"
                                   outlined
@@ -114,10 +114,10 @@
 
         </v-col>
         
-        <v-col md="7">
+        <v-col cols="7">
 
             <v-row  justify="center" class="pr-8  pt-8 pl-4">
-              <v-col md="10">
+              <v-col cols="10">
                   <v-img :src="SrcImgMasuk"></v-img>
               </v-col>
             </v-row>
@@ -139,7 +139,7 @@ export default {
           dialog: false,
      
           SrcImgMasuk: require('@/assets/Masuk.svg'),
-          SrcBgMasuk: require('@/assets/bg/bgsign1366v2.svg'),
+          SrcBgMasuk: require('@/assets/bg/bgmasuk4kre.jpg'),
 
           valid: true, 
 
