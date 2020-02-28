@@ -162,6 +162,7 @@ export default {
 
           
     }),
+    
      methods: {
           validate () {
             if (this.$refs.form.validate()) {
