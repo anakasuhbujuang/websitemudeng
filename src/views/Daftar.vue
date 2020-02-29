@@ -1,6 +1,7 @@
 <template>
 
-    <div class="hidden-sm-and-down hidden-xl-only">
+    <div style="background-color:#FAFAFA;" 
+  class="hidden-sm-and-down hidden-xl-only">
 
     <v-img :src="SrcBgDafar" contain position="top" max-width="1904px" max-height="1071px" >
 

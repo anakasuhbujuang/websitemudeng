@@ -1,7 +1,7 @@
 <template>
-   <div class="hidden-sm-and-down hidden-xl-only"> 
+  <div style="background-color:#FAFAFA;" 
+  class="hidden-sm-and-down hidden-xl-only"> 
      
-      
        <v-app-bar 
             color="teal darken-4"
             dense

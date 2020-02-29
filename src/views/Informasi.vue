@@ -1,5 +1,6 @@
 <template>
-<div >
+  <div style="background-color:#FAFAFA;" 
+  class="hidden-sm-and-down hidden-xl-only">
     <v-container fluid>
     <v-row no-gutters>
         

@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div style="background-color:#FAFAFA;" >
     <v-app id="inspire">
       <div  class="hidden-sm-and-down hidden-xl-only"> 
           <v-container fluid >

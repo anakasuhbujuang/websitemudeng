@@ -12,7 +12,6 @@ import HasilTestMAI from './views/HasilTestMAI.vue'
 import Dashboard from './views/Dashboard.vue'
 import PilihMatkul from './views/PilihMatkul.vue'
 import ProsesBelajar from './views/ProsesBelajar.vue'
-import ChoosePet from './views/ChoosePet.vue'
 import Informasi from './views/Informasi.vue'
 import Pengaturan from './views/Pengaturan.vue'
 import PaginationReal from './views/pagination/PaginationReal.vue'
@@ -108,12 +107,7 @@ export default [
                 component: Pengaturan
         
             },
-            {
-                path: '/ChoosePet',
-                name: 'ChoosePet',
-                component: ChoosePet
-        
-            },
+           
             {
                 path: '/PaginationReal',
                 name: 'PaginationReal',
