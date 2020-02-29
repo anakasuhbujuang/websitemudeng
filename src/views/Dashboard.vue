@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div >
     <v-app id="inspire">
       <div  class="hidden-sm-and-down hidden-xl-only"> 
           <v-container fluid >
@@ -81,6 +81,9 @@ export default {
 
 <style >
 
+body{
+  background-color: blue;
+}
 
 
 </style>
