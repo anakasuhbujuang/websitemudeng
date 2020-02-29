@@ -137,7 +137,7 @@ export default {
 
           dialog: false,
      
-          SrcImgMasuk: require('@/assets/Masuk.png'),
+          SrcImgMasuk: require('@/assets/bgsign.svg'),
           SrcBgMasuk: require('@/assets/bg/bgmasuk.jpg'),
 
           valid: true, 

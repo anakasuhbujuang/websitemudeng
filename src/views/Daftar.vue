@@ -126,7 +126,7 @@
 export default {
     data: () => ({
      
-          SrcImgDaftar: require('@/assets/Masuk.png'),
+          SrcImgDaftar: require('@/assets/bgsign.svg'),
           SrcBgDafar: require('@/assets/bg/bgmasuk.jpg'),
 
 
