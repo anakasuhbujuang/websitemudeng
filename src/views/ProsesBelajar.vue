@@ -2,15 +2,13 @@
   <div style="background-color:#FAFAFA;" 
   class="hidden-sm-and-down hidden-xl-only" >
     
-       <v-container fluid>
+    <v-container fluid>
         <v-row no-gutters>
-                
-                <!-- ######## MENU ############## -->
-                <Sidebar />
-                 <!-- ######## MENU ############## -->
-                
-
-           <!-- LAMAAN  -->
+          <!-- ######## MENU ############## -->
+          <Sidebar />
+          <!-- ######## MENU ############## -->
+          
+          <!-- LAMAAN  -->
           <v-col md="12">
             
             <!-- STEPPER -->

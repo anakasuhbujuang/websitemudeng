@@ -1,18 +1,14 @@
 <template>
-  <div style="background-color:#FAFAFA;" >
     <v-app id="inspire">
-      <div  class="hidden-sm-and-down hidden-xl-only"> 
+      <div style="background-color:#FAFAFA;" 
+      class="hidden-sm-and-down hidden-xl-only"> 
           <v-container fluid >
-                <v-row no-gutters>
-                
+              <v-row no-gutters>
                 <!-- ######## MENU ############## -->
                     <Sidebar />
                  <!-- ######## MENU ############## -->
-                
-               
 
                 <!-- ########## LAMAN ############## -->
-
                 <v-col md="12">
                       <v-row justify="center" >
                         <!-- CARD 1 -->
@@ -48,7 +44,6 @@
           </v-container>
       </div>
     </v-app>
-  </div>
 </template>
 
 
