@@ -1,7 +1,7 @@
 <template>
       <div style="background-color:#FAFAFA;" 
       class="hidden-sm-and-down hidden-xl-only"> 
-          <v-container fluid >
+          <v-container fluid style="background-color:#FAFAFA;">
               <v-row no-gutters>
                 <!-- ######## MENU ############## -->
                     <Sidebar />
@@ -9,11 +9,11 @@
 
                 <!-- ########## LAMAN ############## -->
                 <v-col md="12">
-                      <v-row justify="center" >
-                        <!-- CARD 1 -->
-                        <v-col md="8">
-                          <cardone/>
-                        </v-col>
+                  <v-row justify="center" >
+                    <!-- CARD 1 -->
+                    <v-col md="8">
+                      <cardone/>
+                    </v-col>
 
                         <!-- CARD 2 : SKOR MAI -->
 
@@ -39,7 +39,6 @@
                 <!-- ########## LAMAN ############## -->
                 
                 </v-row>
-              
           </v-container>
       </div>
 </template>

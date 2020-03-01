@@ -10,7 +10,6 @@ import TestMAI from './views/TestMAI/TestMAI.vue'
 import CobaTestMAI from './views/CobaTestMAI.vue'
 import HasilTestMAI from './views/HasilTestMAI.vue'
 import Dashboard from './views/Dashboard.vue'
-import PilihMatkul from './views/PilihMatkul.vue'
 import ProsesBelajar from './views/ProsesBelajar.vue'
 import Informasi from './views/Informasi.vue'
 import Pengaturan from './views/Pengaturan.vue'
@@ -83,12 +82,7 @@ export default [
                 component: Dashboard
         
             },
-            {
-                path: '/PilihMatkul',
-                name: 'PilihMatkul',
-                component: PilihMatkul
-        
-            },
+           
             {
                 path: '/ProsesBelajar',
                 name: 'ProsesBelajar',

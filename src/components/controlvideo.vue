@@ -1,105 +1,80 @@
 <template>
-<div > 
+  <div > 
+    <v-row no-gutters >
+      <v-col md="12">
+        <v-card class="pa-2">
+          <v-row>
+            <v-col md="7">
+              <v-row justify="center" no-gutters="" class="pt-4">
+                <v-col md="11">
+                    <p class="title grey--text text--darken-3 font-weight-medium">{{this.activeVideo.title}} </p>
+                    <v-divider ></v-divider>
+                </v-col>
+              </v-row>
 
-            <v-row no-gutters >
-                    <v-col md="12">
-                        <v-card class="pa-5">
-                          
-                          <v-row>
-                            <v-col md="7">
+              <v-row class="pa-5">
+                <v-col class="text-center" md="12">
+                  <div >
+                    <iframe 
+                    width="580px" height="320px" :src="this.activeVideo.youtubeURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  </div>
+                </v-col>
+              </v-row>
                               
-                                  <v-row justify="center" no-gutters="" class="pt-4">
-                                    <v-col md="11">
-                                        <p class="title grey--text text--darken-3 font-weight-medium">{{this.activeVideo.title}} : 
-                                          <span class="title grey--text text--darken-1 font-weight-regular">Sorting PART 1</span></p>
-                                        <v-divider ></v-divider>
-                                    </v-col>
-                                  </v-row>
+            </v-col>
+           
+            <v-col md="5">
+              <v-row justify="center" no-gutters="" class="pt-4">
+                <v-col md="11">
+                    <p class="title red--text text--accent-1 font-weight-medium">Daftar Video Materi</p>
+                    <v-divider ></v-divider>
+                </v-col>
+              </v-row>
 
-                                  <v-row class="pa-5">
-                                      <v-col class="text-center" md="12">
-                                           <div >
-                                            <iframe 
-                                            width="580px" height="320px" :src="this.activeVideo.youtubeURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                                
-                                            </div>
-                                      </v-col>
-                                  </v-row>
-                              
-                            </v-col>
+              <v-row justify="center" class="pt-5 px-5">
+                  <v-col md="11">
+                      <div style="height:360px;width:auto;overflow-y:scroll;overflow-x:hidden;">
+                        <div style="height:150%;">
+                            <div class="video-list">
+                                <div @click="chooseVideo(video)" :key="video.id" v-for="video in videos" class="thumbnail">
+                                    <div class="thumbnail-img">
+                                    <img :src="video.thumbnail" />
+                                    </div>
+                                    <div class="thumbnail-info">
+                                    <h3>{{video.title}}</h3>
+                                    <!-- <p>{{video.creator}}</p>
+                                    <p class="thumbnail-views">{{video.views}} Views</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                  </v-col>
+              </v-row>
 
-                            <v-col md="5">
-                              
-                                  <v-row justify="center" no-gutters="" class="pt-4">
-                                    <v-col md="11">
-                                        <p class="title red--text text--accent-1 font-weight-medium">Daftar Video Materi</p>
-                                        <v-divider ></v-divider>
-                                    </v-col>
-                                  </v-row>
+              <v-row justify="end" class="pr-11">
+                <v-col md="4">
+                  <v-btn color="teal darken-2 white--text"
+                  block class="subtitle-1" @click.stop="dialog = true">
+                  SELESAI</v-btn>
+                </v-col>
+              </v-row>
 
-                                  <v-row justify="center" class="pt-5 px-5">
-                                      <v-col md="11">
-                                          <div style="height:360px;width:auto;overflow-y:scroll;overflow-x:hidden;">
-                                            <div style="height:150%;">
-                                                <div class="video-list">
-                                                    <div @click="chooseVideo(video)" :key="video.id" v-for="video in videos" class="thumbnail">
-                                                        <div class="thumbnail-img">
-                                                        <img :src="video.thumbnail" />
-                                                        </div>
-                                                        <div class="thumbnail-info">
-                                                        <h3>{{video.title}}</h3>
-                                                        <!-- <p>{{video.creator}}</p>
-                                                        <p class="thumbnail-views">{{video.views}} Views</p> -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                          </div>
-                                      </v-col>
-                                  </v-row>
+              <!-- #############DIALOG START#############-->
+              <v-dialog v-model="dialog" max-width="1000px" > 
+                <v-card color="white" width="auto" height="auto"
+                style="overflow-x:hidden; overflow-y:hidden;">
+                  <AfterVideo/>
+                </v-card>
+              </v-dialog>
 
-                                   <v-row justify="end" class="pr-11">
-                                            <v-col md="4">
-                                              <v-btn
-                                              color="teal darken-2 white--text"
-                                              block
-                                              class="subtitle-1"
-                                              @click.stop="dialog = true"
-                                              >
-                                              SELESAI
-                                              </v-btn>
-                                            </v-col>
-                                   </v-row>
+            </v-col>
+          </v-row>
 
-                                   <!-- #############DIALOG START#############-->
-                                                        <v-dialog
-                                                            v-model="dialog"
-                                                            max-width="1000px" 
-                                                            > 
-                                                            
-                                                            <v-card 
-                                                            color="white"
-                                                            width="auto"
-                                                            height="auto"
-                                                            
-                                                            style="overflow-x:hidden; overflow-y:hidden;">
-                                                            
-                                                            
-                                                            <AfterVideo/>
-                                                            
-                                                            </v-card>
-                                                        </v-dialog>
-
-                              
-                            </v-col>
-
-                          </v-row>
-
-                        </v-card>
-                    </v-col>
-                </v-row>
-
-</div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </div>
 </template>
 
 <script>

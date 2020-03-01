@@ -176,25 +176,7 @@ export default {
 
 <style>
 
-div.bgsign{
- 
-  background-image: url('~@/assets/bgsign.svg');
-  background-repeat: no-repeat;
-  background-position: top;
-  background-attachment: fixed;
-  width: 100%;
-  height: 100%;
-    
-  top: 0;
-  left: 0;
-    
-  background-size: cover;
-   
-  transform: scale(1.1);
-  z-index: -1;
 
-}
-/* url("img_tree.png") */
 
 
 </style>

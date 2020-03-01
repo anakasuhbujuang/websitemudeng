@@ -56,398 +56,281 @@
                             
                         </v-card>
 
-                        <!-- ISI KONTEN -->
-
-                            
-                          
-
                       </v-col>
 
                     </v-row>
 
-                    <!-- CARD2 : CONTENT -->
-                    <v-stepper-content step="1" class="pa-0">
-                    <v-row justify="center" no-gutters>
+                  <!-- CARD2 : CONTENT -->
+                  <v-stepper-content step="1" class="pa-0 ma-0">
+                    <v-row justify="center" no-gutters class="pa-0 ma-0">
                       <v-col md="12">
-                        
-                             
-                             <!-- STEP 1: PILIH MATKUL -->
-                              <v-card>
-                              <!-- <v-stepper-content
-                                step="1" 
-                              > -->
-                                
-                                <v-row justify="center" class="mb-4">
-                                  <!-- GAMBAR PET -->
-                                  <v-col md="6" class="pl-12 py-10" >
-                                    
-                                        <v-img :src="SrcImgPet"></v-img>
-                            
+                        <!-- STEP 1: PILIH MATKUL -->
+                          <v-card>
+                            <v-row justify="center" class="mb-4">
+                              
+                              <!-- GAMBAR PET -->
+                              <v-col md="6" class="pl-12 py-10" >
+                                <v-img :src="SrcImgPet"></v-img>
+                              </v-col>
+                              
+                              <!-- LIST MATKUL -->
+                              <v-col md="6">
+                                <v-row justify="center" no-gutters class="pt-4">
+                                  <v-col md="10">
+                                    <p class="title red--text text--accent-1 font-weight-medium">Mata Kuliah</p>
+                                    <v-divider ></v-divider>
                                   </v-col>
-                                  
-                                  <!-- LIST MATKUL -->
-                                  <v-col md="6">
-                                      <v-row justify="center" no-gutters class="pt-4">
-                                        <v-col md="10">
-                                            <p class="title red--text text--accent-1 font-weight-medium">Pilih Mata Kuliah</p>
-                                            <v-divider ></v-divider>
-                                        </v-col>
-                                      </v-row>
+                                </v-row>
                                       
-                                      <v-row justify="center">
-                                        <v-col md="9">
-                                          
-                                          <v-row>
-                                            <v-col>
-                                              <v-btn
-                                              color="teal darken-4 white--text"
-                                              block
-                                              height="50px"
-                                              @click="nextStep(1)"
-                                              >
-                                              ALGORITMA DAN STRUKTUR DATA
-                                              </v-btn>
-                                            </v-col>
-                                          </v-row>
-                                          <v-row>
-                                            <v-col>
-                                              <v-btn
-                                              color="teal darken-4 white--text"
-                                              block
-                                              height="50px"
-                                              @click="nextStep(1)"
-                                              >
-                                              ALGORITMA DAN STRUKTUR DATA
-                                              </v-btn>
-                                            </v-col>
-                                          </v-row>
+                                <v-row justify="center">
+                                  <v-col md="9">
+                                    
+                                    <v-row>
+                                      <v-col>
+                                        <v-btn block color="teal darken-4 white--text"
+                                        height="50px" @click="nextStep(1)">
+                                        ALGORITMA DAN STRUKTUR DATA</v-btn>
+                                      </v-col>
+                                    </v-row>
 
-                                          <v-row justify="end">
-                                            <v-col md="5">
-                                              <v-btn
-                                              color="teal darken-2 white--text"
-                                              block
-                                              
-                                              @click="nextStep(n)"
-                                              >
-                                              TAMBAH KELAS
-                                              </v-btn>
-                                            </v-col>
-                                          </v-row>
-
-                                        </v-col>
-                                      </v-row>
+                                    <v-row justify="end">
+                                      <v-col md="5">
+                                        <v-btn color="teal darken-2 white--text" block
+                                        @click="nextStep(n)">TAMBAH KELAS</v-btn>
+                                      </v-col>
+                                    </v-row>
 
                                   </v-col>
                                 </v-row>
+
+                              </v-col>
+                            </v-row>
                                
-                                
-                              <!-- </v-stepper-content> -->
                           </v-card>
-                      </v-col>
-                    </v-row>
+                        </v-col>
+                      </v-row>
                     </v-stepper-content>
 
                     <!-- STEP 2 : Pilih Materi -->
-                    <v-stepper-content step="2" class="pa-0">
-                    <v-row  no-gutters>
+                    <v-stepper-content step="2" class="pa-0 ma-0">
+                    <v-row  no-gutters class="pa-0 ma-0">
                       <v-col md="12">
                         
-                          <v-row >
-                            <v-col md="8" >
-                              <v-card class="py-5 px-8" >
+                        <v-row >
+                          <v-col md="8" >
+                            <v-card class="py-2 px-8" height="550px" >
 
-                                  <!-- <v-stepper-content step="2"> -->
-                                      <v-row>
-                                          <v-col md="12">
+                              <v-row>
+                                <v-col md="12">
 
-                                            <v-row >
-                                              <v-col md="10">
-                                                <v-list tree-line> 
-
-                                                    <v-list-item>
-                                                      
-                                                      <v-list-item-avatar size="100">
-                                                        <v-img src="@/assets/pet/asih200.png"></v-img>
-                                                      </v-list-item-avatar>
-
-                                                      <v-list-item-content>
-                                                        <v-row justify-center no-gutters>
-                                                      
-                                                            <v-col >
-                                                                <v-list-item-title class="subtitle-2 grey--text text--darken-3 font-weight-bold">ALGORITMA DAN STRUKTUR DATA</v-list-item-title>
-                                                            </v-col>
-                                                      
-                                                        </v-row>
-                                                        <v-row justify-center no-gutters>
-                                                            
-                                                            <v-col >
-                                                                <v-list-item-title class="subtitle-1 red--text text--accent-1 font-weight-medium">Dr. Indriana Hidayah, S.T., M.T.</v-list-item-title>
-                                                            </v-col>
-
-                                                        </v-row>
-                                                        <v-row justify-center no-gutters>
-                                                            
-                                                            <v-col >
-                                                                <v-list-item-title class="caption grey--text font-weight-regular">Semester Ganjil 2019/2010<br><span class="overline">TIF 141 / 3 sks</span></v-list-item-title>
-                                                            </v-col>
-                                                            
-                                                        </v-row>
-
-                                                      </v-list-item-content>
-                                                      
-                                                    </v-list-item>
-
-                                                  </v-list>
-                                                
-                                              </v-col>
-                                              
-                                              <v-col md="2" >
-                                                <v-btn color="teal darken-2 white--text" block> RPKPS</v-btn>
-                                              </v-col>
-                                            
-                                            </v-row>
-
-                                            <br>
-                                            <br>
-
-                                            <v-row justify="center" class="px-2">
-                                              <v-col md="12">
-                                                
-                                               <div style="height:auto;width:auto;overflow-y:hidden;overflow-x:scroll;">
-
-                                                 <div style="width:150%;">
-                                                  
-                                                  <!-- CARDS-MATERI START -->
-                                                  <v-row justify="start" class="pl-4">
-                                                    <v-col
-                                                    v-for="(item, i) in materi"
-                                                      :key="i"
-                                                      md="3"
-                                                    >
-                                                      <v-card 
-                                                      color="white"
-                                                      max-height="400px"
-                                                      max-width="300px"
-                                                      >
-                                                        <v-card-media justify-center >
-                                                            <v-img v-if="item.hasil" :src="item.SrcImgMateri"></v-img>
-                                                             <v-img v-else :src="item.SrcImgBMWMateri"></v-img>
-                                                        </v-card-media>
-
-                                                        <v-row justify="center" class="mt-4" no-gutters>
-                                                          <v-col md="8">
-                                                                <p v-if="item.hasil"  class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold" v-text="item.NameMateri"></p>
-                                                                <p v-else class="subtitle-1 text-center grey--text text--lighten-1  font-weight-bold " v-text="item.NameMateri"></p>
-                                                          </v-col>
-                                                        </v-row>       
-                                                        <v-row justify="center" no-gutters class="mb-2">
-                                                          <v-col md="10">
-                                                                <p v-if="item.hasil" class="body-2 text-center grey--text  font-weight-regular" v-text="item.DescMateri"></p>
-                                                                <p v-else class="body-2 text-center grey--text text--lighten-1 font-weight-regular" v-text="item.DescMateri"></p>
-                                                          </v-col>
-                                                        </v-row>                
-                                                        
-                                                        <v-card-actions>
-                                                            <v-btn block
-                                                            v-if="item.hasil"
-                                                            color="teal darken-4 white--text"
-                                                            class="subtitle-2"
-                                                            @click="nextStep(2)">PILIH
-                                                            </v-btn>
-                                                             <v-btn block
-                                                            v-else
-                                                            color="grey lighten-1 white--text"
-                                                            class="subtitle-2"
-                                                            @click.stop="dialog = true">PILIH
-                                                            </v-btn>
-                                                        </v-card-actions>
-
-
-                                                        <!-- #############DIALOG START#############-->
-                                                        <v-dialog
-                                                            v-model="dialog"
-                                                            max-width="350px" 
-                                                            > 
-                                                            <v-card 
-                                                            color="white"
-                                                            width="auto"
-                                                            height="auto"
-                                                            class="pb-2"
-                                                            style="overflow-x:hidden; overflow-y:hidden;">
-                                                            
-                                                            <v-card-media justify-center >
-                                                                <v-img :src="SrcMateriLocked"></v-img>
-                                                            </v-card-media>
-
-                                                            <v-row justify="center" class="mt-5 " no-gutters>
-                                                              <v-col md="8">
-                                                                    <p class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold">Apakah kamu yakin ?</p>
-                                                              </v-col>
-                                                            </v-row>  
-
-                                                            <v-row justify="center" no-gutters class="mb-3">
-                                                                <v-col md="11">
-                                                                    <p class="body-2 text-center grey--text  font-weight-regular">Kamu belum menyelesaikan materi sebelumnya.
-                                                                        <br>Mari ambil Test APK sebelum memulai <br>pembelajaran.</p>
-                                                                </v-col>
-                                                            </v-row>       
-                                                            <v-row no-gutters class="px-2">
-                                                              <v-col class="pr-1">
-                                                                  <v-btn block
-                                                                    color="teal darken-4 white--text" 
-                                                                    class="subtitle-1"
-                                                                    router to="/TestAPK"
-                                                                    >YA
-                                                                    </v-btn>
-                                                              </v-col>
-                                                              <v-col>
-                                                                  <v-btn block
-                                                                    color="teal darken-2 white--text" 
-                                                                    class="subtitle-1"
-                                                                    @click="dialog = false" >TIDAK
-                                                                    </v-btn>
-                                                              </v-col>
-                                                            </v-row>
-                                                            </v-card>
-                                                            
-                                                        </v-dialog>
-                                                              
-                                                      </v-card>
-                                                        <!-- #############DIALOG EN#############-->
-                                                    </v-col>
-                                                  </v-row>
-                                                  <!-- CARDS-MATERI END -->
-                                                  </div>
-                                                </div> 
-
-                                              </v-col>
-                                            </v-row>
-                                            
-                                              
-                                          </v-col>
-                                        </v-row>
-                                  <!-- </v-stepper-content> -->
-                              </v-card>
-                            </v-col>
-
-                            <v-col md="4">     
-                                  <leaderboard />
-                            </v-col>
-
-                          </v-row>
-
-                        
-                      </v-col>
-                    </v-row>
-                    </v-stepper-content>
-                      
-                    
-                    <!-- STEP 3: Pilih Strategi -->
-                    <v-stepper-content step="3">
-                    <v-row no-gutters justify="center">
-                      <v-col md="12">
-
-                        <!-- <v-stepper-content step="3"> -->
-
-                          <!-- CARDS-PET STRATEGI -->
-                              <v-row justify="center" class="mt-6">
-                                <v-col 
-                                v-for="(item, i) in Strategi"
-                                  :key="i"
-                                md="3"
-                                >
-                                  <v-toolbar v-if="item.Rekomendasi" color="red accent-1" dark>
-                                     <v-toolbar-title class="font-weight-medium">Rekomendasi</v-toolbar-title>
-                                  </v-toolbar>
-                                  <v-toolbar flat v-else color="grey lighten-5" dark> </v-toolbar>
-
-                                  <v-card 
-                                  color="white"
-                                  min-height="400px"
-                                  >
-                                    <v-card-media justify-center >
-                                        <v-img :src="item.SrcImgStrategi"></v-img>
-                                    </v-card-media>
-
-                                    <v-row justify="center" class="mt-4" no-gutters>
-                                      <v-col md="8">
-                                            <p class="title text-center grey--text  text--darken-3 font-italic font-weight-bold" v-text="item.NameStrategi">
-                                            </p>
-                                      </v-col>
-                                    </v-row>       
-                                    <v-row justify="center" no-gutters class="mb-2">
-                                      <v-col md="10">
-                                            <p class="subtitle-1 text-center grey--text  font-weight-regular" v-text="item.DescStrategi">
-                                            </p>
-                                      </v-col>
-                                    </v-row>                
-                                    
-                                    <v-card-actions>
-                                        <v-btn v-if="item.Jenis == 'Video'" 
-                                        color="teal darken-4 white--text"
-                                        block height="50px" class="title"
-                                        @click="nextStepVideo(3)">PILIH
-                                        </v-btn>
-                                        
-                                        <v-btn v-else-if="item.Jenis == 'Summary'"
-                                        color="teal darken-4 white--text"
-                                        block height="50px" class="title"
-                                        @click="nextStepSumm(3)">PILIH
-                                        </v-btn>
-
-                                        <v-btn v-else 
-                                        color="teal darken-4 white--text"
-                                        block height="50px" class="title"
-                                        @click="nextStepMapp(3)">PILIH
-                                        </v-btn>
-
-                                    </v-card-actions>
+                                  <v-row >
+                                    <v-col md="10">
+                                      <v-list tree-line> 
+                                        <v-list-item>
                                           
-                                  </v-card>
-
+                                          <v-list-item-avatar size="100">
+                                            <v-img src="@/assets/pet/asihprofil.jpg"></v-img>
+                                          </v-list-item-avatar>
+                                          
+                                          <v-list-item-content>
+                                            <v-row justify-center no-gutters>
+                                              <v-col >
+                                                <v-list-item-title class="subtitle-2 grey--text text--darken-3 font-weight-bold">ALGORITMA DAN STRUKTUR DATA</v-list-item-title>
+                                              </v-col>
+                                            </v-row>
+                                            <v-row justify-center no-gutters>
+                                              <v-col >
+                                                <v-list-item-title class="subtitle-1 red--text text--accent-1 font-weight-medium">Dr. Indriana Hidayah, S.T., M.T.</v-list-item-title>
+                                              </v-col>
+                                            </v-row>
+                                            <v-row justify-center no-gutters>
+                                              <v-col >
+                                                <v-list-item-title class="caption grey--text font-weight-regular">Semester Ganjil 2019/2010<br><span class="overline">TIF 141 / 3 sks</span></v-list-item-title>
+                                              </v-col>
+                                            </v-row>
+                                          </v-list-item-content>
+                                                      
+                                        </v-list-item>
+                                      </v-list>
+                                    </v-col>
+                                  <v-col md="2" >
+                                  
+                                  <v-btn color="teal darken-2 white--text" block>RPKPS</v-btn>
                                 </v-col>
                               </v-row>
-                              <!-- CARDS-PET END -->
 
-                        <!-- </v-stepper-content> -->
+                              <v-row justify="center">
+                                <v-col md="11">
+                                  <!-- <div style="height:auto;width:auto;overflow-y:hidden;overflow-x:scroll;">
+                                    <div style="width:150%;"> -->
 
-                      </v-col>
-                    </v-row>
-                    </v-stepper-content>
+                                      <!-- CARDS-MATERI START -->
+                                      <v-row justify="start" class="pl-4">
+                                        <v-col v-for="(item, i) in materi" :key="i" md="4">
+                                          
+                                          <v-card color="white" height="315px">
+                                            
+                                            <v-card-media justify-center >
+                                              <v-img v-if="item.hasil" :src="item.SrcImgMateri"></v-img>
+                                              <v-img v-else :src="item.SrcImgBMWMateri"></v-img>
+                                            </v-card-media>
 
-                    <!-- STEP 4 : SRL -->
+                                            <v-card-text class="py-0 my-0">
+                                           
+                                                <p v-if="item.hasil"  class="subtitle-2 text-center grey--text  text--darken-3 font-weight-bold" v-text="item.NameMateri"></p>
+                                                <p v-else class="subtitle-2 text-center grey--text text--lighten-1  font-weight-bold " v-text="item.NameMateri"></p>
+                                             
+                                                <p v-if="item.hasil" class="caption text-center grey--text  font-weight-regular" v-text="item.DescMateri"></p>
+                                                <p v-else class="caption text-center grey--text text--lighten-1 font-weight-regular" v-text="item.DescMateri"></p>
+                                              
+                                            </v-card-text>
 
-                    <v-stepper-content step="4" class="pa-0">
-                      <controlvideo v-show="statevideo"/>
-                      <SlideshowSumm v-show="statesumm"/>
-                      <SlideshowMapp v-show="statemapp"/>
-                    </v-stepper-content>
-                            
-                    <!-- STEP 5 : Evaluasi Belajar -->
-                    <v-row no-gutters >
-                      <v-col md="12">
-                       
-                        <v-card class="" color="white">
-                          <v-stepper-content step="5">
-                              <Evaluasi/>
-                          </v-stepper-content>
-                        </v-card>
+                                            <v-card-actions class="pt-2 my-0">
+                                              <v-btn block v-if="item.hasil" color="teal darken-4 white--text"
+                                              class="subtitle-2" @click="nextStep(2)">PILIH</v-btn>
+                                                
+                                              <v-btn block v-else color="grey lighten-1 white--text"
+                                              class="subtitle-2" @click.stop="dialog = true">PILIH</v-btn>
+                                            </v-card-actions>
+                                        </v-card>
+                                      </v-col>
+                                    </v-row>
+                                  <!-- CARDS-MATERI END -->
+                                <!-- </div>
+                              </div>  -->
+                            </v-col>
+                          </v-row>
 
-                      </v-col>
-                    </v-row> 
+                          <!-- #############DIALOG START#############-->
+                          <v-dialog v-model="dialog" max-width="350px" > 
+                            <v-card color="white" width="auto" height="auto"
+                            class="pb-2" style="overflow-x:hidden; overflow-y:hidden;">
+                              <v-card-media justify-center >
+                                  <v-img :src="SrcMateriLocked"></v-img>
+                              </v-card-media>
 
-                </v-stepper>
+                              <v-row justify="center" class="mt-5 " no-gutters>
+                                <v-col md="8">
+                                      <p class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold">Apakah kamu yakin ?</p>
+                                </v-col>
+                              </v-row>  
 
+                              <v-row justify="center" no-gutters class="mb-3">
+                                  <v-col md="11">
+                                      <p class="body-2 text-center grey--text  font-weight-regular">Kamu belum menyelesaikan materi sebelumnya.
+                                          <br>Mari ambil Test APK sebelum memulai <br>pembelajaran.</p>
+                                  </v-col>
+                              </v-row>       
+                              <v-row no-gutters class="px-2">
+                                <v-col class="pr-1">
+                                    <v-btn block color="teal darken-4 white--text" 
+                                    class="subtitle-1" router to="/TestAPK"
+                                    >YA</v-btn>
+                                </v-col>
+                                <v-col>
+                                    <v-btn block color="teal darken-2 white--text" 
+                                    class="subtitle-1" @click="dialog = false" >TIDAK</v-btn>
+                                </v-col>
+                              </v-row>
+                            </v-card>
+                          </v-dialog>
+                        <!-- #############DIALOG EN#############-->
+                        </v-col>
+                      </v-row>
+                    </v-card>
+                  </v-col>
+
+                  <v-col md="4">     
+                    <leaderboard />
+                  </v-col>
+                </v-row>
+                        
               </v-col>
             </v-row>
-            <!-- END STEPPER -->
+          </v-stepper-content>
+                      
+                    
+          <!-- STEP 3: Pilih Strategi -->
+          <v-stepper-content step="3">
+            <v-row no-gutters justify="center">
+              <v-col md="12">
+                <!-- CARDS-PET STRATEGI -->
+                  <v-row justify="center">
+                    <v-col v-for="(item, i) in Strategi" :key="i" md="3">
+                      
+                      <v-toolbar v-if="item.Rekomendasi" color="red accent-1" 
+                      style="border-radius:5px 5px 0px 0px;" height="50px" dark>
+                        <v-toolbar-title class="subtitle-1 font-weight-medium">Rekomendasi</v-toolbar-title>
+                      </v-toolbar>
+                      <v-toolbar flat v-else color="grey lighten-5" height="50px" dark> </v-toolbar>
+                        
+                      <v-card color="white" height="400px">
+                        <v-card-media justify-center  class=" px-4">
+                          <v-img :src="item.SrcImgStrategi"></v-img>
+                        </v-card-media>
+                        <v-card-text class=" py-0 my-0">
+                          <p class="subtitle-2 text-center grey--text text--darken-3 font-italic font-weight-bold" >
+                            {{item.NameStrategi}}</p>
+                          <p class="caption text-center grey--text  font-weight-regular">
+                            {{item.DescStrategi}}</p>
+                        </v-card-text> 
 
+                        <v-card-actions class="pt-5">
+                          <v-btn v-if="item.Jenis == 'Video'" 
+                          color="teal darken-4" dark block 
+                          @click="nextStepVideo(3)">PILIH
+                          </v-btn>
+
+                          <v-btn v-else-if="item.Jenis == 'Summary'"
+                          color="teal darken-4" dark block
+                          @click="nextStepSumm(3)">PILIH
+                          </v-btn>
+
+                          <v-btn v-else 
+                          color="teal darken-4" dark block 
+                          @click="nextStepMapp(3)">PILIH
+                          </v-btn>
+
+                        </v-card-actions>
+
+                      </v-card>
+
+                    </v-col>
+                  </v-row>
+                  <!-- CARDS-PET END -->
+
+                </v-col>
+              </v-row>
+            </v-stepper-content>
+
+            <!-- STEP 4 : SRL -->
+
+            <v-stepper-content step="4" class="pa-0">
+              <controlvideo v-show="statevideo"/>
+              <SlideshowSumm v-show="statesumm"/>
+              <SlideshowMapp v-show="statemapp"/>
+            </v-stepper-content>
+
+            <!-- STEP 5 : Evaluasi Belajar -->
+              <v-row no-gutters >
+                <v-col md="12">
+                  <v-card class="" color="white">
+                    <v-stepper-content step="5">
+                      <Evaluasi/>
+                    </v-stepper-content>
+                  </v-card>
+                </v-col>
+              </v-row> 
+
+            </v-stepper>
           </v-col>
-          <!-- END LAMAN -->
         </v-row>
-       </v-container>
-    
+        <!-- END STEPPER -->
+
+      </v-col>
+      <!-- END LAMAN -->
+    </v-row>
+  </v-container>
   </div>
 </template>
 
@@ -529,14 +412,14 @@
           SrcImgBMWMateri: require('@/assets/materi/sortingbmw.png'),
           hasil: '',
           NameMateri: 'Sorting',
-          DescMateri:'Metode yang digunakan sebagai proses mengatur sekumpulan objek menurut aturan atau susunan tertentu.',
+          DescMateri:'Metode yang digunakan sebagai proses mengatur sekumpulan objek menurut susunan tertentu.',
         },
         {
           SrcImgMateri: require('@/assets/materi/search.png'),
           SrcImgBMWMateri: require('@/assets/materi/searchbmw.png'),
           hasil:'',
           NameMateri: 'Search',
-          DescMateri:'Metode yang digunakan sebagai proses pencarian dari sekumpulan objek.',
+          DescMateri:'Metode yang digunakan sebagai proses pencarian dari sekumpulan objek menurut aturan tertentu..',
         }
   
         

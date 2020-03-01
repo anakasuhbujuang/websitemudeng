@@ -1,50 +1,52 @@
 <template>
-    
-          <v-card min-height="320px" max-height="420px" color="white" class="pa-2">
-                            
-                            <v-row justify="center" no-gutters class="mt-2">
-                              <v-col md="10">
-                                  <p class="title red--text text--accent-1 font-weight-medium">Performa</p>
-                                  <v-divider ></v-divider>
-                              </v-col>
-                            </v-row>
+  <v-card height="400px" color="white" class="pa-2">
 
-                            <v-row justify="center" class="pt-3">
-                              <v-col md="11">
-                                
-                                  <p class="body-1 grey--text text--darken-4 font-weight-bold text-center">{{TotalJam}} Jam <br> 
-                                    <span class="caption grey--text font-weight-medium">Aktivitas Belajar Selama<br>
-                                      <span class="font-italic">
-                                        {{TglAwal}} {{BulanAwal}} &mdash; {{TglAkhir}} {{BulanAkhir}} {{Tahun}}
-                                      </span>
-                                    </span>
-                                  </p>
-                              </v-col>
-                            </v-row>
-                                  
-                                    <v-row justify="center" no-gutters>
-                                      <v-col md="12" >
-                                              <v-sparkline
-                                                :value="value"
-                                                color="rgba(255, 138, 128)"
-                                                height="100"
-                                                padding="24"
-                                                stroke-linecap="round"
-                                                smooth
-                                                show-labels
-                                              >
-                                              </v-sparkline>
-                                      </v-col>
-                                    </v-row>
-                              
-                                  <v-row dense justify="center" class="mb-3">
-                                    <v-col md="11" class="caption text-center grey--text font-weight-medium" style="word-spacing: 25px;">Senin Selasa Rabu Kamis Jumat Sabtu Minggu</v-col>
-                                  
-                                  </v-row>
-                            
-          </v-card>               
+    <!--JUDUL CARD-->
+    <v-row justify="center" no-gutters class="mt-2">
+      <v-col md="10">
+          <p class="title red--text text--accent-1 font-weight-medium">Performa</p>
+          <v-divider ></v-divider>
+      </v-col>
+    </v-row>
 
+    <!-- ISIAN CARD -->
+    <v-row justify="center" class="pt-3">
+      <v-col md="11">
+        
+          <p class="body-1 grey--text text--darken-4 font-weight-bold text-center">{{TotalJam}} Jam <br> 
+            <span class="caption grey--text font-weight-medium">Aktivitas Belajar Selama<br>
+              <span class="font-italic">
+                {{TglAwal}} {{BulanAwal}} &mdash; {{TglAkhir}} {{BulanAkhir}} {{Tahun}}
+              </span>
+            </span>
+          </p>
+      </v-col>
+    </v-row>
           
+    <v-row justify="center" no-gutters>
+      <v-col md="10">
+        <v-card color="white" class="py-4" >
+        <v-sparkline
+        :value="value"
+        color="rgba(255, 138, 128)"
+        height="100"
+        padding="24"
+        stroke-linecap="round"
+        smooth
+        show-labels
+        >
+        </v-sparkline>
+        </v-card>
+      </v-col>
+    </v-row>
+      
+    <v-row dense justify="center" class="mb-3">
+      <v-col md="11" class="text-center">
+        <p class="overline grey--text font-weight-medium">Satuan (Jam)</p>
+      </v-col>
+    </v-row>
+                            
+  </v-card>               
 </template>
 
 

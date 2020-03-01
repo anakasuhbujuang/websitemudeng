@@ -1,106 +1,86 @@
 <template>
+  <div>
+    <v-card class="pb-5" height="550px">
+      <v-toolbar color="red accent-1" dark > 
+        <v-toolbar-title class="title font-weight-medium">Leaderboard</v-toolbar-title>
+      </v-toolbar>
+      
+      <v-img  src="@/assets/bg/bgdaun.jpg">
+        <v-row justify="center">
+          
+          <v-col md="3" class="text-center">
+            <p class="subtitle-1 text-center red--text text--accent-1  font-weight-bold">2nd</p>
+            <v-avatar size="70">
+              <v-img src="@/assets/pet/asihprofil.jpg"></v-img>
+            </v-avatar>
+            <v-row>
+              <v-col>
+                <p class="caption text-center grey--text font-weight-regular"><span class="body-1 text-center grey--text text--darken-4  font-weight-bold">Bintang</span><br>500 pts</p>
+              </v-col>
+            </v-row>
+          </v-col>
+        
+          <v-col md="4" class="text-center">
+            <p class="title text-center red--text text--accent-1  font-weight-bold">1st</p>
+            <v-avatar size="100">
+              <v-img src="@/assets/pet/asihprofil.jpg"></v-img>
+            </v-avatar>
+            <p class="caption text-center grey--text font-weight-regular"><br><span class="title text-center grey--text text--darken-4  font-weight-bold">Matahari</span><br>1000 pts</p>
+          </v-col>
+            
+          <v-col md="3" class="text-center">
+            <p class="subtitle-1 text-center red--text text--accent-1  font-weight-bold">3rd</p>
+            <v-avatar size="70">
+                <v-img src="@/assets/pet/asihprofil.jpg"></v-img>
+            </v-avatar>
+            <v-row>
+              <v-col>
+                  <p class="caption text-center grey--text font-weight-regular"><span class="body-1 text-center grey--text text--darken-4  font-weight-bold">Bulan</span><br>100 pts</p>
+              </v-col>
+            </v-row>
+          </v-col>
+        
+        </v-row>
+      </v-img>
 
-    <div>
-         
-          <v-card class="pb-5">
-
-            <v-toolbar
-              color="red accent-1"
-              dark
-              > 
-                <v-toolbar-title class="font-weight-medium">
-                    Leaderboard  
-                </v-toolbar-title>
-
-            </v-toolbar>
-
+      <div style="height:200px;width:auto;overflow-y:scroll;overflow-x:hidden;">
+        <div style="height:150%;">
+          <v-list v-for="item in ranking" :key="item.No">
+            <v-list-item  >
+              <v-row justify="start" align="center" dense no-gutters>
+                
+                <v-col md="1" class="pt-2 body-2 text-center font-weight-bold grey--text text--darken-3">
+                  <p>{{item.No}}</p>
+                </v-col>
+                
+                <v-col md="1" class="pb-2 px-2">
+                  <v-avatar size="30">
+                    <v-img :src="item.SrcImgProfPic"></v-img>
+                  </v-avatar>
+                </v-col>
+                
+                <v-col md="4" class="ml-6 pt-2 body-2 font-weight-medium grey--text text--darken-3" >
+                  <p>{{item.Nama}}</p>
+                </v-col>
+                
+                <v-col md="1" offset-md="1"  class="pb-3 pl-4">
+                  <v-icon color=" red accent-1" size="20px">{{IconPoints}}</v-icon>
+                </v-col>
+                
+                <v-col md="3"  class="pt-2 pl-5 body-2 font-weight-medium red--text text--accent-1">
+                  <p>{{ item.points}} pts</p>
+                </v-col>
               
-                <v-img  src="@/assets/bg/bgdaundialog.svg">
-                 <v-row justify="center">
-                    <v-col md="3" class="text-center">
-                        <p class="subtitle-1 text-center red--text text--accent-1  font-weight-bold">2nd</p>
-                        <v-avatar size="70">
-                                <v-img src="@/assets/pet/asih200.png"></v-img>
-                        </v-avatar>
-                        <v-row>
-                          <v-col>
-                            <p class="caption text-center grey--text font-weight-regular"><span class="body-1 text-center grey--text text--darken-4  font-weight-bold">Bintang</span><br>500 pts</p>
-                          </v-col>
-                        </v-row>
-                       
-                                    
-                    </v-col>
-                    <v-col md="4" class="text-center">
-                        <p class="title text-center red--text text--accent-1  font-weight-bold">1st</p>
-                        <v-avatar size="100">
-                            <v-img src="@/assets/pet/asih200.png"></v-img>
-                        </v-avatar>
-                        <p class="caption text-center grey--text font-weight-regular"><br><span class="title text-center grey--text text--darken-4  font-weight-bold">Matahari</span><br>1000 pts</p>
-                         
-                    </v-col>
-                    <v-col md="3" class="text-center">
-                        <p class="subtitle-1 text-center red--text text--accent-1  font-weight-bold">3rd</p>
-                        <v-avatar size="70">
-                            <v-img src="@/assets/pet/asih200.png"></v-img>
-                        </v-avatar>
-                        <v-row>
-                          <v-col>
-                              <p class="caption text-center grey--text font-weight-regular"><span class="body-1 text-center grey--text text--darken-4  font-weight-bold">Bulan</span><br>100 pts</p>
-                          </v-col>
-                        </v-row>
-                         
-                    </v-col>
-                    
-                  </v-row>
-                </v-img>
-                
+              </v-row>
+            </v-list-item>
+          <v-divider v-show="item.divider"></v-divider>
+        </v-list>
 
-                
-
-              <div style="height:300px;width:auto;overflow-y:scroll;overflow-x:hidden;">
-
-                <div style="height:150%;">
-
-                    <v-list v-for="item in ranking" :key="item.No">
-                      
-
-                      <v-list-item  >
-                          <v-row justify="start" align="center" dense>
-                            <v-col md="1" class="pt-2 body-1 font-weight-bold grey--text text--darken-3">
-                              <p class="text-center" style="text-align:center;">{{item.No}}</p>
-                            </v-col>
-                            <v-col md="1" class="px-4 py-2 ">
-                              <v-avatar size="45">
-                                  <v-img :src="item.SrcImgProfPic"></v-img>
-                              </v-avatar>
-                            </v-col>
-                            <v-col md="4" class="pl-12 pt-2 body-1 font-weight-medium grey--text text--darken-3" >
-                              <p class="text-start">{{item.Nama}}</p>
-                            </v-col>
-                            
-                            <v-col md="1" offset-md="2"  class="pb-4 ">
-                              <v-icon color=" red accent-1" size="30px">{{IconPoints}}</v-icon>
-                            </v-col>
-                            <v-col md="3"  class=" pt-2 body-1 font-weight-medium red--text text--accent-1">
-                              <p>{{ item.points}} pts</p>
-                            </v-col>
-                          </v-row>
-                          
-                          
-                      </v-list-item>
-                       <v-divider v-show="item.divider"></v-divider>
-
-                    </v-list>
-
-              </div>
-            </div>
-
-           </v-card>
-
-    
-    
+      </div>
     </div>
-    
+
+  </v-card>
+  </div>
 </template>
 
 <script>
@@ -121,7 +101,7 @@ import { mdiStar } from '@mdi/js';
 
         {
           No:4,
-          SrcImgProfPic:require('@/assets/pet/asih200.png'),
+          SrcImgProfPic:require('@/assets/pet/asihprofil.jpg'),
           Nama:'Jihaan',
           points:'350',
           divider: true,
@@ -129,7 +109,7 @@ import { mdiStar } from '@mdi/js';
        
          {
           No:5,
-          SrcImgProfPic:require('@/assets/pet/asih200.png'),
+          SrcImgProfPic:require('@/assets/pet/asihprofil.jpg'),
           Nama:'Jihaan',
           points:'350',
           divider: true,
@@ -137,7 +117,7 @@ import { mdiStar } from '@mdi/js';
         
          {
           No:6,
-          SrcImgProfPic:require('@/assets/pet/asih200.png'),
+          SrcImgProfPic:require('@/assets/pet/asihprofil.jpg'),
           Nama:'Jihaan',
           points:'350',
           divider: true,
@@ -145,7 +125,7 @@ import { mdiStar } from '@mdi/js';
       
          {
           No:7,
-          SrcImgProfPic:require('@/assets/pet/asih200.png'),
+          SrcImgProfPic:require('@/assets/pet/asihprofil.jpg'),
           Nama:'Jihaan',
           points:'350',
           divider: true,
@@ -153,7 +133,7 @@ import { mdiStar } from '@mdi/js';
        
         {
           No:7,
-          SrcImgProfPic:require('@/assets/pet/asih200.png'),
+          SrcImgProfPic:require('@/assets/pet/asihprofil.jpg'),
           Nama:'Jihaan',
           points:'350',
           divider: true,
