@@ -1,6 +1,5 @@
 <template>
-<div > 
-
+  <div > 
             <v-row no-gutters >
                     <v-col md="12">
                         <v-card class="pa-5">

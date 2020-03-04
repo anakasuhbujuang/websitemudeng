@@ -15,7 +15,7 @@
             <v-row justify="center">
               <v-col md="12">
 
-                  <v-stepper v-model="e1" style="background-color:#FAFAFA; box-shadow:none; " >
+                  <v-stepper v-model="e1" style="background-color:#FAFAFA; box-shadow:none; "  >
                     
                     <!-- card 1 : navigasi tab -->
                     <v-row justify="center">
