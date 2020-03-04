@@ -37,7 +37,7 @@ export default {
       page:1,
       currentPage: 1,
    
-      pageSize: 4,
+      pageSize: 2,
       visibleTodos: []
     };
   },

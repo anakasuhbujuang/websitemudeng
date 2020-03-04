@@ -3,6 +3,7 @@
       class="hidden-sm-and-down hidden-xl-only"> 
           <v-container fluid style="background-color:#FAFAFA;">
               <v-row no-gutters>
+                
                 <!-- ######## MENU ############## -->
                     <Sidebar />
                  <!-- ######## MENU ############## -->
