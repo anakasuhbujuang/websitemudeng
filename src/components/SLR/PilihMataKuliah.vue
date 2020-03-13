@@ -63,7 +63,7 @@ export default {
     data () {
 
       return {
-          SrcImgPet:require('@/assets/pet/jonipilihmatkul.svg'),
+          SrcImgPet:require('@/assets/pet/asihprofil.jpg'),
       }
     },
 
