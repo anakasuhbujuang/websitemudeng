@@ -81,6 +81,7 @@
                               :StatePilihStrategi="StatePilihStrategi"
                               :e1="e1"
                               @nextStepToPilihStrategi="e1=3; StatePilihStrategi=true; "/>
+                              <p>{{e1}} {{StatePilihMateriKuliah}}</p>
                             </v-col>
 
                             <v-col md="4">     
@@ -104,6 +105,7 @@
                       @nextStepSumm="e1=4; statevideo=false; statesumm=true; statemapp=false;"
                       @nextStepMapp="e1=4; statevideo=false; statesumm=false; statemapp=true;"
                       />
+                      <p>{{e1}} {{StatePilihStrategi}}</p>
                     </v-stepper-content>
 
                     <!-- STEP 4 : SRL -->
@@ -115,6 +117,7 @@
                       :e1="e1" 
                       @SubmitSummQuizAndNextStepEvaluasi="StateEvaluasiBelajar =true; e1= 5;"></StrategiSummary>
                       <SlideshowMapp v-show="statemapp"/>
+                      <p>{{e1}} {{statevideo}} {{statesumm}} {{statemapp}}</p>
                     </v-stepper-content>
 
                     <!-- STEP 5 : Evaluasi Belajar -->
@@ -123,6 +126,7 @@
                         <v-card class="" color="white">
                           <v-stepper-content step="5">
                             <Evaluasi v-show="StateEvaluasiBelajar"/>
+                            <p>{{e1}} {{StateEvaluasiBelajar}} </p>
                           </v-stepper-content>
                         </v-card>
                       </v-col>
