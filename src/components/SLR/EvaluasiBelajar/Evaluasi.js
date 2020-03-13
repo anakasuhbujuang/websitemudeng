@@ -1,5 +1,5 @@
-import TodoInput from '@/components/EvaluasiBelajar/TodoInput.vue';
-import TodoItem from '@/components/EvaluasiBelajar/TodoItem.vue';
+import TodoInput from '@/components/SLR/EvaluasiBelajar/TodoInput.vue';
+import TodoItem from '@/components/SLR/EvaluasiBelajar/TodoItem.vue';
 
 export default {
   name: 'PaginationReal2',

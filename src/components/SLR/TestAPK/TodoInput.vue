@@ -7,5 +7,5 @@
   </div>
 </template>
 
-<script src="@/components/EvaluasiBelajar/todoInput.js"></script>
-<style src="@/components/EvaluasiBelajar/todoInput.css"></style>
+<script src="@/components/SLR/TestAPK/todoInput.js"></script>
+<style src="@/components/SLR/TestAPK/todoInput.css"></style>

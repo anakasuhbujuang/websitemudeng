@@ -57,5 +57,5 @@
   </div>
 </template>
 
-<script src="@/components/EvaluasiBelajar/todoItem.js"></script>
-<style src="@/components/EvaluasiBelajar/todoItem.css"></style>
+<script src="@/components/SLR/EvaluasiBelajar/todoItem.js"></script>
+<style src="@/components/SLR/EvaluasiBelajar/todoItem.css"></style>

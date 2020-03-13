@@ -45,5 +45,5 @@
 </template>
 
 
-<script src="@/components/EvaluasiBelajar/Evaluasi.js"></script>
-<style src="@/components/EvaluasiBelajar/Evaluasi.css"></style>
+<script src="@/components/SLR/EvaluasiBelajar/Evaluasi.js"></script>
+<style src="@/components/SLR/EvaluasiBelajar/Evaluasi.css"></style>

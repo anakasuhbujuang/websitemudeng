@@ -40,11 +40,98 @@
         </v-card>
       </v-col>
     </v-row>
+
                 <!-- #############DIALOG START#############-->
-              <v-dialog v-model="dialog" max-width="1000px" > 
+              <v-dialog v-model="dialog" width="1300px" > 
                 <v-card color="white" width="auto" height="auto"
                 style="overflow-x:hidden; overflow-y:hidden;">
-                  <AfterSumm/>
+                  <!-- <AfterSumm/> -->
+
+                  <v-img src="@/assets/bg/bgdaundialog.svg">
+    
+                    <v-row justify="center"  class="mt-4">
+                      <v-col >
+
+                        <div v-show="statekeyword">
+                          
+                          <v-row class="mb-12">
+                              <v-col>
+                                <p class="text-center display-1 font-weight-bold grey--text text--darken-3">Quiz</p>
+                                <p class="text-center subtitle-2 grey--text">Pilihlah 3 diantara 10 kata kunci di bawah ini. </p>
+                              </v-col>
+                            </v-row>
+                          
+                          <v-chip-group
+                            column multiple max="3"
+                            active-class="teal darken-3 white--text"  
+                            style="box-shadow:none;" 
+                            v-model="selected">
+
+                            <v-row justify="center"> 
+                              <v-col align="center" md="5">
+                                
+                                <v-chip v-for="tag in tags" :key="tag">
+                                {{ tag}}
+                                </v-chip>
+                              
+                              </v-col>
+                            </v-row>
+                              
+                          </v-chip-group>
+
+                          <v-row justify="center" class="mt-12 pt-4">
+                            <v-col md="2">
+                              <p>{{selected}}</p>
+                                <v-btn  color="teal darken-3" @click="nextStepSummQuiz()" block dark>PILIH</v-btn>
+                            </v-col>
+                          </v-row>
+                          
+                        </div>
+
+                        <div v-show="statedeskripsi">
+
+                          <v-row >
+                              <v-col>
+                                <p class="text-center display-1 font-weight-bold grey--text text--darken-3">Quiz</p>
+                                <p class="text-center subtitle-2 grey--text">Deskripsikan kata kunci yang telah kamu pilih.</p>
+                              </v-col>
+                            </v-row>
+
+                          <v-row v-for="(selected,i) in selected" :key="i" justify="center" class="mb-4" no-gutters>
+                            <v-col md="6">
+                              <p v-if="selected === 0" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[0] }} :</p>
+                              <p v-else-if="selected === 1" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[1] }} :</p>
+                              <p v-else-if="selected === 2" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[2] }} :</p>
+                              <p v-else-if="selected === 3" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[3] }} :</p>
+                              <p v-else-if="selected === 4" class="text-start subtitle-2 font-weight-bold grey--text dtext--darken-3">{{ tags[4] }} :</p>
+                              <p v-else-if="selected === 5" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[5] }} :</p>
+                              <p v-else-if="selected === 6" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[6] }} :</p>
+                              <p v-else-if="selected === 7" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[7] }} :</p>
+                              <p v-else-if="selected === 8" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[8] }} :</p>
+                              <p v-else-if="selected === 9" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[9] }} :</p>
+
+                              <div style="height:70px;width:auto;overflow-y:scroll;overflow-x:hidden;">
+                                <v-textarea v-model="isisummary[i]" rows="1" auto-grow filled outlined style="border-radius:5px; box-color:white;"></v-textarea>
+                              </div>
+                              
+                            </v-col>
+                          </v-row>
+                          
+                          <v-row justify="center">
+                            <v-col md="2">
+                                <v-btn  color="teal darken-3" @click="SubmitSummQuizAndNextStepEvaluasi()" block dark>KUMPULKAN</v-btn>
+                            </v-col>
+                          </v-row>
+
+                        </div>
+
+
+                      </v-col>
+                    </v-row>
+
+                  </v-img>
+
+
                 </v-card>
               </v-dialog>
 
@@ -53,7 +140,7 @@
 
 <script>
 
-import AfterSumm from '@/components/SLR/AfterSumm.vue'  
+// import AfterSumm from '@/components/SLR/AfterSumm.vue'  
 
 
 
@@ -61,74 +148,66 @@ export default {
     
     name: 'slideshowsumm',
     components: {
-      AfterSumm
+      // AfterSumm
     },
 
+    props: {
+      StateEvaluasiBelajar: Boolean,
+      e1: Number
+    },
+  
     data () {
 
       return {
-        
+      
+      // stateevaluasi: false,
       dialog: false,  
       TitleMateri:'Algoritma dan Struktur Data',
+
+      tags: [
+        'Work', 
+        'Home', 
+        'Vacation', 
+        'Food', 
+        'Drawers', 
+        'Data', 
+        'Chain', 
+        'Sorting', 
+        'Luxury', 
+        'Algoritma', 
+      ],
+
+      isisummary: ['','','',],
+
+      selected: '',
+      
+
+       statekeyword: true,
+       statedeskripsi: false,
 
      
       
       }
     },
+    methods: {
+        nextStepSummQuiz(){
+            this.statekeyword=false;
+            this.statedeskripsi=true;
+        },
+        
+        nextSubmitSummQuiz(){
+            this.statekeyword=true;
+            this.statedeskripsi=false;
+        },
 
+        SubmitSummQuizAndNextStepEvaluasi(){
+        console.log(this.isisummary);
+        this.dialog=false;
+        this.$emit('SubmitSummQuizAndNextStepEvaluasi');
+        },
+    }
    
 }
   
 </script>
 
-<style scoped>
-  /* .thumbnail{
-    display:flex;   
-  }
-
-  .thumbnail img{
-    width:168px;
-}
-
-.thumbnail-info{
-    margin-left:20px;
-}
-
-.thumbnail h3{
-    font-size:16px;
-}
-
-h3,
-p{
-    margin:0;
-    padding:0;
-}
-
-.thumbnail-views{
-    font-size:14px;
-}
-
-.video-player{
-    display:flex;
-    width:1200px;
-    margin:auto;
-}
-
-.video-container{
-    margin-right:40px;
-}
-
-.row{
-    display:flex;
-    justify-content:space-between;
-}
-
-button{
-    background:#D0021B;
-    color:white;
-    border:none;
-    padding:10px 20px;
-}
-
-   */
-</style>
