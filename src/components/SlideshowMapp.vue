@@ -42,7 +42,7 @@
     </v-row>
 
             <!-- DIALOG START-->
-              <v-dialog v-model="dialogMappQuiz" width="1000px" > 
+              <v-dialog v-model="dialogMappQuiz" width="1200px" > 
                 <v-card color="white" width="auto" height="auto"
                 style="overflow-x:hidden; overflow-y:hidden;">
 
@@ -78,9 +78,10 @@
                           <v-col md="1"></v-col>
                         </v-row>
 
-                        <v-row justify="center" class="my-4">
+                        <v-row justify="start" class="my-4">
+                          <v-col md="1"></v-col>
                           <v-col md="3">
-                            <v-btn color="teal darken-4 white--text" href="https://app.diagrams.net/" target="_blank" block >Buat Diagram</v-btn>
+                            <v-btn color="teal darken-4" class="subtitle-2" href="https://app.diagrams.net/" target="_blank" block outlined>Buat Diagram</v-btn>
                           </v-col>
                         </v-row>
 
@@ -93,7 +94,7 @@
                           <v-col md="10">
                             <v-card dense flat
                               color="grey lighten-4" class="d-flex justify-center align-center">
-                                <v-card-text class="caption text-start  grey--text text--darken-3 font-weight-medium" >Unduh diagram yang telah anda buat. Kemudian unggah dan kumpulkan.
+                                <v-card-text class="caption text-start  grey--text text--darken-3 font-weight-medium" >Export dan unduh diagram yang telah anda buat. Kemudian unggah dan kumpulkan.
                                 </v-card-text>
                             </v-card>
                           </v-col>
@@ -101,13 +102,26 @@
                           <v-col md="1"></v-col>
                         </v-row>
                         
-                         <v-row justify="center" class="mt-4">
+                         <v-row justify="start" class="mt-4">
+                           <v-col md="1"></v-col>
+                           <v-col md="3">
+                             <v-form v-model="isValidUnggah">
+                             <v-file-input v-model="file" outlined dense
+                              label="Unggah Diagram"
+                              accept="image/*, .doc, .docx, .pdf"
+                              color="teal darken-4"
+                              :rules="rulesfileinput"
+                              class="subtitle-2"
+                              >
+                              </v-file-input>
+                              </v-form>
+                           </v-col>
+                          
+                        </v-row>
+
+                        <v-row justify="center" class="mt-5">
                           <v-col md="3">
-                            <v-btn :loading="loading"
-                              :disabled="loading"
-                              class="white--text"
-                              @click="loader = 'loading'"
-                              color="teal darken-4" block >Unggah<v-icon left white>mdi-cloud-upload</v-icon></v-btn>
+                              <v-btn :disabled="!isValidUnggah" block color="teal darken-4 white--text" @click="SubmitMappQuiz()">Kumpulkan</v-btn>
                           </v-col>
                         </v-row>
 
@@ -147,30 +161,28 @@ export default {
     data () {
 
       return {
+
+      isValidUnggah: true,
       
       // stateevaluasi: false,
       dialogMappQuiz: false,  
       TitleMateri:'Algoritma dan Struktur Data',
 
-      loader: null,
-      loading: false,
-
-      
-
-     
-
-  
-     
+      file: null,
+      rulesfileinput: [v => !!v || 'Pilih file.',],
       
       }
   },
   methods: {
     SubmitMappQuiz(){
-        // console.log(this.isisummary);
+        console.log(this.file);
         this.dialogMappQuiz=false;
         this.$emit('SubmitMappQuiz');
+        
         },
     },
+
+    
     
   
 }

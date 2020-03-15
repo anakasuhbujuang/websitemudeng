@@ -19,9 +19,16 @@
             @PilihMateri="dialogReviewTestAPK=false;"/>
             
             <v-row>
-            <v-col md="2">
-              <v-btn @click="NewTab()">NEW TAB</v-btn>
-            </v-col>
+              <v-col >
+                <v-file-input v-model="file" outlined dense
+                label="Unggah Diagram"
+                accept="image/*, .doc, .docx, .pdf"
+                >
+                </v-file-input>
+              </v-col>
+              <v-col md="2">
+                <v-btn @click="Unggah()">Unggah</v-btn>
+              </v-col>
           </v-row>
           </v-img>
           </v-card>
@@ -50,10 +57,15 @@ export default {
          SrcImgStrategi: require('@/assets/pet/jonivideo.png'),
         dialogReviewTestAPK: true,
 
+        file: null,
+
       }
     },
 
     methods: {
+      Unggah(){
+        console.log(this.file);
+      },
       NewTab(){
         window.open("https://drive.google.com/file/d/1hFpmHHrVNV_X-3PK9UMbTqFoTMPzckMV/view", '_blank');
       }
