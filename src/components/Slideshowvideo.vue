@@ -16,7 +16,9 @@
                 <v-col class="text-center" md="12">
                   <div >
                     <iframe 
-                    width="580px" height="320px" :src="this.activeVideo.youtubeURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    width="580px" height="320px" 
+                    :src="this.activeVideo.youtubeURL" 
+                    frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
                   </div>
                 </v-col>
               </v-row>
@@ -54,17 +56,56 @@
 
               <v-row justify="end" class="pr-11">
                 <v-col md="4">
-                  <v-btn color="teal darken-2 white--text"
-                  block class="subtitle-1" @click.stop="dialog = true">
-                  SELESAI</v-btn>
+                  <v-btn color="teal darken-4 white--text"
+                  block class="subtitle-1" @click.stop="dialogQuizControlVideo = true">
+                  Lanjutkan</v-btn>
                 </v-col>
               </v-row>
 
               <!-- #############DIALOG START#############-->
-              <v-dialog v-model="dialog" max-width="1000px" > 
+              <v-dialog v-model="dialogQuizControlVideo" max-width="1000px" > 
                 <v-card color="white" width="auto" height="auto"
                 style="overflow-x:hidden; overflow-y:hidden;">
-                  <AfterVideo/>
+                  <v-img src="@/assets/bg/bgdaundialog.svg">
+                    <v-row justify="center" class="mt-8" dense>
+                      <v-col>
+                        <p class="text-center display-1 font-weight-bold grey--text text--darken-3">Quiz</p>
+                        <p class="subtitle-2 text-center grey--text font-weight-regular">Pilihlah 10 kata kunci berikut ini yang berkaitan dengan 
+                        <br>materi yang telah kamu pelajari.</p>
+                      </v-col>
+                    </v-row>
+
+                    <v-row justify="space-around">
+                      <v-col md="9">
+                        <v-form v-model="isValidQuizControlVideo" lazy-validation>
+                          <v-chip-group
+                            column max="10"
+                            multiple
+                            active-class="teal darken-3 white--text"  
+                            style="box-shadow:none;"
+                            v-model="selected">
+
+                            <v-row>
+                              <v-col align="center">
+                                <v-chip v-for="tag in tags" :key="tag">
+                                {{ tag }}
+                                </v-chip>
+                              </v-col>
+                            </v-row>
+                            <!-- <p>{{selected}}</p> -->
+                              
+                          </v-chip-group>
+                        </v-form>
+                      </v-col>
+                    </v-row>
+
+                    <v-row justify="center"  class="mt-4">
+                      <v-col md="2">
+                        <v-btn :disabled="!isValidQuizControlVideo" @click="SubmitVideoQuiz()"
+                        color="teal darken-4 white--text" class="subtitle-2" block>KUMPULKAN</v-btn>
+                      </v-col>
+                    </v-row>
+                  </v-img>
                 </v-card>
               </v-dialog>
 
@@ -78,7 +119,7 @@
 </template>
 
 <script>
-import AfterVideo from '@/components/SLR/AfterVideo.vue'
+// import AfterVideo from '@/components/SLR/AfterVideo.vue'
 let videos = [
     {
     id: 1,
@@ -131,30 +172,91 @@ let videos = [
     views: 0
   }
 ];
-  export default {
-      name: 'controlvideo',
 
-      components:{
-      AfterVideo,
-      
+
+  export default {
+    name: 'controlvideo',
+
+    components:{
+      // AfterVideo,
     },
+
+    props: {
+      StateEvaluasiBelajar: Boolean,
+      e1: Number
+    },
+
     data () {
 
       return {
         
-        dialog: false,
+        dialogQuizControlVideo: false,
+        isValidQuizControlVideo: true,
         videos,
-        activeVideo: videos[0]
+        activeVideo: videos[0],
+
+        tags: [
+        'Work',
+        'Home Improvement',
+        'Vacation',
+        'Food',
+        'Drawers',
+        'Shopping',
+        'Art',
+        'Tech',
+        'Creative Writing',
+        'Food',
+        'Drawers',
+        'Shopping',
+        'Art',
+        'Tech',
+        'Creative Writing',
+        'Food',
+        'Drawers',
+        'Shopping',
+        'Art',
+        'Tech',
+        'Creative Writing',
+        'Food',
+        'Drawers',
+        'Shopping',
+        'Art',
+        'Tech',
+        'Creative Writing',
+        'Food',
+        'Drawers',
+        'Shopping',
+        'Art',
+        'Tech',
+        'Creative Writing',
+        'Food',
+        'Drawers',
+        'Shopping',
+        'Art',
+        'Tech',
+        'Creative Writing',
+        'Food',
+        'Drawers',
+        
+      ],
+
+      selected: '',
       
       }
     },
     methods:{
-            chooseVideo(video){
-            //SET VIDEO AS ACTIVE VIDEO
-            this.activeVideo = video;
-            //INCREASE THE VIDEOS VIEWS BY 1
-            video.views += 1;
-        }
+      chooseVideo(video){
+        //SET VIDEO AS ACTIVE VIDEO
+        this.activeVideo = video;
+        //INCREASE THE VIDEOS VIEWS BY 1
+        video.views += 1;
+      },
+
+      SubmitVideoQuiz(){
+        console.log(this.selected);
+        this.dialogQuizControlVideo = false;
+        this.$emit('SubmitVideoQuiz');
+      },
 }
   }
 </script>

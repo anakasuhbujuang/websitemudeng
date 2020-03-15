@@ -1,30 +1,28 @@
-import TodoItemTestAPK from '@/components/SLR/TestAPK/TodoItemTestAPK.vue';
+import TodoItemReviewTestAPK from '@/components/SLR/ReviewTestAPK/TodoItemReviewTestAPK.vue';
 
 export default {
-  name: 'TestAPK',
+  name: 'ReviewTestAPK',
 
   components: {
-    'todo-item':TodoItemTestAPK,
+    'todo-item':TodoItemReviewTestAPK,
   },
 
   props: {
-    dialogHasilTestAPK: Boolean,
-    dialogAPK: Boolean
+    dialogReviewTestAPK: Boolean,
+    
   }, 
 
   data() {
     return {
 
-      isValidTestAPK: true,
-      coba: true,
 
       todos: [
         
-        {id: 1, text: "Saya mempertimbangkan", jawaban:null},
-        {id: 2, text: "Saya mempertimbangkan", jawaban:null},
-        {id: 3, text: "Saya mempertimbangkan", jawaban:null},
-        {id: 4, text: "Saya mempertimbangkan", jawaban:null},
-        
+        {id: 1, text: "Saya mempertimbangkan", jawaban:"adalah adalah adalah", jawabantrue:"ya benar sekali jawabannya"},
+        {id: 2, text: "Saya mempertimbangkan", jawaban:"adalah adalah adalah", jawabantrue:"ya benar sekali jawabannya"},
+        {id: 3, text: "Saya mempertimbangkan", jawaban:"ya benar sekali jawabannya", jawabantrue:"ya benar sekali jawabannya"},
+        {id: 4, text: "Saya mempertimbangkan", jawaban:"ya benar sekali jawabannya", jawabantrue:"ya benar sekali jawabannya"},
+       
         
       ],
       nextId: 13,
@@ -78,21 +76,18 @@ export default {
     showNextLink() {
       return this.currentPage == (this.totalPages() - 1) ? false : true;
     },
+
     showSubmitLink(){
       return this.currentPage == this.totalPages() ? true : false;
     },
 
-    SubmitAPK(){
-      console.log(this.todos);
-      this.$emit('SubmitAPK');
-
+    CloseReview(){
+      this.$emit('CloseReview');
     },
-    validate () {
-      if(this.$refs.form.validate()){
-        this.$emit('SubmitAPK');
-        console.log(this.todos);
-        }
-      },
+    PilihMateri(){
+      this.$emit('PilihMateri');
+    },
+
   
   }
 }

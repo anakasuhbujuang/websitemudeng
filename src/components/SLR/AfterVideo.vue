@@ -1,4 +1,6 @@
-<template>
+SUDAH DIPINDAH KE SLIDEshowvideo
+
+<!--<template>
   <v-img src="@/assets/bg/bgdaundialog.svg">
          <v-row justify="center" class="mt-8" dense>
       <v-col>

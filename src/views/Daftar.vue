@@ -19,7 +19,7 @@
 
           <v-row justify="start" class="mt-2 ml-10 pl-12">
             <v-col md="9">
-                     <v-form >
+                     <v-form ref="form" v-model="isValidDaftar" lazy-validation>
    
                         <v-text-field
                             v-model="NamaPengguna"
@@ -78,26 +78,23 @@
                             dense
                             class="mb-2">
                         </v-text-field>
-
-                        <v-btn 
-                            :enabled="!valid"
-                            color="teal darken-4 white--text"
-                            class="mr-4"
-                            block
-                            @click="validate"
-                            router to="/PilihPet"
-                            > DAFTAR
-                            
-                        </v-btn>
-                        
-                        <v-row>
-                          <v-col>
-                            <p  class="caption text-center grey--text ">Sudah punya akun? 
-                        <a href="/" class="teal--text text--darken-4 font-weight-bold" >Masuk di sini.</a></p>
-                          </v-col>
-                        </v-row>
-                        
                     </v-form>
+                    
+                    <v-btn 
+                      :disabled="!isValidDaftar"
+                      color="teal darken-4 white--text"
+                      class="mr-4"
+                      block
+                      @click="validate"
+                      
+                      > DAFTAR </v-btn>
+                        
+                      <v-row>
+                        <v-col>
+                          <p  class="caption text-center grey--text ">Sudah punya akun? 
+                      <a href="/" class="teal--text text--darken-4 font-weight-bold" >Masuk di sini.</a></p>
+                        </v-col>
+                      </v-row>
             </v-col>
           </v-row>           
 
@@ -131,7 +128,7 @@ export default {
           SrcBgDafar: require('@/assets/bg/bgmasuk.jpg'),
 
 
-          valid: true, 
+          isValidDaftar: true, 
 
         //*******Nama Pengguna*******
         NamaPengguna:'',
@@ -143,11 +140,13 @@ export default {
         rulesnim: [v => !!v || 'Wajib diisi',],
         //*******EMAIL*******
         Email:'',
-        rulesemail: [v => !!v || 'Wajib diisi',],
+        rulesemail: [
+          v => !!v || 'Wajib diisi',
+          v => /.+@.+/.test(v) || 'E-mail tidak valid.' ],
 
         // //*******Password*****
         show1: false,
-        Password: 'Password',
+        Password: '',
         rulespassword: {
         min: v => v.length >= 8 || 'Minimal 8 Karakter',
         },
@@ -155,18 +154,24 @@ export default {
           
     }),
      methods: {
+          // validate () {
+          //   if (this.$refs.form.validate()) {
+          //     this.snackbar = true
+          //   }
+          // },
+          // reset () {
+          //   this.$refs.form.reset()
+          // },
+          // resetValidation () {
+          //   this.$refs.form.resetValidation()
+          // },
           validate () {
-            if (this.$refs.form.validate()) {
-              this.snackbar = true
-            }
+            if (this.$refs.form.validate()){
+              console.log(this.NamaPengguna, this.NIM, this.Email, this.Password);
+              }
+            
           },
-          reset () {
-            this.$refs.form.reset()
-          },
-          resetValidation () {
-            this.$refs.form.resetValidation()
-          },
-          submit() { 
+          Daftar() { 
             console.log(this.NamaPengguna, this.NIM, this.Email, this.Password) },    
           },
 

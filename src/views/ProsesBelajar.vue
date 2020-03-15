@@ -111,12 +111,22 @@
                     <!-- STEP 4 : SRL -->
 
                     <v-stepper-content step="4" class="pa-0">
-                      <controlvideo v-show="statevideo"/>
+                      <StrategiControlVideo v-show="statevideo"
+                      :StateEvaluasiBelajar="StateEvaluasiBelajar" 
+                      :e1="e1"
+                      @SubmitVideoQuiz="StateEvaluasiBelajar =true; e1= 5;"></StrategiControlVideo>
+                      
                       <StrategiSummary v-show="statesumm" 
                       :StateEvaluasiBelajar="StateEvaluasiBelajar" 
                       :e1="e1" 
-                      @SubmitSummQuizAndNextStepEvaluasi="StateEvaluasiBelajar =true; e1= 5;"></StrategiSummary>
-                      <SlideshowMapp v-show="statemapp"/>
+                      @SubmitSummQuiz="StateEvaluasiBelajar =true; e1= 5;"></StrategiSummary>
+                      
+                      <StrategiMapping v-show="statemapp"
+                      :StateEvaluasiBelajar="StateEvaluasiBelajar" 
+                      :e1="e1" 
+                      @SubmitMappQuiz="StateEvaluasiBelajar =true; e1= 5;"
+                      ></StrategiMapping>/>
+
                       <p>{{e1}} {{statevideo}} {{statesumm}} {{statemapp}}</p>
                     </v-stepper-content>
 
@@ -147,7 +157,7 @@
 <script>
   
   import leaderboard from '@/components/leaderboard.vue'
-  import controlvideo from '@/components/controlvideo.vue'
+  import Slideshowvideo from '@/components/Slideshowvideo.vue'
   import SlideshowSumm from '@/components/SlideshowSumm.vue'
   import SlideshowMapp from '@/components/SlideshowMapp.vue'
   import Sidebar from '@/components/Sidebar.vue'
@@ -162,9 +172,9 @@
     
     components:{
       leaderboard,
-      controlvideo,
+      StrategiControlVideo: Slideshowvideo,
       StrategiSummary: SlideshowSumm,
-      SlideshowMapp,
+      StrategiMapping: SlideshowMapp,
       Sidebar,
       Evaluasi,
       PilihStrategi,
@@ -237,7 +247,14 @@
         }
       },
     },
+
     methods: {
+
+      MakeDiagram(){
+      // this.$emit('MakeDiagram');
+      window.open("https://app.diagrams.net/", '_blank');
+      },
+    
         // nextStep (n) {
         //   if (n === this.steps) {
         //     this.e1 = 1

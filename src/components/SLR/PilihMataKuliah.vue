@@ -33,7 +33,7 @@
 
                       <v-row justify="end">
                         <v-col md="5">
-                          <v-btn color="teal darken-2 white--text" block
+                          <v-btn color="teal darken-2 white--text" block disabled
                           @click="nextStepToPilihMataKuliah()">TAMBAH KELAS</v-btn>
                         </v-col>
                       </v-row>
@@ -63,7 +63,7 @@ export default {
     data () {
 
       return {
-          SrcImgPet:require('@/assets/pet/asihprofil.jpg'),
+          SrcImgPet:require('@/assets/pet/jonipilihmatkul.svg'),
       }
     },
 

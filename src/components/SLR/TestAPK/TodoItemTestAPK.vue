@@ -1,9 +1,8 @@
 <template>
   <div class="todo-item">
 
-     
-    
      <v-row justify="center" dense no-gutters class="my-2">
+
         <v-col md="1" class="text-center">
           <v-card-text class="subtitle-2 text-center  grey--text text--darken-3 font-weight-bold ">{{todo.id}}.
           </v-card-text>
@@ -34,10 +33,12 @@
 
             <v-row justify="start">
               <v-col md="6">
-                  <div style="height:100px;width:auto;overflow-y:scroll;overflow-x:hidden;padding-top:5px;">
-                    <v-textarea rows="3" v-model="todo.jawaban" auto-grow color="teal darken-2" outlined label="Jawaban" 
-                    style="border-radius:5px; border-color:grey;"></v-textarea>
-                  </div>
+                
+                    <v-textarea v-model="todo.jawaban" color="teal darken-2" outlined label="Jawaban" 
+                    :rules="rulesjawabanTestAPK"
+                    style="border-radius:5px; border-color:grey;" no-resize rows="3"></v-textarea>
+                
+
               </v-col>
             </v-row>
 
@@ -50,5 +51,4 @@
   </div>
 </template>
 
-<script src="@/components/SLR/TestAPK/todoItem.js"></script>
-<style src="@/components/SLR/TestAPK/todoItem.css"></style>
+<script src="@/components/SLR/TestAPK/todoItemTestAPK.js"></script>

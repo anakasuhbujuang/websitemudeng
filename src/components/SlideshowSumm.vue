@@ -13,7 +13,7 @@
               <v-btn
               color="teal darken-4 white--text"
               block class="subtitle-1 "
-              @click.stop="dialog = true"
+              @click.stop="dialogSummQuiz = true"
               >LANJUTKAN</v-btn>
             </v-col>
           </v-row>
@@ -41,11 +41,10 @@
       </v-col>
     </v-row>
 
-                <!-- #############DIALOG START#############-->
-              <v-dialog v-model="dialog" width="1300px" > 
+              <!-- DIALOG START-->
+              <v-dialog v-model="dialogSummQuiz" width="1300px" > 
                 <v-card color="white" width="auto" height="auto"
                 style="overflow-x:hidden; overflow-y:hidden;">
-                  <!-- <AfterSumm/> -->
 
                   <v-img src="@/assets/bg/bgdaundialog.svg">
     
@@ -61,6 +60,7 @@
                               </v-col>
                             </v-row>
                           
+
                           <v-chip-group
                             column multiple max="3"
                             active-class="teal darken-3 white--text"  
@@ -81,8 +81,8 @@
 
                           <v-row justify="center" class="mt-12 pt-4">
                             <v-col md="2">
-                              <p>{{selected}}</p>
-                                <v-btn  color="teal darken-3" @click="nextStepSummQuiz()" block dark>PILIH</v-btn>
+                              <!-- <p>{{selected}}</p> -->
+                                <v-btn  color="teal darken-3" @click.stop="nextStepSummQuiz()" block dark>PILIH</v-btn>
                             </v-col>
                           </v-row>
                           
@@ -110,16 +110,14 @@
                               <p v-else-if="selected === 8" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[8] }} :</p>
                               <p v-else-if="selected === 9" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[9] }} :</p>
 
-                              <div style="height:70px;width:auto;overflow-y:scroll;overflow-x:hidden;">
-                                <v-textarea v-model="isisummary[i]" rows="1" auto-grow filled outlined style="border-radius:5px; box-color:white;"></v-textarea>
-                              </div>
+                                <v-textarea v-model="isisummary[i]" rows="1" no-resize filled outlined style="border-radius:5px; box-color:white;"></v-textarea>
                               
                             </v-col>
                           </v-row>
                           
                           <v-row justify="center">
                             <v-col md="2">
-                                <v-btn  color="teal darken-3" @click="SubmitSummQuizAndNextStepEvaluasi()" block dark>KUMPULKAN</v-btn>
+                                <v-btn  color="teal darken-4" @click="SubmitSummQuiz()" block dark>KUMPULKAN</v-btn>
                             </v-col>
                           </v-row>
 
@@ -161,7 +159,7 @@ export default {
       return {
       
       // stateevaluasi: false,
-      dialog: false,  
+      dialogSummQuiz: false,  
       TitleMateri:'Algoritma dan Struktur Data',
 
       tags: [
@@ -200,10 +198,10 @@ export default {
             this.statedeskripsi=false;
         },
 
-        SubmitSummQuizAndNextStepEvaluasi(){
+        SubmitSummQuiz(){
         console.log(this.isisummary);
-        this.dialog=false;
-        this.$emit('SubmitSummQuizAndNextStepEvaluasi');
+        this.dialogSummQuiz=false;
+        this.$emit('SubmitSummQuiz');
         },
     }
    

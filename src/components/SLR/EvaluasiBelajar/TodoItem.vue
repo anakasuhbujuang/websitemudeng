@@ -49,7 +49,7 @@
             </v-row>
           </v-card>
           
-          <!-- <p>{{todo.selected}}</p> -->
+         
         </v-col>
       </v-row>
          <!-- Multiple Choice END-->

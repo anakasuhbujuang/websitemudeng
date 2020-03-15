@@ -1,4 +1,5 @@
-<template>
+SUDAH DIPINDAH KE SLIDESHOWSUMM : mempertimbangkan boolena for StateEvaluasiBelajar
+<!--
   <v-img src="@/assets/bg/bgdaundialog.svg">
 
     <v-row justify="center"  class="mt-4">
@@ -63,9 +64,7 @@
               <p v-else-if="selected === 8" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[8] }} :</p>
               <p v-else-if="selected === 9" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[9] }} :</p>
 
-              <div style="height:70px;width:auto;overflow-y:scroll;overflow-x:hidden;">
-                <v-textarea v-model="isisummary[i]" rows="1" auto-grow outlined color="teal darken-2" style="border-radius:5px;padding-top:5px;"></v-textarea>
-              </div>
+                <v-textarea v-model="isisummary[i]" rows="1" no-resize outlined color="teal darken-2" style="border-radius:5px;padding-top:5px;"></v-textarea>
               
             </v-col>
           </v-row>
@@ -99,18 +98,7 @@
 
       return {
 
-      //   tags: [
-      //   { word:'Work', isisummary:''},
-      //   { word:'Home', isisummary:''},
-      //   { word:'Vacation', isisummary:''},
-      //   { word:'Food', isisummary:''},
-      //   { word:'Drawers', isisummary:''},
-      //   { word:'Data', isisummary:''},
-      //   { word:'Chain', isisummary:''},
-      //   { word:'Sorting', isisummary:''},
-      //   { word:'Luxury', isisummary:''},
-      //   { word:'Algoritma', isisummary:''},
-      // ],
+      
       tags: [
         'Work', 
         'Home', 

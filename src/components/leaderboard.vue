@@ -15,7 +15,8 @@
             </v-avatar>
             <v-row>
               <v-col>
-                <p class="caption text-center grey--text font-weight-regular"><span class="body-1 text-center grey--text text--darken-4  font-weight-bold">Bintang</span><br>500 pts</p>
+                <p class="caption text-center grey--text text--darken-2 font-weight-regular">
+                  <span class="subtitle-2 text-center grey--text text--darken-4  font-weight-bold">Bintang</span><br>500 pts</p>
               </v-col>
             </v-row>
           </v-col>
@@ -25,7 +26,9 @@
             <v-avatar size="100">
               <v-img src="@/assets/pet/asihprofil.jpg"></v-img>
             </v-avatar>
-            <p class="caption text-center grey--text font-weight-regular"><br><span class="title text-center grey--text text--darken-4  font-weight-bold">Matahari</span><br>1000 pts</p>
+            <p class="caption text-center grey--text text--darken-2 font-weight-regular">
+            <span class="subtitle-1 text-center grey--text text--darken-4  font-weight-bold">Matahari</span><br>1000 pts</p>
+            <br>
           </v-col>
             
           <v-col md="3" class="text-center">
@@ -35,7 +38,8 @@
             </v-avatar>
             <v-row>
               <v-col>
-                  <p class="caption text-center grey--text font-weight-regular"><span class="body-1 text-center grey--text text--darken-4  font-weight-bold">Bulan</span><br>100 pts</p>
+                  <p class="caption text-center grey--text text--darken-2 font-weight-regular">
+                    <span class="subtitle-2 text-center grey--text text--darken-4  font-weight-bold">Bulan</span><br>100 pts</p>
               </v-col>
             </v-row>
           </v-col>

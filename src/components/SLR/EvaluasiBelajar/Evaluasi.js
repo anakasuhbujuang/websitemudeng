@@ -17,22 +17,9 @@ export default {
         {id: 8, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
         {id: 9, text: "Todo # 9" , A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:''},
         {id: 10, text: "Todo # 10", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 11, text: "Todo # 11", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 12, text: "Todo # 12", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 13, text: "Todo # 9", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 14, text: "Todo # 10", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 15, text: "Todo # 11", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 16, text: "Todo # 12", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 17, text: "Todo # 9", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 18, text: "Todo # 10", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 19, text: "Todo # 11", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 20, text: "Todo # 12", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 21, text: "Todo # 9" , A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:''},
-        {id: 22, text: "Todo # 10" , A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:''},
-        {id: 23, text: "Todo # 11" , A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:''},
-        {id: 24, text: "Todo # 12", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:''}
+        
       ],
-      nextId: 13,
+      nextId: 11,
       
       page:1,
       currentPage: 1,
@@ -88,7 +75,12 @@ export default {
     },
     showSubmitLink(){
       return this.currentPage == this.totalPages() ? true : false;
+    },
+
+    Submit(){
+      console.log(this.todos);
     }
+     
   
   }
 }

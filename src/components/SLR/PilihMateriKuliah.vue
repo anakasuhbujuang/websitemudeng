@@ -36,7 +36,7 @@
             </v-col>
           <v-col md="2" >
           
-          <v-btn color="teal darken-2 white--text" block>RPKPS</v-btn>
+          <v-btn color="teal darken-2 white--text" @click="NewTabRPKPS()" block>RPKPS</v-btn>
         </v-col>
       </v-row>
 
@@ -81,12 +81,10 @@
           </v-col>
         </v-row>
 
-        <!-- #############DIALOG QUESTION START#############-->
-        <v-dialog v-model="dialogQuestion" max-width="350px" > 
+        <!-- DIALOG QUESTION START-->
+        <v-dialog v-model="dialogQuestion" persistent max-width="350px" > 
           <v-card color="white" width="auto" height="auto"
           class="pb-2" style="overflow-x:hidden; overflow-y:hidden;">
-
-            
 
             <v-card-media justify-center >
                 <v-img :src="SrcMateriLocked"></v-img>
@@ -107,20 +105,20 @@
             <v-row no-gutters class="px-2">
               <v-col class="pr-1">
                   <v-btn block color="teal darken-4 white--text" 
-                  class="subtitle-1" @click="dialogTestAPK = true ; dialogQuestion = false;"
+                  class="subtitle-2" @click="dialogTestAPK = true ; dialogQuestion = false;"
                   >YA</v-btn>
               </v-col>
               <v-col>
                   <v-btn block color="teal darken-2 white--text" 
-                  class="subtitle-1" @click="dialogQuestion = false" >TIDAK</v-btn>
+                  class="subtitle-2" @click="dialogQuestion = false" >TIDAK</v-btn>
               </v-col>
             </v-row>
           </v-card>
         </v-dialog>
-        <!-- #############DIALOG EN#############-->
+      <!-- DIALOG END-->
 
-        <!-- DIALOG TEST APK START -->
-        <v-dialog v-model="dialogTestAPK" max-width="1000px" > 
+      <!-- DIALOG TEST APK START -->
+        <v-dialog v-model="dialogTestAPK" persistent max-width="1000px" > 
           <v-card color="white" width="auto" height="auto"
           class="py-4" style="overflow-x:hidden; overflow-y:hidden;">
 
@@ -131,11 +129,81 @@
               </v-col>
             </v-row>
 
-            <TestAPK class="my-2"/>
+            <TestAPK class="my-2" 
+            :dialogHasilTestAPK="dialogHasilTestAPK" :dialogAPK="dialogAPK" 
+            @SubmitAPK="dialogTestAPK = false; dialogHasilTestAPK = true;"/>
+            
             
           </v-card>
         </v-dialog>
         <!-- DIALOG TEST APK END -->
+
+        <!-- DIALOG HASIL APK START-->
+        <v-dialog v-model="dialogHasilTestAPK" max-width="350px" > 
+          <v-card color="white" width="auto" height="auto"
+          class="pb-2" style="overflow-x:hidden; overflow-y:hidden;">
+
+            <v-card-media justify-center >
+                <v-img v-if="NilaiAPK < PassingGradeAPK" :src="SrcFighting"></v-img>
+                <v-img v-else :src="SrcReward"></v-img>
+            </v-card-media>
+
+            <v-row justify="center" class="mt-5 " no-gutters>
+              <v-col md="8">
+                    <p v-if="NilaiAPK < PassingGradeAPK" class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold">Sayang Sekali,<br>Kamu Belum Berhasil</p>
+                    <p v-else class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold">Kamu Lulus Test APK!</p>
+              </v-col>
+            </v-row>  
+
+            <v-row justify="center" no-gutters class="mb-3">
+                <v-col md="11">
+                    <p v-if="NilaiAPK < PassingGradeAPK" class="body-2 text-center grey--text  font-weight-regular">Kamu perlu memahami kembali<br>materi-materi sebelumnya.<br>Terus Berjuang!</p>
+                    <p v-else class="body-2 text-center grey--text  font-weight-regular">Ternyata kamu sudah cukup memahami materi sebelumnya.<br>Silahkan mempelajari materi selanjutnya.</p>
+                </v-col>
+            </v-row>       
+            <v-row no-gutters class="px-2">
+              <v-col class="pr-1">
+
+                  <v-btn v-if="NilaiAPK < PassingGradeAPK" block color="teal darken-4 white--text" 
+                  class="subtitle-2" @click="dialogHasilTestAPK = false;"
+                  >Pilih Materi</v-btn>
+                  
+                  <v-btn v-else block color="teal darken-4 white--text" 
+                  class="subtitle-2 " @click="nextStepToPilihStrategi(); dialogHasilTestAPK = false;"
+                  >Lanjut Belajar</v-btn>
+
+              </v-col>
+              <v-col>
+                  <v-btn block color="teal darken-2 white--text" 
+                  class="subtitle-2" @click="dialogHasilTestAPK = false; dialogReviewTestAPK = true;" >Lihat Review</v-btn>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-dialog>
+        <!-- DIALOG HASIL APK END-->
+
+        <!-- DIALOG REVIEW TEST APK START-->
+        <v-dialog v-model="dialogReviewTestAPK" persistent max-width="1000px" > 
+          <v-card color="white" width="auto" height="auto"
+          class="py-4" style="overflow-x:hidden; overflow-y:hidden;">
+
+            <v-row>
+              <v-col class="text-center">
+                <p class="title font-weight-bold font-italic grey--text text--darken-3">Activating Prior Knowledge</p>
+                <p class="subtitle-2  font-weight-regular grey--text ">Jangan khawatir, test ini bertujuan untuk mengetahui kemampuanmu dalam<br>menguasai materi sebelumnya.</p>
+              </v-col>
+            </v-row>
+
+            <ReviewTestAPK class="my-2" 
+            :dialogHasilTestAPK="dialogHasilTestAPK" :dialogAPK="dialogAPK" 
+            @CloseReview="nextStepToPilihStrategi(); dialogReviewTestAPK=false;"
+            @PilihMateri="dialogReviewTestAPK=false;"/>
+            
+            
+          </v-card>
+        </v-dialog>
+        <!-- DIALOG REVIEW TEST APK END-->
+
 
       </v-col>
     </v-row>
@@ -146,6 +214,7 @@
 
 <script>
 import TestAPK from '@/components/SLR/TestAPK/TestAPK.vue';
+import ReviewTestAPK from '@/components/SLR/ReviewTestAPK/ReviewTestAPK.vue';
 
 export default {
 
@@ -153,6 +222,7 @@ export default {
 
     components: {
       TestAPK,
+      ReviewTestAPK,
     },
     
     props: {
@@ -168,6 +238,14 @@ export default {
         SrcMateriLocked: require('@/assets/pet/asih200.png'),
         dialogQuestion: false,
         dialogTestAPK: false,
+        dialogHasilTestAPK: false,
+        dialogReviewTestAPK: false,
+
+        //dialogHasilTestAPK
+        NilaiAPK: 50,
+        PassingGradeAPK: 70,
+        SrcFighting: require('@/assets/pet/jonifighting200.png'),
+        SrcReward: require('@/assets/pet/jonireward200.png'),
 
         //Materi
          materi: [
@@ -202,6 +280,9 @@ export default {
         nextStepToPilihStrategi() {
             this.$emit('nextStepToPilihStrategi')
         },
+        NewTabRPKPS(){
+        window.open("https://drive.google.com/file/d/1hFpmHHrVNV_X-3PK9UMbTqFoTMPzckMV/view", '_blank');
+      }
             
     }
 

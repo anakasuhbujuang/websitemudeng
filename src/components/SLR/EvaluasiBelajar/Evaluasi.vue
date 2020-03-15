@@ -37,7 +37,7 @@
        </v-col>
 
        <v-col md="2" class="text-end pr-9 pt-2">
-         <v-btn v-if="showSubmitLink()" dark dense color="teal darken-3" class="caption">SUBMIT</v-btn>
+         <v-btn v-if="showSubmitLink()" @click="Submit()" dark dense color="teal darken-3" class="caption">SELESAI</v-btn>
        </v-col>
 
      </v-row>

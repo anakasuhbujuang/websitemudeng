@@ -8,7 +8,7 @@
        <v-col md="12">
        
           <!-- QUESTION TEXT START-->
-          <v-form ref="form" v-model="isValidTestAPK" >
+         
             
             <todo-item
             
@@ -17,12 +17,9 @@
             v-bind:visibleTodos="visibleTodos"
             v-bind:currentPage="currentPage"
             v-bind:todo="todo"
-            :isValidTestAPK="isValidTestAPK"
             >
             </todo-item>
            
-            
-          </v-form>
 
 
            <!-- QUESTION TEXT END-->
@@ -31,7 +28,11 @@
     </v-row>
 
      <v-row justify="center" no-gutters class="mb-2">
-       <v-col md="2"></v-col>
+
+       <v-col md="2" class="text-start pl-9 pt-2">
+         <v-btn @click="PilihMateri()" block color="teal darken-3 white--text" class="caption">Pilih Materi</v-btn>
+       </v-col>
+
         <v-col md="8" class="text-center">
 
            <v-pagination
@@ -43,13 +44,13 @@
             v-on:input="updatePage(currentPage)"
             circle
             color="teal darken-3"
-            :disabled="!isValidTestAPK"
+
            ></v-pagination>
 
        </v-col>
       
        <v-col md="2" class="text-end pr-9 pt-2">
-         <v-btn  :disabled="!isValidTestAPK" v-if="showSubmitLink()" @click="SubmitAPK()" block color="teal darken-3 white--text" class="caption">Kumpulkan</v-btn>
+         <v-btn @click="CloseReview()" block color="teal darken-3 white--text" class="caption">Lanjut Belajar</v-btn>
        </v-col>
       
      </v-row>
@@ -58,4 +59,4 @@
 </template>
 
 
-<script src="@/components/SLR/TestAPK/TestAPK.js"></script>
+<script src="@/components/SLR/ReviewTestAPK/ReviewTestAPK.js"></script>
