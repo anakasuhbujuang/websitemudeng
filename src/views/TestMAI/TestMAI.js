@@ -1,10 +1,11 @@
-import TodoInput from '@/components/TestMAI/TodoInput.vue';
-import TodoItem from '@/components/TestMAI/TodoItem.vue';
+import TodoItemTestMAI from '@/components/TestMAI/TodoItemTestMAI.vue';
 
 export default {
-  name: 'PaginationReal2',
+  name: 'TestMAI',
   data() {
     return {
+
+      isValidTestMAI: true,
       todos: [
         
         {id: 1, text: "Saya mempertimbangkan berbagai pilihan sebelum saya menyelesaikan sebuah permasalahan.", selected:''},
@@ -15,22 +16,7 @@ export default {
         {id: 6, text: "Saya mempertimbangkan berbagai pilihan sebelum saya menyelesaikan sebuah permasalahan.", selected:'' },
         {id: 7, text: "Saya mempertimbangkan berbagai pilihan sebelum saya menyelesaikan sebuah permasalahan.", selected:'' },
         {id: 8, text: "Saya mempertimbangkan berbagai pilihan sebelum saya menyelesaikan sebuah permasalahan.", selected:'' },
-        {id: 9, text: "Todo # 9" , selected:''},
-        {id: 10, text: "Todo # 10", selected:'' },
-        {id: 11, text: "Todo # 11", selected:'' },
-        {id: 12, text: "Todo # 12", selected:'' },
-        {id: 13, text: "Todo # 9", selected:'' },
-        {id: 14, text: "Todo # 10", selected:'' },
-        {id: 15, text: "Todo # 11", selected:'' },
-        {id: 16, text: "Todo # 12", selected:'' },
-        {id: 17, text: "Todo # 9", selected:'' },
-        {id: 18, text: "Todo # 10", selected:'' },
-        {id: 19, text: "Todo # 11", selected:'' },
-        {id: 20, text: "Todo # 12", selected:'' },
-        {id: 21, text: "Todo # 9" , selected:''},
-        {id: 22, text: "Todo # 10" , selected:''},
-        {id: 23, text: "Todo # 11" , selected:''},
-        {id: 24, text: "Todo # 12", selected:''}
+        
       ],
       nextId: 13,
       
@@ -38,13 +24,23 @@ export default {
       currentPage: 1,
    
       pageSize: 4,
-      visibleTodos: []
+      visibleTodos: [],
+
+      //Dialog Hasil
+      dialogHasilTestMAI: false,
+      NilaiMAI: 70,
+      PassingGradeMAILow: 30,
+      PassingGradeMAIMedium: 50,
+      SrcFighting: require('@/assets/pet/jonifighting200.png'),
+      SrcReward: require('@/assets/pet/jonireward200.png'),
+
+
+
     };
   },
 
   components: {
-    TodoInput,
-    TodoItem,
+    'todo-item':TodoItemTestMAI,
   },
 
   beforeMount: function() {
@@ -88,6 +84,11 @@ export default {
     },
     showSubmitLink(){
       return this.currentPage == this.totalPages() ? true : false;
+    },
+
+    Submit(){
+      console.log(this.todos);
+      this.dialogHasilTestMAI = true;
     }
   
   }

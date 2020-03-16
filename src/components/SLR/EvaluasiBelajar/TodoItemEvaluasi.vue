@@ -1,6 +1,5 @@
 <template>
   <div class="todo-item">
-    <!-- class="todoWrapper" <button class="removeTodo" v-on:click="removeTodo">remove</button>{{todo.text}} -->
 
      <v-row justify="center" dense no-gutters>
         <v-col md="1" class="text-center">
@@ -35,15 +34,13 @@
 
             <v-row justify="start">
               <v-col md="2">
-                  <v-radio-group  class=" grey--text text--darken-3 font-weight-medium" v-model="todo.selected"  column>
-
-                    <v-radio v-if="todo.selected == todo.answer" color="success" :label="todo.A" :value="todo.A" ></v-radio>
-                    <v-radio v-else color="error" :label="todo.A" :value="todo.A" ></v-radio>
+                <v-radio-group :rules="rulesjawabanevaluasi" class=" grey--text text--darken-3 font-weight-medium" v-model="todo.selected"  column>
+                    <v-radio  color="teal darken-3" :label="todo.A" :value="todo.A" ></v-radio>
                     <v-radio  color="teal darken-3" :label="todo.B" :value="todo.B" ></v-radio>
-                 </v-radio-group>
+                </v-radio-group>
               </v-col>
               <v-col md="2">
-                 <v-radio-group  class=" grey--text text--darken-3 font-weight-medium" v-model="todo.selected" column>
+                 <v-radio-group :rules="rulesjawabanevaluasi" class=" grey--text text--darken-3 font-weight-medium" v-model="todo.selected" column>
                     <v-radio  color="teal darken-3" :label="todo.C" :value="todo.C" ></v-radio>
                     <v-radio  color="teal darken-3" :label="todo.D" :value="todo.D" ></v-radio>
                  </v-radio-group>
@@ -51,7 +48,7 @@
             </v-row>
           </v-card>
           
-          <!-- <p>{{todo.selected}}</p> -->
+         
         </v-col>
       </v-row>
          <!-- Multiple Choice END-->
@@ -59,5 +56,28 @@
   </div>
 </template>
 
-<script src="@/components/ReviewEval/todoItem.js"></script>
-<style src="@/components/ReviewEval/todoItem.css"></style>
+<script >
+export default {
+  name: 'todo-item',
+  
+  components: {
+  },
+  
+  props: { todo:Array,
+    isValidEvaluasi: Boolean
+  },
+
+  data() {
+    return {
+      rulesjawabanevaluasi: 
+        [v => !!v ],
+    };
+  },
+  methods: {
+    //  isValidEvaluasi(){
+    //   this.$emit('isValidEvaluasi');
+
+    // }
+  }
+}
+</script>

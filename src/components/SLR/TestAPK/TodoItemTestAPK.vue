@@ -36,7 +36,7 @@
                 
                     <v-textarea v-model="todo.jawaban" color="teal darken-2" outlined label="Jawaban" 
                     :rules="rulesjawabanTestAPK"
-                    style="border-radius:5px; border-color:grey;" no-resize rows="3"></v-textarea>
+                    style="border-radius:5px; " no-resize rows="3"></v-textarea>
                 
 
               </v-col>
@@ -51,4 +51,32 @@
   </div>
 </template>
 
-<script src="@/components/SLR/TestAPK/todoItemTestAPK.js"></script>
+<script >
+export default {
+  name: 'todo-item',
+  components: {
+  },
+
+  // props: ['todo'],
+  props: { todo:Array,
+    isValidTestAPK: Boolean
+  },
+
+  data() {
+    return {
+      rulesjawabanTestAPK: 
+        [v => !!v || 'Wajib diisi',],
+    };
+  },
+  
+  methods: {
+   
+    // isValidTestAPK(){
+    //   this.$emit('isValidTestAPK');
+
+    // }
+
+  }
+}
+
+</script>

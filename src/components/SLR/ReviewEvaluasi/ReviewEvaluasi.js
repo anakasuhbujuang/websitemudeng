@@ -1,29 +1,32 @@
-import TodoItemTestAPK from '@/components/SLR/TestAPK/TodoItemTestAPK.vue';
+import TodoItemReviewEvaluasi from '@/components/SLR/ReviewEvaluasi/TodoItemReviewEvaluasi.vue';
 
 export default {
-  name: 'TestAPK',
+  name: 'ReviewEvaluasi',
 
   components: {
-    'todo-item':TodoItemTestAPK,
+    'todo-item':TodoItemReviewEvaluasi,
   },
 
   props: {
-    dialogHasilTestAPK: Boolean,
-    dialogAPK: Boolean
+    dialogReviewEvaluasi: Boolean,
+    selectedevaluasi: Array
+    
   }, 
 
   data() {
     return {
 
-      isValidTestAPK: true,
-
       todos: [
         
-        {id: 1, text: "Saya mempertimbangkan", jawaban:null},
-        {id: 2, text: "Saya mempertimbangkan", jawaban:null},
-        {id: 3, text: "Saya mempertimbangkan", jawaban:null},
-        {id: 4, text: "Saya mempertimbangkan", jawaban:null},
-        
+        {id: 1, truselected:'A. Jawaban A'},
+        {id: 2, truselected:'B. Jawaban B' },
+        {id: 3, truselected:'A. Jawaban A' },
+        {id: 4, truselected:'B. Jawaban B' },
+        {id: 5, truselected:'B. Jawaban B' },
+        {id: 6, truselected:'A. Jawaban A' },
+        {id: 7, truselected:'B. Jawaban B' },
+        {id: 8, truselected:'A. Jawaban A' },
+    
         
       ],
       nextId: 13,
@@ -77,21 +80,18 @@ export default {
     showNextLink() {
       return this.currentPage == (this.totalPages() - 1) ? false : true;
     },
+
     showSubmitLink(){
       return this.currentPage == this.totalPages() ? true : false;
     },
 
-    SubmitAPK(){
-      console.log(this.todos);
-      this.$emit('SubmitAPK');
-
+    CloseReview(){
+      this.$emit('CloseReview');
     },
-    validate () {
-      if(this.$refs.form.validate()){
-        this.$emit('SubmitAPK');
-        console.log(this.todos);
-        }
-      },
+    PilihMateri(){
+      this.$emit('PilihMateri');
+    },
+
   
   }
 }

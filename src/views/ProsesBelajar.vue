@@ -81,7 +81,7 @@
                               :StatePilihStrategi="StatePilihStrategi"
                               :e1="e1"
                               @nextStepToPilihStrategi="e1=3; StatePilihStrategi=true; "/>
-                              <p>{{e1}} {{StatePilihMateriKuliah}}</p>
+                              <!-- <p>{{e1}} {{StatePilihMateriKuliah}}</p> -->
                             </v-col>
 
                             <v-col md="4">     
@@ -105,7 +105,7 @@
                       @nextStepSumm="e1=4; statevideo=false; statesumm=true; statemapp=false;"
                       @nextStepMapp="e1=4; statevideo=false; statesumm=false; statemapp=true;"
                       />
-                      <p>{{e1}} {{StatePilihStrategi}}</p>
+                      <!-- <p>{{e1}} {{StatePilihStrategi}}</p> -->
                     </v-stepper-content>
 
                     <!-- STEP 4 : SRL -->
@@ -127,7 +127,7 @@
                       @SubmitMappQuiz="StateEvaluasiBelajar =true; e1= 5;"
                       ></StrategiMapping>/>
 
-                      <p>{{e1}} {{statevideo}} {{statesumm}} {{statemapp}}</p>
+                      <!-- <p>{{e1}} {{statevideo}} {{statesumm}} {{statemapp}}</p> -->
                     </v-stepper-content>
 
                     <!-- STEP 5 : Evaluasi Belajar -->
@@ -156,10 +156,10 @@
 
 <script>
   
-  import leaderboard from '@/components/leaderboard.vue'
-  import Slideshowvideo from '@/components/Slideshowvideo.vue'
-  import SlideshowSumm from '@/components/SlideshowSumm.vue'
-  import SlideshowMapp from '@/components/SlideshowMapp.vue'
+  import leaderboard from '@/components/SLR/leaderboard.vue'
+  import Slideshowvideo from '@/components/SLR/Slideshowvideo.vue'
+  import SlideshowSumm from '@/components/SLR/SlideshowSumm.vue'
+  import SlideshowMapp from '@/components/SLR/SlideshowMapp.vue'
   import Sidebar from '@/components/Sidebar.vue'
   import Evaluasi from '@/components/SLR/EvaluasiBelajar/Evaluasi.vue'
   import PilihStrategi from '@/components/SLR/PilihStrategi.vue'

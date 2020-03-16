@@ -24,13 +24,13 @@
                 <v-row justify="center" class="py-4">
                     <v-col md="8" class="text-center">
                         <v-btn-toggle mandatory borderless >
-                            <v-btn color="teal darken-3 " dark  class="px-5"  v-on:click="OnDisplayOneClick">
+                            <v-btn color="teal darken-3 " dark  class="px-5 white--text subtitle-2 font-weight-bold"  @click="OnDisplayOneClick">
                                 <v-icon  color="white" left dark>{{IconProfil}}</v-icon>
                                 Profil</v-btn>
-                            <v-btn color="teal darken-3 " dark class="px-5" v-on:click="OnDisplayTwoClick">
+                            <v-btn color="teal darken-3 " dark class="px-5 white--text subtitle-2 font-weight-bold" @click="OnDisplayTwoClick">
                                  <v-icon  color="white" left dark>{{ IconLock }}</v-icon>
                                 Keamanan</v-btn>
-                            <v-btn  color="teal darken-3 " dark class="px-5 " v-on:click="OnDisplayThreeClick">
+                            <v-btn  color="teal darken-3 " dark class="px-5 white--text subtitle-2 font-weight-bold" @click="OnDisplayThreeClick">
                                 <v-icon  color="white" left>{{IconAudio}}</v-icon>
                                 Audio</v-btn>
                             
@@ -86,7 +86,7 @@ export default {
    data () {
       return {
         
-        stateprofil:false,
+        stateprofil:true,
         statekeamanan:false,
         stateaudio:false,
         SrcImgPet: require('@/assets/pet/jonipilihmatkul.svg'),

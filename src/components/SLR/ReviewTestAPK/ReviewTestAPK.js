@@ -9,6 +9,7 @@ export default {
 
   props: {
     dialogReviewTestAPK: Boolean,
+    dialogHasilTestAPK: Boolean
     
   }, 
 

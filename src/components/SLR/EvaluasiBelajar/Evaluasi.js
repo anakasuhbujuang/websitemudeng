@@ -1,22 +1,39 @@
-import TodoInput from '@/components/SLR/EvaluasiBelajar/TodoInput.vue';
-import TodoItem from '@/components/SLR/EvaluasiBelajar/TodoItem.vue';
+import TodoItemEvaluasi from '@/components/SLR/EvaluasiBelajar/TodoItemEvaluasi.vue';
+import ReviewEvaluasi from '@/components/SLR/ReviewEvaluasi/ReviewEvaluasi.vue';
+import TodoItemReviewEvaluasi from '@/components/SLR/ReviewEvaluasi/TodoItemReviewEvaluasi.vue';
+
+import { mdiStar } from '@mdi/js';
+import { mdiClipboardText } from '@mdi/js';
 
 export default {
-  name: 'PaginationReal2',
+  name: 'Evaluasi',
+
+  components: {
+    'todo-item': TodoItemEvaluasi,
+    ReviewEvaluasi,
+    'todo-item-review' : TodoItemReviewEvaluasi
+  },
+
+  props: {
+    
+  },
+
   data() {
     return {
+
+      isValidEvaluasi: true,
       todos: [
         
-        {id: 1, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D', selected:''},
-        {id: 2, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 3, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 4, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 5, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 6, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 7, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 8, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
-        {id: 9, text: "Todo # 9" , A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:''},
-        {id: 10, text: "Todo # 10", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'' },
+        {id: 1, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D', selected:'', jawabantrue:'C. Jawaban C'},
+        {id: 2, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'', jawabantrue:'C. Jawaban C' },
+        {id: 3, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'',  jawabantrue:'C. Jawaban C' },
+        {id: 4, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'', jawabantrue:'C. Jawaban C' },
+        {id: 5, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'', jawabantrue:'C. Jawaban C' },
+        {id: 6, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'', jawabantrue:'C. Jawaban C' },
+        {id: 7, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'', jawabantrue:'C. Jawaban C' },
+        {id: 8, text: "Saya mempertimbangkan", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'', jawabantrue:'C. Jawaban C' },
+        {id: 9, text: "Todo # 9" , A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'',  jawabantrue:'C. Jawaban C'},
+        {id: 10, text: "Todo # 10", A:'A. Jawaban A', B:'B. Jawaban B', C:'C. Jawaban C', D:'D. Jawaban D',selected:'', jawabantrue:'C. Jawaban C' },
         
       ],
       nextId: 11,
@@ -25,14 +42,26 @@ export default {
       currentPage: 1,
    
       pageSize: 2,
-      visibleTodos: []
+      visibleTodos: [],
+
+      //dialogHasilEvaluasi
+      IconPoints: mdiStar,
+      IconScore: mdiClipboardText ,
+      NilaiEvaluasi: 50,
+      PointsEvaluasi: 250,
+      PassingGradeEvaluasi: 70,
+      SrcFighting: require('@/assets/pet/jonifighting200.png'),
+      SrcReward: require('@/assets/pet/jonireward200.png'),
+      dialogHasilEvaluasi: false,
+      
+
+     //dialog review
+      dialogReviewEvaluasi: false,
+      
     };
   },
 
-  components: {
-    TodoInput,
-    TodoItem,
-  },
+ 
 
   beforeMount: function() {
     this.updateVisibleTodos();
@@ -79,6 +108,7 @@ export default {
 
     Submit(){
       console.log(this.todos);
+      this.dialogHasilEvaluasi = true;
     }
      
   

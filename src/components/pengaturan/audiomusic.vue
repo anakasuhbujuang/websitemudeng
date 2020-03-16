@@ -48,9 +48,8 @@
         <v-row justify="center">
             <v-col md="11">
                  <v-btn 
-                    
                     color="teal darken-4 white--text"
-                    class=" mr-4"
+                    class=" mr-4 subtitle-2 font-weight-bold"
                     block
                     >SIMPAN
                     </v-btn>

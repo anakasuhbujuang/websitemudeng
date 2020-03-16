@@ -12,7 +12,7 @@
             <v-col md="2"  >
               <v-btn
               color="teal darken-4 white--text"
-              block class="subtitle-1 "
+              block class="subtitle-2 font-weight-bold"
               @click.stop="dialogSummQuiz = true"
               >LANJUTKAN</v-btn>
             </v-col>
@@ -63,7 +63,7 @@
 
                           <v-chip-group
                             column multiple max="3"
-                            active-class="teal darken-3 white--text"  
+                            active-class="teal darken-2 white--text"  
                             style="box-shadow:none;" 
                             v-model="selected">
 
@@ -82,7 +82,10 @@
                           <v-row justify="center" class="mt-12 pt-4">
                             <v-col md="2">
                               <!-- <p>{{selected}}</p> -->
-                                <v-btn  color="teal darken-3" @click.stop="nextStepSummQuiz()" block dark>PILIH</v-btn>
+                                <v-btn  color="teal darken-4 white--text" 
+                                class="subtitle-2 font-weight-bold"
+                                @click.stop="nextStepSummQuiz()" block >PILIH</v-btn>
+                                
                             </v-col>
                           </v-row>
                           
@@ -97,6 +100,7 @@
                               </v-col>
                             </v-row>
 
+                          <v-form v-model="isValidDeskripsi">
                           <v-row v-for="(selected,i) in selected" :key="i" justify="center" class="mb-4" no-gutters>
                             <v-col md="6">
                               <p v-if="selected === 0" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[0] }} :</p>
@@ -110,14 +114,25 @@
                               <p v-else-if="selected === 8" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[8] }} :</p>
                               <p v-else-if="selected === 9" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[9] }} :</p>
 
-                                <v-textarea v-model="isisummary[i]" rows="1" no-resize filled outlined style="border-radius:5px; box-color:white;"></v-textarea>
                               
+                                <v-textarea v-model="isisummary[i]" :rules="rulesdeskripsi"
+                                rows="1" no-resize outlined 
+                                label="Deskripsi"
+                                color="teal darken-2"
+                                style="border-radius:5px; "></v-textarea>
+                              
+
                             </v-col>
                           </v-row>
+                          </v-form>
+                          
                           
                           <v-row justify="center">
                             <v-col md="2">
-                                <v-btn  color="teal darken-4" @click="SubmitSummQuiz()" block dark>KUMPULKAN</v-btn>
+                                <v-btn :disabled="!isValidDeskripsi" 
+                                color="teal darken-4  white--text" 
+                                class="subtitle-2 font-weight-bold"
+                                @click="SubmitSummQuiz()" block>KUMPULKAN</v-btn>
                             </v-col>
                           </v-row>
 
@@ -162,6 +177,10 @@ export default {
       dialogSummQuiz: false,  
       TitleMateri:'Algoritma dan Struktur Data',
 
+      isValidDeskripsi: true,
+      rulesdeskripsi: 
+        [v => !!v || 'Wajib diisi',],
+
       tags: [
         'Work', 
         'Home', 
@@ -177,7 +196,7 @@ export default {
 
       isisummary: ['','','',],
 
-      selected: '',
+      selected: null,
       
 
        statekeyword: true,
@@ -203,6 +222,7 @@ export default {
         this.dialogSummQuiz=false;
         this.$emit('SubmitSummQuiz');
         },
+       
     }
    
 }

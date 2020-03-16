@@ -19,9 +19,7 @@
             v-bind:todo="todo"
             >
             </todo-item>
-           
-
-
+   
            <!-- QUESTION TEXT END-->
 
       </v-col>
@@ -30,7 +28,7 @@
      <v-row justify="center" no-gutters class="mb-2">
 
        <v-col md="2" class="text-start pl-9 pt-2">
-         <v-btn @click="PilihMateri()" block color="teal darken-3 white--text" class="caption">Pilih Materi</v-btn>
+         <!-- <v-btn @click="PilihMateri()" block color="teal darken-3 white--text" class="subtitle-2 font-weight-bold">Pilih Materi</v-btn> -->
        </v-col>
 
         <v-col md="8" class="text-center">
@@ -50,7 +48,8 @@
        </v-col>
       
        <v-col md="2" class="text-end pr-9 pt-2">
-         <v-btn @click="CloseReview()" block color="teal darken-3 white--text" class="caption">Lanjut Belajar</v-btn>
+         <v-btn @click="CloseReview()" block color="teal darken-3 white--text" 
+         class="subtitle-2 font-weight-bold">Lanjut Belajar</v-btn>
        </v-col>
       
      </v-row>

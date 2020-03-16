@@ -83,10 +83,10 @@
                     <v-btn 
                       :disabled="!isValidDaftar"
                       color="teal darken-4 white--text"
-                      class="mr-4"
+                      class="mr-4 subtitle-2 font-weight-bold"
                       block
                       @click="validate"
-                      
+                      router to="/PilihPet"
                       > DAFTAR </v-btn>
                         
                       <v-row>

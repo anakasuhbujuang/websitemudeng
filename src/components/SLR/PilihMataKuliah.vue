@@ -26,6 +26,7 @@
                       <v-row>
                         <v-col>
                           <v-btn block color="teal darken-4 white--text"
+                          class="subtitle-2 font-weight-bold"
                           height="50px" @click="nextStepToPilihMataKuliah()">
                           ALGORITMA DAN STRUKTUR DATA</v-btn>
                         </v-col>
@@ -34,6 +35,7 @@
                       <v-row justify="end">
                         <v-col md="5">
                           <v-btn color="teal darken-2 white--text" block disabled
+                          class="subtitle-2 font-weight-bold"
                           @click="nextStepToPilihMataKuliah()">TAMBAH KELAS</v-btn>
                         </v-col>
                       </v-row>

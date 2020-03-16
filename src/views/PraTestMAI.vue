@@ -44,7 +44,7 @@
                   <v-card-actions>
                       <v-btn block
                       color="teal darken-4 white--text"
-                      class="subtitle-1 "
+                      class="subtitle-2 font-weight-bold"
                       router to="/TestMAI">MULAI
                       </v-btn>
                   </v-card-actions>

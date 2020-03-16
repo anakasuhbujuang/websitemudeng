@@ -60,4 +60,31 @@
   </div>
 </template>
 
-<script src="@/components/SLR/ReviewTestAPK/todoItemReviewTestAPK.js"></script>
+<script>
+export default {
+  name: 'todo-item',
+  components: {
+  },
+
+  // props: ['todo'],
+  props: { todo:Array,
+    isValidTestAPK: Boolean
+  },
+
+  data() {
+    return {
+      rulesjawabanTestAPK: 
+        [v => !!v || 'Wajib diisi',],
+    };
+  },
+  
+  methods: {
+   
+    // isValidTestAPK(){
+    //   this.$emit('isValidTestAPK');
+
+    // }
+
+  }
+}
+</script>

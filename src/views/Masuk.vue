@@ -54,7 +54,7 @@
                         <v-btn 
                             :disabled="!isValidFormMasuk"
                             color="teal darken-4 white--text"
-                            class=" mr-4"
+                            class=" mr-4 subtitle-2 font-weight-bold"
                             block
                             @click="validate"
                            
@@ -123,7 +123,7 @@
                                     <v-btn 
                                         :disabled="!isValidLupaKataSandi"
                                         color="teal darken-4 white--text"
-                                        class=" mr-4"
+                                        class=" mr-4 subtitle-2 font-weight-bold "
                                         block
                                         @Click="SendEmail()"
                                         > Kirim

@@ -12,7 +12,7 @@
             <v-col md="2"  >
               <v-btn
               color="teal darken-4 white--text"
-              block class="subtitle-1 "
+              block class="subtitle-2 font-weight-bold "
               @click="dialogMappQuiz = true"
               >LANJUTKAN</v-btn>
             </v-col>
@@ -31,7 +31,8 @@
                 style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
 
               <div style="margin-bottom:5px" class="text-center"> 
-                <strong> <a  href="//www.slideshare.net/viruzsystem/algoritma-powerpoint" title="Algoritma powerpoint" target="_blank">Algoritma powerpoint</a> </strong> from 
+                <strong> <a  href="//www.slideshare.net/viruzsystem/algoritma-powerpoint" title="Algoritma powerpoint" target="_blank">
+                Algoritma powerpoint</a> </strong> from 
                 <strong><a href="https://www.slideshare.net/viruzsystem" target="_blank">Irwin andriyanto</a></strong> 
               </div>
             </v-col>
@@ -69,8 +70,10 @@
                           <v-col md="10">
                             <v-card dense flat
                               color="grey lighten-4" class="d-flex justify-center align-center">
-                                <v-card-text class="caption text-start  grey--text text--darken-3 font-weight-medium" >Buatlah diagram berisi ringkasan materi yang telah kamu pelajari. Contoh 
-                                  <a href="https://www.slideshare.net/viruzsystem" target="_blank"><u  class=" caption teal--text text--darken-4 font-weight-bold" >klik disini.</u></a>
+                                <v-card-text class="caption text-start  grey--text text--darken-3 font-weight-medium" >
+                                  Buatlah diagram berisi ringkasan materi yang telah kamu pelajari. Contoh 
+                                  <a href="https://www.slideshare.net/viruzsystem" target="_blank">
+                                  <u  class=" caption teal--text text--darken-4 font-weight-bold" >klik disini.</u></a>
                                 </v-card-text>
                             </v-card>
                           </v-col>
@@ -81,7 +84,8 @@
                         <v-row justify="start" class="my-4">
                           <v-col md="1"></v-col>
                           <v-col md="3">
-                            <v-btn color="teal darken-4" class="subtitle-2" href="https://app.diagrams.net/" target="_blank" block outlined>Buat Diagram</v-btn>
+                            <v-btn color="teal darken-4" class="subtitle-2 font-weight-bold" 
+                            href="https://app.diagrams.net/" target="_blank" block outlined>Buat Diagram</v-btn>
                           </v-col>
                         </v-row>
 
@@ -121,7 +125,11 @@
 
                         <v-row justify="center" class="mt-5">
                           <v-col md="3">
-                              <v-btn :disabled="!isValidUnggah" block color="teal darken-4 white--text" @click="SubmitMappQuiz()">Kumpulkan</v-btn>
+                              <v-btn :disabled="!isValidUnggah" block 
+                              color="teal darken-4 white--text"
+                              class="subtitle-2 font-weight-bold"
+                              @click="SubmitMappQuiz()">
+                              Kumpulkan</v-btn>
                           </v-col>
                         </v-row>
 
@@ -132,7 +140,7 @@
                         <!-- <v-row justify="center" class="mt-12 pt-4">
                           <v-col md="2">
                             
-                              <v-btn  color="teal darken-4 white--text" @click.stop="nextStepMappQuiz()" block >PILIH</v-btn>
+                              <v-btn  color="teal darken-4 white--text" @click.stop="nextStepMappQuiz()" class="subtitle-2 font-weight-bold" block >PILIH</v-btn>
                           </v-col>
                         </v-row> -->
                           

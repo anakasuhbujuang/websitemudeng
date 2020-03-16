@@ -49,7 +49,8 @@
        </v-col>
       
        <v-col md="2" class="text-end pr-9 pt-2">
-         <v-btn  :disabled="!isValidTestAPK" v-if="showSubmitLink()" @click="SubmitAPK()" block color="teal darken-3 white--text" class="caption">Kumpulkan</v-btn>
+         <v-btn  :disabled="!isValidTestAPK" v-if="showSubmitLink()" @click="SubmitAPK()" block 
+         color="teal darken-4 white--text" class="subtitle-2 font-weight-bold">Kumpulkan</v-btn>
        </v-col>
       
      </v-row>
@@ -58,4 +59,5 @@
 </template>
 
 
-<script src="@/components/SLR/TestAPK/TestAPK.js"></script>
+<script src="@/components/SLR/TestAPK/TestAPK.js">
+</script>

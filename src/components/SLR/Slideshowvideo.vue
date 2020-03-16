@@ -57,7 +57,7 @@
               <v-row justify="end" class="pr-11">
                 <v-col md="4">
                   <v-btn color="teal darken-4 white--text"
-                  block class="subtitle-1" @click.stop="dialogQuizControlVideo = true">
+                  block class="subtitle-2 font-weight-bold" @click.stop="dialogQuizControlVideo = true">
                   Lanjutkan</v-btn>
                 </v-col>
               </v-row>
@@ -101,8 +101,10 @@
 
                     <v-row justify="center"  class="mt-4">
                       <v-col md="2">
-                        <v-btn :disabled="!isValidQuizControlVideo" @click="SubmitVideoQuiz()"
-                        color="teal darken-4 white--text" class="subtitle-2" block>KUMPULKAN</v-btn>
+                        <v-btn :disabled="!isValidQuizControlVideo" 
+                        @click="SubmitVideoQuiz()"
+                        color="teal darken-4 white--text" 
+                        class="subtitle-2 font-weight-bold" block>KUMPULKAN</v-btn>
                       </v-col>
                     </v-row>
                   </v-img>

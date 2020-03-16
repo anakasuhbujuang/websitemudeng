@@ -28,17 +28,20 @@
 
                     <v-card-actions class="pt-5">
                         <v-btn v-if="item.Jenis == 'Video'" 
-                        color="teal darken-4" dark block 
+                        color="teal darken-4 white--text" block
+                        class="subtitle-2 font-weight-bold" 
                         @click="nextStepVideo()">PILIH
                         </v-btn>
 
                         <v-btn v-else-if="item.Jenis == 'Summary'"
-                        color="teal darken-4" dark block
+                        color="teal darken-4 white--text" block
+                        class="subtitle-2 font-weight-bold"
                         @click="nextStepSumm()">PILIH
                         </v-btn>
 
                         <v-btn v-else 
-                        color="teal darken-4" dark block 
+                        color="teal darken-4 white--text" block 
+                        class="subtitle-2 font-weight-bold"
                         @click="nextStepMapp()">PILIH
                         </v-btn>
 

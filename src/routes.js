@@ -7,15 +7,11 @@ import coba2 from './views/coba2.vue'
 import coba3 from './views/coba3.vue'
 import PraTestMAI from './views/PraTestMAI.vue'
 import TestMAI from './views/TestMAI/TestMAI.vue'
-import CobaTestMAI from './views/CobaTestMAI.vue'
-import HasilTestMAI from './views/HasilTestMAI.vue'
 import Dashboard from './views/Dashboard.vue'
 import ProsesBelajar from './views/ProsesBelajar.vue'
 import Informasi from './views/Informasi.vue'
 import Pengaturan from './views/Pengaturan.vue'
-import PaginationReal from './views/pagination/PaginationReal.vue'
 import PageReviewEval from './views/ReviewEval/PageReviewEval.vue'
-// import drawing from './views/drawing/drawing.vue'
 
 export default [
             { 
@@ -65,18 +61,6 @@ export default [
                 component: TestMAI
             },
             {
-                path: '/CobaTestMAI',
-                name: 'CobaTestMAI',
-                component: CobaTestMAI
-        
-            },
-            {
-                path: '/HasilTestMAI',
-                name: 'HasilTestMAI',
-                component: HasilTestMAI
-        
-            },
-            {
                 path: '/Dashboard',
                 name: 'Dashboard',
                 component: Dashboard
@@ -103,23 +87,12 @@ export default [
             },
            
             {
-                path: '/PaginationReal',
-                name: 'PaginationReal',
-                component: PaginationReal
-        
-            },
-            {
                 path: '/ReviewEvaluasiBelajar',
                 name: 'PageReviewEval',
                 component: PageReviewEval
         
             },
-            // {
-            //     path: '/drawing',
-            //     name: 'drawing',
-            //     component: drawing
-        
-            // },
+            
             
 ]
 

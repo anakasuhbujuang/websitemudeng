@@ -13,7 +13,7 @@
                 </v-avatar>
                 <br>
                 <br>
-                <v-btn small color="teal darken-3 " dark>UNGGAH FOTO
+                <v-btn small color="teal darken-3 white--text" class="subtitle-2 font-weight-bold" dark>UNGGAH FOTO
                     <v-icon  color="white" right>{{IconUnggahFoto}}</v-icon>
                 </v-btn>
             </v-col>
@@ -68,12 +68,9 @@
                         <v-btn 
                             :enabled="!valid"
                             color="teal darken-4 white--text"
-                            class=" mr-4"
+                            class=" mr-4 subtitle-2 font-weight-bold"
                             block
-                            
-                          
                             >SIMPAN
-                            
                         </v-btn>
                         
                         
