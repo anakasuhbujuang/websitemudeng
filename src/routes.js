@@ -11,7 +11,6 @@ import Dashboard from './views/Dashboard.vue'
 import ProsesBelajar from './views/ProsesBelajar.vue'
 import Informasi from './views/Informasi.vue'
 import Pengaturan from './views/Pengaturan.vue'
-import PageReviewEval from './views/ReviewEval/PageReviewEval.vue'
 
 export default [
             { 
@@ -86,12 +85,7 @@ export default [
         
             },
            
-            {
-                path: '/ReviewEvaluasiBelajar',
-                name: 'PageReviewEval',
-                component: PageReviewEval
         
-            },
             
             
 ]
