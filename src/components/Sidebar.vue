@@ -157,7 +157,7 @@ export default {
 
       SrcKeluar: require('@/assets/pet/asih200.png'),
 
-      dialogLogot: false,
+      dialogLogout: false,
 
       Nama:'Jihaan Nadhiya',
       SrcImg: require('@/assets/pet/asih200.png'),

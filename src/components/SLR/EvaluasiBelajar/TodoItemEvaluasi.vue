@@ -14,7 +14,7 @@
             class="d-flex justify-center align-center"
             flat 
           >
-              <v-card-text class="caption text-start  grey--text text--darken-3 font-weight-medium" >{{todo.text}}
+              <v-card-text class="subtitle-2 text-start  grey--text text--darken-3 font-weight-medium" >{{todo.text}}
               </v-card-text>
               
           </v-card>
@@ -34,13 +34,13 @@
 
             <v-row justify="start">
               <v-col md="2">
-                <v-radio-group :rules="rulesjawabanevaluasi" class=" grey--text text--darken-3 font-weight-medium" v-model="todo.selected"  column>
+                <v-radio-group :rules="rulesjawabanevaluasi" class="  grey--text text--darken-3 font-weight-medium" v-model="todo.selected"  column>
                     <v-radio  color="teal darken-3" :label="todo.A" :value="todo.A" ></v-radio>
                     <v-radio  color="teal darken-3" :label="todo.B" :value="todo.B" ></v-radio>
                 </v-radio-group>
               </v-col>
               <v-col md="2">
-                 <v-radio-group :rules="rulesjawabanevaluasi" class=" grey--text text--darken-3 font-weight-medium" v-model="todo.selected" column>
+                 <v-radio-group :rules="rulesjawabanevaluasi" class="subtitle-2 grey--text text--darken-3 font-weight-medium" v-model="todo.selected" column>
                     <v-radio  color="teal darken-3" :label="todo.C" :value="todo.C" ></v-radio>
                     <v-radio  color="teal darken-3" :label="todo.D" :value="todo.D" ></v-radio>
                  </v-radio-group>

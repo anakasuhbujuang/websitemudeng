@@ -52,7 +52,7 @@
                             </v-col>
                         </v-row>
                         <v-row justify="center">
-                            <v-col md="8" class=" pt-4" >
+                            <v-col md="8" class=" pt-4 mb-4" >
                                 <v-img :src="SrcImgPet"></v-img>
                             </v-col>
                         </v-row>

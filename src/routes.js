@@ -109,21 +109,4 @@ export default [
 //     }
 //     ]
 
-// export default ({
-//     node: 'history',
-//     base: process.env.BASE_URL,
-//     router: [
-//        { 
-//         path: '/',
-//         name: "Masuk",
-//         component: Masuk
-//     },
-//     {
-//         path: '/daftar',
-//         name: "Daftar",
-//         component: Daftar
 
-//     }
-//     ]
-
-//  })

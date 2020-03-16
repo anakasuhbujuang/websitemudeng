@@ -58,19 +58,19 @@
               <v-row justify="center" class="mt-8 " no-gutters>
                 
                 <v-col md="1" class="text-center">
-                  <v-icon size="28px" color="grey darken-3">{{IconScore}}</v-icon>
+                  <v-icon small color="grey darken-3">{{IconScore}}</v-icon>
                 </v-col>
 
-                <v-col md="2" class="pl-1">
-                  <p class="title grey--text text--darken-3 font-weight-bold">{{NilaiEvaluasi}}</p>
+                <v-col md="1" class="pl-1">
+                  <p class="subtitle-1 grey--text text--darken-3 font-weight-bold">{{NilaiEvaluasi}}</p>
                 </v-col>
 
                 <v-col md="1" class="text-center">
-                  <v-icon size="28px" color="grey darken-3">{{IconPoints}}</v-icon>
+                  <v-icon small color="grey darken-3">{{IconPoints}}</v-icon>
                 </v-col>
 
-                <v-col md="2" class="pl-1">
-                  <p class="title grey--text text--darken-3 font-weight-bold">{{PointsEvaluasi}} pts</p>
+                <v-col md="3" class="pl-1">
+                  <p class="subtitle-1 grey--text text--darken-3 font-weight-bold">{{PointsEvaluasi}} pts</p>
                 </v-col>
                 
               </v-row>  

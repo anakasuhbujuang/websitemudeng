@@ -14,7 +14,7 @@
             color="grey lighten-4"
             class="d-flex justify-center align-center"
             flat >
-              <v-card-text class="caption text-start  grey--text text--darken-3 font-weight-medium" >{{todo.text}}
+              <v-card-text class="subtitle-2 text-start  grey--text text--darken-3 font-weight-medium" >{{todo.text}}
               </v-card-text>
               
           </v-card>
