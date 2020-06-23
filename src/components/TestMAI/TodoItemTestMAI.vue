@@ -25,7 +25,6 @@
         
         <v-card class="d-flex justify-center align-center"
           dense flat >  
-          
             
             <v-radio-group :rules="rulesjawabanTestMAI" class="grey--text text--darken-3 font-weight-medium" v-model="todo.selected"  row>
               <v-radio  color="teal darken-3" label="Tidak Pernah" :value="1" ></v-radio>
@@ -34,7 +33,7 @@
               <v-radio  color="teal darken-3" label="Sering" :value="4" ></v-radio>
               <v-radio  color="teal darken-3" label="Selalu" :value="5" ></v-radio>
             </v-radio-group>
-            
+            <!-- {{todo.selected}} -->
           </v-card>
 
       </v-col>

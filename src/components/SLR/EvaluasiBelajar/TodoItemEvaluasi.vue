@@ -33,13 +33,13 @@
           >  
 
             <v-row justify="start">
-              <v-col md="2">
+              <v-col md="6">
                 <v-radio-group :rules="rulesjawabanevaluasi" class="  grey--text text--darken-3 font-weight-medium" v-model="todo.selected"  column>
                     <v-radio  color="teal darken-3" :label="todo.A" :value="todo.A" ></v-radio>
                     <v-radio  color="teal darken-3" :label="todo.B" :value="todo.B" ></v-radio>
                 </v-radio-group>
               </v-col>
-              <v-col md="2">
+              <v-col md="6">
                  <v-radio-group :rules="rulesjawabanevaluasi" class="subtitle-2 grey--text text--darken-3 font-weight-medium" v-model="todo.selected" column>
                     <v-radio  color="teal darken-3" :label="todo.C" :value="todo.C" ></v-radio>
                     <v-radio  color="teal darken-3" :label="todo.D" :value="todo.D" ></v-radio>

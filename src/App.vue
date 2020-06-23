@@ -1,9 +1,11 @@
-<template >
+<template > 
   <v-app >
+     <vue-headful title="E-learning Mudeng"/>
     <v-content >
       <router-view></router-view>
     </v-content>
   </v-app>
+  
 </template>
 
 <script>

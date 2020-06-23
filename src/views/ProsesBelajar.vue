@@ -125,7 +125,7 @@
                       :StateEvaluasiBelajar="StateEvaluasiBelajar" 
                       :e1="e1" 
                       @SubmitMappQuiz="StateEvaluasiBelajar =true; e1= 5;"
-                      ></StrategiMapping>/>
+                      ></StrategiMapping>
 
                       <!-- <p>{{e1}} {{statevideo}} {{statesumm}} {{statemapp}}</p> -->
                     </v-stepper-content>
@@ -136,7 +136,7 @@
                         <v-card class="" color="white">
                           <v-stepper-content step="5">
                             <Evaluasi v-show="StateEvaluasiBelajar"/>
-                            <p>{{e1}} {{StateEvaluasiBelajar}} </p>
+                            <!-- <p>{{e1}} {{StateEvaluasiBelajar}} </p> -->
                           </v-stepper-content>
                         </v-card>
                       </v-col>

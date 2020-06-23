@@ -125,54 +125,54 @@
 let videos = [
     {
     id: 1,
-    title: "18-core iMac Pro Review: Not a Trap!",
+    title: "Algoritma dan Struktur Data : Tree I",
     thumbnail:
-      "https://i.ytimg.com/vi/jn9mHzXJIV0/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAvJvk4k_UNB9nst4pFP-txM1TLZA",
-    youtubeURL: "https://www.youtube.com/embed/jn9mHzXJIV0",
+      "https://i.ytimg.com/vi/i4CglDZfCJU/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAvJvk4k_UNB9nst4pFP-txM1TLZA",
+    youtubeURL: "https://www.youtube.com/embed/i4CglDZfCJU",
     creator: "Marques Brownlee",
     likes: 0,
     views: 0
   },
   {
     id: 2,
-    title: "Dope Tech: Camera Robots!",
+    title: "Algoritma dan Struktur Data : Tree II",
     thumbnail:
-      "https://i.ytimg.com/vi/UIwdCN4dV6w/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDhlan32jHSvicGZezDFPjAOdXGUA",
-    youtubeURL: "https://www.youtube.com/embed/UIwdCN4dV6w",
+      "https://i.ytimg.com/vi/qH6yxkw0u78/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDhlan32jHSvicGZezDFPjAOdXGUA",
+    youtubeURL: "https://www.youtube.com/embed/qH6yxkw0u78",
     creator: "Marques Brownlee",
     likes: 0,
     views: 0
   },
   {
     id: 3,
-    title: "Let's Talk About Tesla Roadster 2020!",
+    title: "Algoritma dan Struktur Data : Tree II",
     thumbnail:
-      "https://i.ytimg.com/vi/ctx4YBEdOxo/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBDnlrC2rVwXamNkicEEbc3Mf4T0w",
-    youtubeURL: "https://www.youtube.com/embed/ctx4YBEdOxo",
+      "https://i.ytimg.com/vi/oSWTXtMglKE/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBDnlrC2rVwXamNkicEEbc3Mf4T0w",
+    youtubeURL: "https://www.youtube.com/embed/oSWTXtMglKE",
     creator: "Marques Brownlee",
     likes: 0,
     views: 0
   },
-  {
-    id: 4,
-    title: "Talking Tech with Neil deGrasse Tyson!",
-    thumbnail:
-      "https://i.ytimg.com/vi/pqQrL1K0Z5g/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA5hTiwkz4Tr1w1hSMhPlwtmQeyYw",
-    youtubeURL: "https://www.youtube.com/embed/pqQrL1K0Z5g",
-    creator: "Marques Brownlee",
-    likes: 0,
-    views: 0
-  },
-  {
-    id: 5,
-    title: "The Apple Ecosystem: Explained!",
-    thumbnail:
-      "https://i.ytimg.com/vi/KB4_WIPE7vo/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCCxXm7aoPShOwON74nhMlGYMUkHw",
-    youtubeURL: "https://www.youtube.com/embed/KB4_WIPE7vo",
-    creator: "Marques Brownlee",
-    likes: 0,
-    views: 0
-  }
+  // {
+  //   id: 4,
+  //   title: "Talking Tech with Neil deGrasse Tyson!",
+  //   thumbnail:
+  //     "https://i.ytimg.com/vi/pqQrL1K0Z5g/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA5hTiwkz4Tr1w1hSMhPlwtmQeyYw",
+  //   youtubeURL: "https://www.youtube.com/embed/pqQrL1K0Z5g",
+  //   creator: "Marques Brownlee",
+  //   likes: 0,
+  //   views: 0
+  // },
+  // {
+  //   id: 5,
+  //   title: "The Apple Ecosystem: Explained!",
+  //   thumbnail:
+  //     "https://i.ytimg.com/vi/KB4_WIPE7vo/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCCxXm7aoPShOwON74nhMlGYMUkHw",
+  //   youtubeURL: "https://www.youtube.com/embed/KB4_WIPE7vo",
+  //   creator: "Marques Brownlee",
+  //   likes: 0,
+  //   views: 0
+  // }
 ];
 
 
@@ -198,48 +198,8 @@ let videos = [
         activeVideo: videos[0],
 
         tags: [
-        'Work',
-        'Home Improvement',
-        'Vacation',
-        'Food',
-        'Drawers',
-        'Shopping',
-        'Art',
-        'Tech',
-        'Creative Writing',
-        'Food',
-        'Drawers',
-        'Shopping',
-        'Art',
-        'Tech',
-        'Creative Writing',
-        'Food',
-        'Drawers',
-        'Shopping',
-        'Art',
-        'Tech',
-        'Creative Writing',
-        'Food',
-        'Drawers',
-        'Shopping',
-        'Art',
-        'Tech',
-        'Creative Writing',
-        'Food',
-        'Drawers',
-        'Shopping',
-        'Art',
-        'Tech',
-        'Creative Writing',
-        'Food',
-        'Drawers',
-        'Shopping',
-        'Art',
-        'Tech',
-        'Creative Writing',
-        'Food',
-        'Drawers',
-        
+          'Root', 'Ancestoor', 'Predecessor','Successor','Descendant','Node Child','Leaf', 'Degree','SubTree','Binnary Tree','Skewed binary Tree','PreOrder (Depth First Order)','InOrder (Symetric Order)',
+        'Lost Child','Inner Circle','Legacy','Counting  Star','Palm Tree','Order on Book','Skewed Role','Binnary Valley','Failed Counting','Silk Tree',
       ],
 
       selected: '',

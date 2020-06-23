@@ -65,7 +65,7 @@
                             :enabled="!valid"
                             color="teal darken-4 white--text"
                             class=" mr-4 subtitle-2 font-weight-bold"
-                            block
+                            block @click="simpan()"
                             >SIMPAN
                             
                         </v-btn>
@@ -75,6 +75,43 @@
                     </v-form>
             </v-col>
         </v-row>
+
+         <!-- DIALOG SUKSES -->
+         <v-dialog v-model="dialogUpdateKeamananSukses" persistent max-width="300px" >
+          <v-card 
+          color="white"
+          width="300px"
+          height="350px"
+          class=""
+          style="overflow-x:hidden;">
+
+            <v-card-media justify-center >
+                <v-img :src="srcDialogSukses"></v-img>
+            </v-card-media>
+
+            <v-row justify="center" class="mt-4 " no-gutters>
+              <v-col md="8">
+                    <p class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold">Sukses</p>
+              </v-col>
+            </v-row>   
+
+            <v-row justify="center" no-gutters class="mb-4">
+              <v-col md="11">
+                <p class="body-2 text-center grey--text  font-weight-regular">Perubahan berhasil diperbarui.</p>
+              </v-col>
+            </v-row>     
+
+            <v-row no-gutters class="">
+              <v-col class="px-2 pb-2 pa-1">
+                <v-btn block color="teal darken-4 white--text" 
+                class="subtitle-2 font-weight-bold"
+                @click.stop="dialogUpdateKeamananSukses=false;">OK</v-btn>
+              </v-col>
+            </v-row>
+                
+          </v-card>
+        </v-dialog>
+        <!-- DIALOG SUSKES -->
     </div>
 </template>
 
@@ -91,6 +128,9 @@ export default {
 
    data () {
       return {
+        
+        srcDialogSukses: require('@/assets/pet/asihreward200.png'),
+        dialogUpdateKeamananSukses: false,
 
           // //*******Password Lama*****
         show1: false,
@@ -116,6 +156,12 @@ export default {
         
       }
     },
+
+      methods:{
+        simpan(){
+            this.dialogUpdateKeamananSukses = true;
+        }
+    }
     // methods: {
     //       validate () {
     //         if (this.$refs.form.validate()) {

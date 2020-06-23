@@ -1,0 +1,74 @@
+{
+  "users" :[
+    {"id":1,
+      "NamaPengguna":"Jihaan Nadhiya",
+      "nim":"16/395400/TK/12345",
+      "Email":"jihaan@mail.ugm.ac.id",
+      "Password":"12345678",
+      "srcProfpic":"https://svgshare.com/i/MFU.svg"
+    },
+    {"id":2,
+      "NamaPengguna":"Budi Cahyono",
+      "nim":"16/176890/TK/12890",
+      "Email":"budi@mail.ugm.ac.id",
+      "Password":"12345678",
+      "srcProfpic":"https://svgshare.com/i/MFV.svg"
+    },
+    {"id":3,
+      "NamaPengguna":"Sunny Milea",
+      "nim":"16/098765/TK/12678",
+      "Email":"sunny@mail.ugm.ac.id",
+      "Password":"12345678",
+      "srcProfpic":"https://svgshare.com/i/MDS.svg"
+    },
+    {"id":4,
+      "NamaPengguna":"Teddy Aditya",
+      "nim":"16/456890/TK/12890",
+      "Email":"teddy@mail.ugm.ac.id",
+      "Password":"12345678",
+      "srcProfpic":"https://svgshare.com/i/MDv.svg"
+    }
+    
+  ],
+  "evaluasi":[
+    {"id": 1, 
+      "text": "Node yang berada diatas node tertentu disebut", 
+      "A":"A. Lonecesstor", "B":"B. Tree", "C":"'C. Ancesstor'", "D":"'D. Predecessor'", 
+      "selected":"", "jawabantrue":"'D. Predecessor'"},
+      
+    {"id": 2, 
+      "text": "Node yang berada diatas node tertentu disebut", 
+      "A":"A. Lonecesstor", "B":"B. Tree", "C":"'C. Ancesstor'", "D":"'D. Predecessor'", 
+      "selected":"", "jawabantrue":"'D. Predecessor'"},
+
+    {"id": 3, 
+      "text": "Node yang berada diatas node tertentu disebut", 
+      "A":"A. Lonecesstor", "B":"B. Tree", "C":"'C. Ancesstor'", "D":"'D. Predecessor'", 
+      "selected":"", "jawabantrue":"'D. Predecessor'"},
+
+    {"id": 4, 
+      "text": "Node yang berada diatas node tertentu disebut", 
+      "A":"A. Lonecesstor", "B":"B. Tree", "C":"'C. Ancesstor'", "D":"'D. Predecessor'", 
+      "selected":"", "jawabantrue":"'D. Predecessor'"}
+
+  ],
+
+  "jawabanevaluasi":[
+    {
+      "id":1,
+      "jawaban":""
+    },
+    {
+      "id":2,
+      "jawaban":""
+    },
+    {
+      "id":3,
+      "jawaban":""
+    },
+    {
+      "id":4,
+      "jawaban":""
+    }
+  ]
+}

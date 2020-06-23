@@ -7,7 +7,7 @@
           <v-row justify="center" no-gutters class="pt-2 px-4">
             <v-col md="10" >
                 <p class="title red--text text--accent-1 font-weight-medium">{{TitleMateri}} : 
-                  <span class="title red--text text--accent-1 font-weight-regular">Sorting PART 1</span></p>
+                  <span class="title red--text text--accent-1 font-weight-regular">Tree</span></p>
             </v-col>
             <v-col md="2"  >
               <v-btn
@@ -26,14 +26,19 @@
 
           <v-row justify="center" class="pt-2">
             <v-col md="12" class="text-center">
-              <iframe src="//www.slideshare.net/slideshow/embed_code/key/DOwXVFSP1RorAM" styel="max-width: 100%; height: auto;" 
-                width="1000px" height="500px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" 
-                style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
+            
+                <iframe src="//www.slideshare.net/slideshow/embed_code/key/lmSmaSN07udXNK" 
+                width="668" height="714" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" 
+                style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> 
+                </iframe> 
+                
+                <div style="margin-bottom:5px"> 
+                  <strong> <a href="//www.slideshare.net/BintangWijaya5/buku-struktur-data-pages111122" title="Buku struktur data pages-111-122" target="_blank">Buku struktur data pages-111-122</a> 
+                  </strong> from <strong><a href="https://www.slideshare.net/BintangWijaya5" target="_blank">BintangWijaya5</a></strong> 
+                </div>
+            
 
-              <div style="margin-bottom:5px" class="text-center"> 
-                <strong> <a  href="//www.slideshare.net/viruzsystem/algoritma-powerpoint" title="Algoritma powerpoint" target="_blank">Algoritma powerpoint</a> </strong> from 
-                <strong><a href="https://www.slideshare.net/viruzsystem" target="_blank">Irwin andriyanto</a></strong> 
-              </div>
+              
             </v-col>
           </v-row>
           
@@ -182,16 +187,16 @@ export default {
         [v => !!v || 'Wajib diisi',],
 
       tags: [
-        'Work', 
-        'Home', 
-        'Vacation', 
-        'Food', 
-        'Drawers', 
-        'Data', 
-        'Chain', 
-        'Sorting', 
-        'Luxury', 
-        'Algoritma', 
+        'Root', 
+        'Ancestoor', 
+        'Predecessor',
+        'Successor',
+        'Descendant',
+        'Node Child',
+        'Leaf', 
+        'Degree',
+        'SubTree',
+        'Binnary Tree'
       ],
 
       isisummary: ['','','',],

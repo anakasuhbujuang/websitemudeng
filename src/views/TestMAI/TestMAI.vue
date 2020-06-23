@@ -41,12 +41,13 @@
                 <v-form  v-model="isValidTestMAI" >
                   <todo-item
                     v-for="todo in visibleTodos"
-                    v-bind:visibleTodos="visibleTodos"
-                    v-bind:currentPage="currentPage"
+                    v-bind:key="todo.id"
                     v-bind:todo="todo"
-                    :isValidTestMAI="isValidTestMAI"
-                    :key="todo.id">
+                    v-bind:isValidTestMAI="isValidTestMAI"
+                    >
                   </todo-item>
+                  <!-- v-bind:visibleTodos="visibleTodos"
+                    v-bind:currentPage="currentPage" -->
                 </v-form>
                 <!-- QUESTION TEXT END-->
 
@@ -66,7 +67,7 @@
                   v-on:input="updatePage(currentPage)"
                   circle
                   color="teal darken-3"
-                  :disabled="!isValidTestMAI"
+                  :disabled="!isValidTestMAI" 
                 ></v-pagination>
               </v-col>
               

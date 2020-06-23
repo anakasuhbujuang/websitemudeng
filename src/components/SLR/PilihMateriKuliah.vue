@@ -10,7 +10,7 @@
                 <v-list-item>
 
                   <v-list-item-avatar size="100">
-                    <v-img src="@/assets/pet/asihprofil.jpg"></v-img>
+                    <v-img :src="srcProfpicMateri"></v-img>
                   </v-list-item-avatar>
 
                   <v-list-item-content>
@@ -48,6 +48,18 @@
 
               <!-- CARDS-MATERI START -->
               <v-row justify="start" class="pl-4">
+                <!-- <v-col md="4"> 
+                  
+                </v-col>
+
+                <v-col md="4">
+
+                </v-col>
+
+                <v-col md="4">
+
+                </v-col> -->
+                
                 <v-col v-for="(item, i) in materi" :key="i" md="4">
 
                   <v-card color="white" height="315px">
@@ -68,11 +80,16 @@
                     </v-card-text>
 
                     <v-card-actions class="pt-2 my-0">
-                      <v-btn block v-if="item.hasil" color="teal darken-4 white--text"
+                      <v-btn block v-if=" item.hasil " color="teal darken-4 white--text"
                       class="subtitle-2 font-weight-bold" @click="nextStepToPilihStrategi()">PILIH</v-btn>
 
-                      <v-btn block v-else color="grey lighten-1 white--text"
-                      class="subtitle-2 font-weight-bold" @click.stop="dialogQuestion = true">PILIH</v-btn>
+                      <v-btn block v-else-if="item.id === 2" color="grey lighten-1 white--text"
+                      class="subtitle-2 font-weight-bold" @click.stop="dialogQuestionSorting = true">PILIH</v-btn>
+
+                      <v-btn block v-else-if="item.id === 3" color="grey lighten-1 white--text"
+                      class="subtitle-2 font-weight-bold" @click.stop="dialogQuestionSearch = true">PILIH</v-btn>
+
+
                     </v-card-actions>
                 </v-card>
               </v-col>
@@ -82,8 +99,8 @@
           </v-col>
         </v-row>
 
-        <!-- DIALOG QUESTION START-->
-        <v-dialog v-model="dialogQuestion" persistent max-width="350px" > 
+        <!-- DIALOG QUESTION SORTING START-->
+        <v-dialog v-model="dialogQuestionSorting" persistent max-width="350px" > 
           <v-card color="white" width="auto" height="auto"
           class="pb-2" style="overflow-x:hidden; overflow-y:hidden;">
 
@@ -106,12 +123,44 @@
             <v-row no-gutters class="px-2">
               <v-col class="pr-1">
                   <v-btn block color="teal darken-4 white--text" 
-                  class="subtitle-2 font-weight-bold" @click="dialogTestAPK = true ; dialogQuestion = false;"
+                  class="subtitle-2 font-weight-bold" @click="dialogTestAPK = true ; dialogQuestionSorting = false;"
                   >YA</v-btn>
               </v-col>
               <v-col>
                   <v-btn block color="teal darken-2 white--text" 
-                  class="subtitle-2 font-weight-bold" @click="dialogQuestion = false" >TIDAK</v-btn>
+                  class="subtitle-2 font-weight-bold" @click="dialogQuestionSorting = false" >TIDAK</v-btn>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-dialog>
+      <!-- DIALOG QUESTION SORTING END-->
+
+      <!-- DIALOG QUESTION SEARCH START-->
+        <v-dialog v-model="dialogQuestionSearch" persistent max-width="350px" > 
+          <v-card color="white" width="auto" height="auto"
+          class="pb-2" style="overflow-x:hidden; overflow-y:hidden;">
+
+            <v-card-media justify-center >
+                <v-img :src="SrcMateriLocked"></v-img>
+            </v-card-media>
+
+            <v-row justify="center" class="mt-5 " no-gutters>
+              <v-col md="8">
+                    <p class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold">Sayang Sekali</p>
+              </v-col>
+            </v-row>  
+
+            <v-row justify="center" no-gutters class="mb-3">
+                <v-col md="11">
+                    <p class="body-2 text-center grey--text  font-weight-regular">Kamu belum menyelesaikan materi 
+                        <br>sebelumnya. Yuk pelajari materi lainnya <br> terlebih dahulu.</p>
+                </v-col>
+            </v-row>       
+            <v-row no-gutters class="px-2">
+             
+              <v-col>
+                  <v-btn block color="teal darken-4 white--text" 
+                  class="subtitle-2 font-weight-bold" @click="dialogQuestionSearch = false" >PILIH MATERI</v-btn>
               </v-col>
             </v-row>
           </v-card>
@@ -257,9 +306,13 @@ export default {
 
       return {
 
+        // srcProfpicMateri: require('@/assets/profpic/materi.svg'),
+        srcProfpicMateri: 'https://svgshare.com/i/MF8.svg',
+
         //DIALOG
         SrcMateriLocked: require('@/assets/pet/asih200.png'),
-        dialogQuestion: false,
+        dialogQuestionSorting: false,
+        dialogQuestionSearch: false,
         dialogTestAPK: false,
         dialogHasilTestAPK: false,
         dialogReviewTestAPK: false,
@@ -273,6 +326,7 @@ export default {
         //Materi
          materi: [
         {
+          id :1,
           SrcImgMateri: require('@/assets/materi/tree.png'),
           SrcImgBMWMateri: require('@/assets/materi/treebmw.png'),
           hasil:'pass',
@@ -280,6 +334,7 @@ export default {
           DescMateri:'Struktur data yang terdiri dari akar (root), dan subpohon-subpohon dalam susunan berhirarki.',
         },
         {
+          id: 2,
           SrcImgMateri: require('@/assets/materi/sorting.png'),
           SrcImgBMWMateri: require('@/assets/materi/sortingbmw.png'),
           hasil: '',
@@ -287,6 +342,7 @@ export default {
           DescMateri:'Metode yang digunakan sebagai proses mengatur sekumpulan objek menurut susunan tertentu.',
         },
         {
+          id: 3,
           SrcImgMateri: require('@/assets/materi/search.png'),
           SrcImgBMWMateri: require('@/assets/materi/searchbmw.png'),
           hasil:'',
@@ -304,7 +360,7 @@ export default {
             this.$emit('nextStepToPilihStrategi')
         },
         NewTabRPKPS(){
-        window.open("https://drive.google.com/file/d/1hFpmHHrVNV_X-3PK9UMbTqFoTMPzckMV/view", '_blank');
+        window.open("https://drive.google.com/file/d/1EcypDb9ixrB4H6qVKne2-Gryd1gm9RXL/view?usp=sharing", '_blank');
       }
             
     }

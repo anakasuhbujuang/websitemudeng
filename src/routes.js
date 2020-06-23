@@ -12,6 +12,7 @@ import ProsesBelajar from './views/ProsesBelajar.vue'
 import Informasi from './views/Informasi.vue'
 import Pengaturan from './views/Pengaturan.vue'
 
+
 export default [
             { 
                 path: '/',
@@ -21,7 +22,7 @@ export default [
             {
                 path: '/Daftar',
                 name: 'Daftar',
-                component: Daftar
+                component: Daftar 
         
             },
             {
@@ -62,7 +63,8 @@ export default [
             {
                 path: '/Dashboard',
                 name: 'Dashboard',
-                component: Dashboard
+                component: Dashboard,
+                
         
             },
            

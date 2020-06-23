@@ -19,10 +19,10 @@ export default {
 
       todos: [
         
-        {id: 1, text: "Saya mempertimbangkan", jawaban:null},
-        {id: 2, text: "Saya mempertimbangkan", jawaban:null},
-        {id: 3, text: "Saya mempertimbangkan", jawaban:null},
-        {id: 4, text: "Saya mempertimbangkan", jawaban:null},
+        {id: 1, text: "Jelaskan pengertian struktur tree!", jawaban:null},
+        {id: 2, text: "Sebutkan implementasi dari binary tree!", jawaban:null},
+        {id: 3, text: "Apa saja hubungan antar elemen pada struktur tree ?", jawaban:null},
+        {id: 4, text: "Selain binary tree, sebutkan implementasi lainnya!", jawaban:null},
         
         
       ],

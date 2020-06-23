@@ -136,6 +136,40 @@
                         </v-dialog>
 
                         <!-- *******END LUPA KATA SANDI****** -->
+
+                        <!-- ******* BELUM TERDAFTAR****** -->
+                       
+                        <v-dialog
+                          v-model="dialogDaftar"
+                          max-width="400px">
+
+                          <v-card  class=""
+                          style="overflow-x:hidden;">
+                            <v-row class="pa-4" no-gutters>
+                              <v-col>
+                                <p class="body-1 text-center grey--text text--darken-2 font-weight-bold" 
+                                style="">Anda belum terdaftar.<br> </p> 
+                              </v-col>
+                            </v-row>
+                    
+                            <v-row class="px-4 pb-4" no-gutters>
+                              <v-col >
+                               
+                                    <v-btn 
+                                        color="teal darken-4 white--text"
+                                        class=" subtitle-2 font-weight-bold "
+                                        block
+                                        router to="/Daftar"
+                                        > DAFTAR SEKARANG
+                                    </v-btn>
+                                
+                              </v-col>
+                            </v-row>
+                            
+                          </v-card>
+                        </v-dialog>
+
+                        <!-- *******END BELUM TERDAFTAR***** -->
  
   </div>
 </template>
@@ -145,6 +179,7 @@ export default {
     data: () => ({
           snackbar: false,
           dialogLupaKataSandi: false,
+          dialogDaftar: false,
      
           SrcImgMasuk: require('@/assets/picwelcomepage.png'),
           SrcBgMasuk: require('@/assets/bg/bgmasuk.jpg'),
@@ -186,10 +221,14 @@ export default {
         console.log(this.EmailLupaKataSandi) 
       },
       validate () {
-      if(this.$refs.form.validate()){
-        console.log(this.NamaPengguna, this.Password)
+        if(this.$refs.form.validate()){
+          console.log(this.NamaPengguna, this.Password);
+          document.location.href = '/Dashboard';
+          }
+        else{
+          this.dialogDaftar = true;
         }
-      },
+        },
           // validate () {
           //   if (this.$refs.form.validate()) {
           //     this.snackbar = true
@@ -202,7 +241,7 @@ export default {
           //   this.$refs.form.resetValidation()
           // },
           
-          },
+        },
 
           
 

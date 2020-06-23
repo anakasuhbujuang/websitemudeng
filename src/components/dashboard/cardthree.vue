@@ -20,7 +20,7 @@
                 
                 <thead  >
                   <tr >
-                    <th style="border-top-left-radius:5px; background-color:#FF8A80;"  class="caption  white--text font-weight-bold">Subjek Belajar</th>
+                    <th style="border-top-left-radius:5px; border-top-right-radius:5px; background-color:#FF8A80;"  class="caption  white--text font-weight-bold">Subjek Belajar</th>
                     <th style="background-color:#FF8A80; " class="caption  white--text  font-weight-bold">Tanggal</th>
                     <th style="background-color:#FF8A80;" class="caption  white--text  font-weight-bold">Skor</th>
                     <th style="background-color:#FF8A80;" class="caption  white--text  font-weight-bold">Points</th>
@@ -53,59 +53,36 @@ export default {
      // CARD 3 : riwayat
       riwayat: [
           {
-          TitleMateri: 'Algoritma dan Stuktur Data: PART 1',
-          tanggal: '10 Oktober 2019',
+          TitleMateri: 'Algoritma dan Stuktur Data: Tree',
+          tanggal: '30 Oktober 2019',
           skor: 70,
           points: 150,
           },
            {
-          TitleMateri: 'Algoritma dan Stuktur Data: PART 1',
-          tanggal: '10 Oktober 2019',
-          skor: 70,
-          points: 150,
+          TitleMateri: 'Algoritma dan Stuktur Data: Search',
+          tanggal: '25 Oktober 2019',
+          skor: 80,
+          points: 200,
           },
            {
-          TitleMateri: 'Algoritma dan Stuktur Data: PART 1',
-          tanggal: '10 Oktober 2019',
-          skor: 70,
-          points: 150,
+          TitleMateri: 'Algoritma dan Stuktur Data: Sorting',
+          tanggal: '20 Oktober 2019',
+          skor: 75,
+          points: 180,
           },
            {
-          TitleMateri: 'Algoritma dan Stuktur Data: PART 1',
-          tanggal: '10 Oktober 2019',
-          skor: 70,
-          points: 150,
+          TitleMateri: 'Algoritma dan Stuktur Data: Sorting',
+          tanggal: '12 Oktober 2019',
+          skor: 82,
+          points: 210,
           },
            {
-          TitleMateri: 'Algoritma dan Stuktur Data: PART 1',
+          TitleMateri: 'Algoritma dan Stuktur Data: Tree',
           tanggal: '10 Oktober 2019',
-          skor: 70,
-          points: 150,
+          skor: 90,
+          points: 250,
           },
-           {
-          TitleMateri: 'Algoritma dan Stuktur Data: PART 1',
-          tanggal: '10 Oktober 2019',
-          skor: 70,
-          points: 150,
-          },
-           {
-          TitleMateri: 'Algoritma dan Stuktur Data: PART 1',
-          tanggal: '10 Oktober 2019',
-          skor: 70,
-          points: 150,
-          },
-           {
-          TitleMateri: 'Algoritma dan Stuktur Data: PART 1',
-          tanggal: '10 Oktober 2019',
-          skor: 70,
-          points: 150,
-          },
-           {
-          TitleMateri: 'Algoritma dan Stuktur Data: PART 1',
-          tanggal: '10 Oktober 2019',
-          skor: 70,
-          points: 150,
-          },     
+           
       ],
      
 

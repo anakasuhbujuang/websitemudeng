@@ -40,7 +40,7 @@
 
        <v-col md="2" class="text-end pr-9 pt-2">
          <v-btn :disabled="!isValidEvaluasi" v-if="showSubmitLink()" @click="Submit()" dense block
-         color="teal darken-4 white--text" class="subtitle-2 font-weight-bold">SELESAI</v-btn>
+         color="teal darken-4 white--text" class="subtitle-2 font-weight-bold">KUMPULKAN</v-btn>
        </v-col>
 
      </v-row>
@@ -152,7 +152,8 @@
                 v-bind:visibleTodos="visibleTodos"
                 v-bind:currentPage="currentPage"
                 v-bind:todo="todo"
-                :selectedevaluasi="todos.selected">
+                :selectedevaluasi="todos.selected"
+                >
               </todo-item-review>
               
              </v-col>

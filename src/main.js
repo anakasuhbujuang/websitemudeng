@@ -5,6 +5,10 @@ import Routes from './routes'
 
 import vuetify from './plugins/vuetify';
 
+//Title
+import vueHeadful from 'vue-headful';
+Vue.component('vue-headful', vueHeadful);
+
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 

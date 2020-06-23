@@ -11,7 +11,7 @@
             <v-list-item>
               
               <v-list-item-avatar size="30">
-                <v-img src="@/assets/pet/asih200.png"></v-img>
+                <v-img :src="srcProfpicUser"></v-img>
               </v-list-item-avatar>
 
               <v-list-item-content>
@@ -156,11 +156,12 @@ export default {
      data: () => ({
 
       SrcKeluar: require('@/assets/pet/asih200.png'),
+      
 
       dialogLogout: false,
 
       Nama:'Jihaan Nadhiya',
-      SrcImg: require('@/assets/pet/asih200.png'),
+      srcProfpicUser: require('@/assets/profpic/user1.svg'),
       Level:'5',
       ValueLevel:'40',
 

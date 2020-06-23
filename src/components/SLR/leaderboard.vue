@@ -11,7 +11,7 @@
           <v-col md="3" class="text-center">
             <p class="subtitle-1 text-center red--text text--accent-1  font-weight-bold">2nd</p>
             <v-avatar size="70">
-              <v-img src="@/assets/pet/asihprofil.jpg"></v-img>
+              <v-img :src="srcRank2"></v-img>
             </v-avatar>
             <v-row>
               <v-col>
@@ -24,7 +24,7 @@
           <v-col md="4" class="text-center">
             <p class="title text-center red--text text--accent-1  font-weight-bold">1st</p>
             <v-avatar size="100">
-              <v-img src="@/assets/pet/asihprofil.jpg"></v-img>
+              <v-img :src="srcRank1"></v-img>
             </v-avatar>
             <p class="caption text-center grey--text text--darken-2 font-weight-regular">
             <span class="subtitle-1 text-center grey--text text--darken-4  font-weight-bold">Matahari</span><br>1000 pts</p>
@@ -34,12 +34,12 @@
           <v-col md="3" class="text-center">
             <p class="subtitle-1 text-center red--text text--accent-1  font-weight-bold">3rd</p>
             <v-avatar size="70">
-                <v-img src="@/assets/pet/asihprofil.jpg"></v-img>
+                <v-img :src="srcRank3"></v-img>
             </v-avatar>
             <v-row>
               <v-col>
                   <p class="caption text-center grey--text text--darken-2 font-weight-regular">
-                    <span class="subtitle-2 text-center grey--text text--darken-4  font-weight-bold">Bulan</span><br>100 pts</p>
+                    <span class="subtitle-2 text-center grey--text text--darken-4  font-weight-bold">Bulan</span><br>400 pts</p>
               </v-col>
             </v-row>
           </v-col>
@@ -100,46 +100,49 @@ import { mdiStar } from '@mdi/js';
         
         //STEPPER
         e1: 1,
+        srcRank1:require('@/assets/profpic/user2.svg'),
+        srcRank2:require('@/assets/profpic/user3.svg'),
+        srcRank3:require('@/assets/profpic/user4.svg'),
       
       ranking: [
 
         {
           No:4,
-          SrcImgProfPic:require('@/assets/pet/asihprofil.jpg'),
-          Nama:'Jihaan',
+          SrcImgProfPic:require('@/assets/profpic/user1.svg'),
+          Nama:'Jihaan Nadhiya',
           points:'350',
           divider: true,
         },
        
          {
           No:5,
-          SrcImgProfPic:require('@/assets/pet/asihprofil.jpg'),
-          Nama:'Jihaan',
-          points:'350',
+          SrcImgProfPic:require('@/assets/profpic/user5.svg'),
+          Nama:'Dian Ari P',
+          points:'300',
           divider: true,
         },
         
          {
           No:6,
-          SrcImgProfPic:require('@/assets/pet/asihprofil.jpg'),
-          Nama:'Jihaan',
-          points:'350',
+          SrcImgProfPic:require('@/assets/profpic/user6.svg'),
+          Nama:'Fajar Mahardika',
+          points:'280',
           divider: true,
         },
       
          {
           No:7,
-          SrcImgProfPic:require('@/assets/pet/asihprofil.jpg'),
-          Nama:'Jihaan',
-          points:'350',
+          SrcImgProfPic:require('@/assets/profpic/user7.svg'),
+          Nama:'Supardi Jayaningrat',
+          points:'250',
           divider: true,
         },
        
         {
-          No:7,
-          SrcImgProfPic:require('@/assets/pet/asihprofil.jpg'),
-          Nama:'Jihaan',
-          points:'350',
+          No:8,
+          SrcImgProfPic:require('@/assets/profpic/user8.svg'),
+          Nama:'Indira Gandi',
+          points:'200',
           divider: true,
         },
         

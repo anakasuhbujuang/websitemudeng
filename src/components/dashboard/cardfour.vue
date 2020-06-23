@@ -33,6 +33,7 @@
         padding="24"
         stroke-linecap="round"
         smooth
+        fill
         show-labels
         >
         </v-sparkline>

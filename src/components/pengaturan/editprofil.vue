@@ -9,7 +9,7 @@
         <v-row justify="center" class="pt-5">
             <v-col md="11" class="text-center">
                 <v-avatar size="150">
-                    <v-img src="@/assets/pet/asih200.png"></v-img>
+                    <v-img :src="srcProfpicUser"></v-img>
                 </v-avatar>
                 <br>
                 <br>
@@ -70,6 +70,7 @@
                             color="teal darken-4 white--text"
                             class=" mr-4 subtitle-2 font-weight-bold"
                             block
+                            @click="simpan()"
                             >SIMPAN
                         </v-btn>
                         
@@ -78,6 +79,44 @@
                     </v-form>
             </v-col>
         </v-row>
+
+        <!-- DIALOG SUKSES -->
+         <v-dialog v-model="dialogUpdateProfilSukses" persistent max-width="300px" >
+          <v-card 
+          color="white"
+          width="300px"
+          height="350px"
+          class=""
+          style="overflow-x:hidden;">
+
+            <v-card-media justify-center >
+                <v-img :src="srcDialogSukses"></v-img>
+            </v-card-media>
+
+            <v-row justify="center" class="mt-4 " no-gutters>
+              <v-col md="8">
+                    <p class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold">Sukses</p>
+              </v-col>
+            </v-row>   
+
+            <v-row justify="center" no-gutters class="mb-4">
+              <v-col md="11">
+                <p class="body-2 text-center grey--text  font-weight-regular">Perubahan berhasil diperbarui.</p>
+              </v-col>
+            </v-row>     
+
+            <v-row no-gutters class="">
+              <v-col class="px-2 pb-2 pa-1">
+                <v-btn block color="teal darken-4 white--text" 
+                class="subtitle-2 font-weight-bold"
+                @click.stop="dialogUpdateProfilSukses=false;">OK</v-btn>
+              </v-col>
+
+            </v-row>
+                
+          </v-card>
+        </v-dialog>
+        <!-- DIALOG SUSKES -->
     </div>
 </template>
 
@@ -95,6 +134,12 @@ export default {
    data () {
       return {
 
+        srcProfpicUser: require('@/assets/profpic/user1.svg'),
+        
+        srcDialogSukses: require('@/assets/pet/asihreward200.png'),
+        dialogUpdateProfilSukses: false,
+
+
           //*******Nama Pengguna*******
         NamaPengguna:'Jihaan Nadhiya',
         rulesnama: [
@@ -109,10 +154,16 @@ export default {
 
           
         IconUnggahFoto : mdiCamera,
+
         
         
       }
     },
+    methods:{
+        simpan(){
+            this.dialogUpdateProfilSukses = true;
+        }
+    }
     // methods: {
     //       validate () {
     //         if (this.$refs.form.validate()) {

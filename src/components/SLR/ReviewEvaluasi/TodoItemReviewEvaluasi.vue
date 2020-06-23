@@ -61,7 +61,7 @@
                         <v-col md="1" class="mt-0">
                           <v-icon small color="error" >{{IconSelected}}</v-icon>
                         </v-col>
-                        <v-col md="7" class="mt-0 pt-1">
+                        <v-col md="11" class="mt-0 pt-1">
                           <p class=" text-start font-weight-medium caption red--text">{{todo.selected}}</p>
                         </v-col>
                       </v-row>
@@ -75,7 +75,7 @@
                         <v-col md="1" class="mt-0">
                           <v-icon small color="success" >{{IconSelected}}</v-icon>
                         </v-col>
-                        <v-col md="7" class="mt-0 pt-1">
+                        <v-col md="11" class="mt-0 pt-1">
                           <p class="text-start font-weight-medium caption green--text">{{todo.jawabantrue}}</p>
                         </v-col>
                       </v-row>
