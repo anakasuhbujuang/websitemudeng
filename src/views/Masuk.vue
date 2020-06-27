@@ -20,12 +20,12 @@
                      <v-form ref="form" v-model="isValidFormMasuk" lazy-validation>
                         
                         <v-text-field
-                            v-model="NamaPengguna"
+                            v-model="masuk.email"
                             :counter="20"
                             required
-                            :rules="rulesnama"
+                            :rules="rulesemail"
                             outlined
-                            label="Nama Pengguna"
+                            label="Email"
                             color="teal darken-4"
                             dense
                             class="caption">
@@ -33,7 +33,7 @@
                         </v-text-field>
                         
                         <v-text-field            
-                            v-model="Password"
+                            v-model="masuk.password"
                             required
                             :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                             :type="show1 ? 'text' : 'Password'"
@@ -56,7 +56,7 @@
                             color="teal darken-4 white--text"
                             class=" mr-4 subtitle-2 font-weight-bold"
                             block
-                            @click="validate"
+                            @click="Masuk()"
                            
                             > Masuk
                         </v-btn>
@@ -86,115 +86,155 @@
                 </v-row>
 
               </v-img>
-                        <!-- *******LUPA KATA SANDI****** -->
+
+    <!-- *******LUPA KATA SANDI****** -->
+    
+    <v-dialog
+        v-model="dialogLupaKataSandi"
+        max-width="500px">
+
+        <v-card  class="py-4"
+        style="overflow-x:hidden;">
+        <v-row class="">
+            <v-col>
+            <p class="headline text-center teal--text text--darken-3 font-weight-bold" 
+            style="line-height:0,2;">Lupa Kata Sandi?<br> 
+            <span class="grey--text subtitle-2 font-weight-regular">Masukkan email yang telah terdaftar.</span></p>
+            </v-col>
+        </v-row>
+
+        <v-row justify="center">
+            <v-col md="10" >
+            <v-form v-model="isValidLupaKataSandi">
+                
+                <v-text-field
+                v-model="EmailLupaKataSandi"
+                outlined
+                label="Email"
+                required
+                :rules="rulesemail"
+                color="teal darken-4"
+                hint="contoh@mail.ugm.ac.id"
+                persistent-hint
+                dense>
+                </v-text-field>
+            </v-form>
+                
+                <br>
+                <v-btn 
+                    :disabled="!isValidLupaKataSandi"
+                    color="teal darken-4 white--text"
+                    class=" mr-4 subtitle-2 font-weight-bold "
+                    block
+                    @Click="SendEmail()"
+                    > Kirim
+                </v-btn>
+            
+            </v-col>
+        </v-row>
+        
+        </v-card>
+    </v-dialog>
+
+    <!-- *******END LUPA KATA SANDI****** -->
+
+                        
+                        
+<!-- ******* Failed Masuk****** -->
                        
-                        <v-dialog
-                          v-model="dialogLupaKataSandi"
-                          max-width="500px">
+    <v-dialog
+        v-model="masukFailed"
+        max-width="400px">
 
-                          <v-card  class="py-4"
-                          style="overflow-x:hidden;">
-                            <v-row class="">
-                              <v-col>
-                                <p class="headline text-center teal--text text--darken-3 font-weight-bold" 
-                                style="line-height:0,2;">Lupa Kata Sandi?<br> 
-                                <span class="grey--text subtitle-2 font-weight-regular">Masukkan email yang telah terdaftar.</span></p>
-                              </v-col>
-                            </v-row>
+        <v-card  class=""
+        style="overflow-x:hidden;">
+        <v-row class="">
+            <v-col>
+                <p class="pt-2 headline text-center grey--text text--darken-3 font-weight-bold" 
+                style="line-height:0,2;">Mohon Maaf<br> 
+                <span class="grey--text subtitle-2 font-weight-regular">Nama pengguna belum terdaftar.</span><br>
+                <!-- <a><u  class=" subtitle-2 teal--text text--darken-4 font-weight-bold" 
+                @click.stop="masukFailed = false;dialogLupaKataSandi = true">Lupa kata sandi ? </u></a> -->
+                </p>
+            </v-col>
+        </v-row>
                     
-                            <v-row justify="center">
-                              <v-col md="10" >
-                                <v-form v-model="isValidLupaKataSandi">
-                                  
-                                  <v-text-field
-                                  v-model="EmailLupaKataSandi"
-                                  outlined
-                                  label="Email"
-                                  required
-                                  :rules="rulesemail"
-                                  color="teal darken-4"
-                                  hint="contoh@mail.ugm.ac.id"
-                                  persistent-hint
-                                  dense>
-                                  </v-text-field>
-                                </v-form>
-                                  
-                                  <br>
-                                    <v-btn 
-                                        :disabled="!isValidLupaKataSandi"
-                                        color="teal darken-4 white--text"
-                                        class=" mr-4 subtitle-2 font-weight-bold "
-                                        block
-                                        @Click="SendEmail()"
-                                        > Kirim
-                                    </v-btn>
-                                
-                              </v-col>
-                            </v-row>
-                            
-                          </v-card>
-                        </v-dialog>
 
-                        <!-- *******END LUPA KATA SANDI****** -->
-
-                        <!-- ******* BELUM TERDAFTAR****** -->
-                       
-                        <v-dialog
-                          v-model="dialogDaftar"
-                          max-width="400px">
-
-                          <v-card  class=""
-                          style="overflow-x:hidden;">
-                            <v-row class="pa-4" no-gutters>
-                              <v-col>
-                                <p class="body-1 text-center grey--text text--darken-2 font-weight-bold" 
-                                style="">Anda belum terdaftar.<br> </p> 
-                              </v-col>
-                            </v-row>
+        <v-row class="px-4 pb-4" no-gutters>
+            <v-col class="pr-4">
+            
+                <v-btn 
+                    color="teal darken-4 white--text"
+                    class="subtitle-2 font-weight-bold "
+                    block
+                     @click="closeDialogFailedMasuk()"
                     
-                            <v-row class="px-4 pb-4" no-gutters>
-                              <v-col >
-                               
-                                    <v-btn 
-                                        color="teal darken-4 white--text"
-                                        class=" subtitle-2 font-weight-bold "
-                                        block
-                                        router to="/Daftar"
-                                        > DAFTAR SEKARANG
-                                    </v-btn>
-                                
-                              </v-col>
-                            </v-row>
-                            
-                          </v-card>
-                        </v-dialog>
+                    > MASUK
+                </v-btn>
+            
+            </v-col>
+            <v-col >
+            
+                <v-btn 
+                    color="teal darken-2 white--text"
+                    class=" subtitle-2 font-weight-bold "
+                    block
+                   router to="/Daftar"
+                    > DAFTAR
+                </v-btn>
+            
+            </v-col>
+        </v-row>
+        
+        </v-card>
+    </v-dialog>
 
-                        <!-- *******END BELUM TERDAFTAR***** -->
+    <!-- *******END Failed Masuk***** -->
  
   </div>
 </template>
 
 <script>
+
+import axios from 'axios';
+
+
 export default {
     data: () => ({
-          snackbar: false,
-          dialogLupaKataSandi: false,
-          dialogDaftar: false,
-     
-          SrcImgMasuk: require('@/assets/picwelcomepage.png'),
-          SrcBgMasuk: require('@/assets/bg/bgmasuk.jpg'),
 
-          isValidFormMasuk: true, 
-          isValidLupaKataSandi: true,
+        //dialog lupa kata santi atau pass salah
+        dialogLupaKataSandi: false,
+        isValidLupaKataSandi: true,
+
+        //image
+        SrcImgMasuk: require('@/assets/picwelcomepage.png'),
+        SrcBgMasuk: require('@/assets/bg/bgmasuk.jpg'),
+
+        //form masuk
+        isValidFormMasuk: true, 
+        masuk:{
+            email:'',
+            password:'',
+        },
+
+        //axios
+        usersMudeng:[], //get data usersMasuk n sort cari akun terdaftar
+        toUserNow:[], //action btn Masuk (put to data userNow)
+        idUsersMudeng:null, //get id akun yg masuk dr data usersMudeng[i]
+        
+        //dialog kalo masuk gagal atau nama belumter daftar ato pass salah
+        masukFailed:false,
+
+        
 
         //*******Nama Pengguna*******
-        NamaPengguna:'',
-        rulesnama: [v => !!v || 'Wajib diisi',
-                    v => (v && v.length <= 20) || 'Maximal 20 karakter',],
+        // NamaPengguna:'',
+        // rulesnama: [v => !!v || 'Wajib diisi',
+        //             v => (v && v.length <= 20) || 'Maximal 20 karakter',],
 
         // //*******Password*****
         show1: false,
-        Password: '',
+        // Password: '',
         rulespassword: {
               required: value => !!value || 'Wajib diisi.',
               min: v => v.length >= 8 || 'Minimal 8 Karakter',},
@@ -207,47 +247,116 @@ export default {
         ]
         
           
-        
-
-          
     }),
+
     
-     methods: {
+    methods: {
 
-      Masuk() { 
-        console.log(this.NamaPengguna, this.Password) 
-      },    
-      SendEmail(){
-        console.log(this.EmailLupaKataSandi) 
-      },
       validate () {
-        if(this.$refs.form.validate()){
-          console.log(this.NamaPengguna, this.Password);
-          document.location.href = '/Dashboard';
-          }
-        else{
-          this.dialogDaftar = true;
-        }
+        this.$refs.form.validate()
+      },
+
+      async updateUserNow(){
+
+            // axios
+            // .get('http://localhost:3000/usersMudeng' + '/' + this.idUsersMudeng + '/')
+            // .then(response => {
+            //     // console.log(Object.keys(this.usersMudeng).length); 
+            //     // this.usersLength= Object.keys(this.usersMudeng).length;
+            //     })        
+            
+            // this.daftar.id = this.usersLength;
+
+            // axios.put('http://localhost:3000/userNow' + '/' + this.userNow + '/',
+            // {
+            //     email: this.toUserNow.email,
+            //     nama: this.toUserNow.nama,
+            //     nim: this.toUserNow.nim,
+            //     password: this.toUserNow.password,
+            //     pet: this.toUserNow.pet,
+            //     idUser: this.toUserNow.id
+            // })
+            // .then(res => {console.log(res)})
+            // .catch((err) => {console.log(err); })
         },
-          // validate () {
-          //   if (this.$refs.form.validate()) {
-          //     this.snackbar = true
+
+      
+
+        async Masuk() { 
+
+            if(this.masuk.nama == '' || this.masuk.password == '' ){
+                return this.validate();
+            } 
+            
+            try {
+                await axios.post(`${process.env.VUE_APP_API_HOST}/signin`, this.masuk)
+            } catch(error) {
+                console.error(error)
+                this.masukFailed = true
+                return
+            } 
+
+            await this.checkPet()
+        
+        //else{
+          
+          // for(var i=0; i<this.usersMudeng.length;i++){
+          //       if(this.masuk.nama == this.usersMudeng[i].nama && this.masuk.password == this.usersMudeng[i].password ){
+
+          //           this.idUsersMudeng = this.usersMudeng[i].id; //buat updated isi UserNow
+          //           this.updateUserNow();
+          //           document.location.href = '/Dashboard';
+          //           console.log('sukses');
+          //           return 0;
+          //        }
+                
           //   }
-          // },
-          // reset () {
-          //   this.$refs.form.reset()
-          // },
-          // resetValidation () {
-          //   this.$refs.form.resetValidation()
-          // },
-          
+            
+          //   this.masukFailed = true;
+          //   this.masuk.nama='';
+          //   this.masuk.password='';
+
+            for(var i=0; i<this.usersMudeng.length;i++){
+                if(this.masuk.nama == this.usersMudeng[i].nama && this.masuk.password == this.usersMudeng[i].password ){
+
+                    this.idUsersMudeng = this.usersMudeng[i].id; //buat updated isi UserNow
+                    this.updateUserNow();
+                    document.location.href = '/Dashboard';
+                    console.log('sukses');
+                    return 0;
+                }else if (this.masuk.nama == this.usersMudeng[i].nama && this.masuk.password !== this.usersMudeng[i].password ){
+                    this.dialogLupaKataSandi=true;
+                    console.log('sandi salah');
+                    return 0;
+                }
+                
+            }
+            
+            // this.masukFailed = true;
+            // this.masuk.nama='';
+            // this.masuk.password='';
+        
         },
+        async checkPet() {
+            try {
+                var response = await axios.get(`${process.env.VUE_APP_API_HOST}/profile/pet`)
+            } catch(error) {
+                return console.log(error)
+            }
 
-          
-
-
-     
-  }
+            console.log(response.data)
+        }, 
+        SendEmail(){
+            console.log(this.EmailLupaKataSandi) ;
+            this.dialogLupaKataSandi=false;
+        },
+        closeDialogFailedMasuk(){
+            this.masuk.nama='';
+            this.masuk.password='';
+            this.masukFailed=false;
+        },     
+    },   
+}
 </script>
 
 <style>

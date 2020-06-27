@@ -48,7 +48,7 @@
                 <v-card color="white" width="auto" height="auto"
                 style="overflow-x:hidden; overflow-y:hidden;">
 
-                  <v-img src="@/assets/bg/bgdaundialog.svg">
+                  <v-img src="/assets/bg/bgdaundialog.svg">
 
                     <v-row justify="center">
                       <v-col md="10">

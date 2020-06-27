@@ -32,28 +32,25 @@
 
             <!-- CARDS-PET START -->
             <v-row justify="center" class="mt-6">
-              <v-col 
-               v-for="(item, i) in items"
-                :key="i"
-               md="3"
-               >
+    <!-- ASIH  -->
+              <v-col md="3">
                 <v-card 
                 color="white"
                 min-height="200px"
                 max-height="400px"
                 >
                   <v-card-media justify-center >
-                      <v-img :src="item.SrcImgPet"></v-img>
+                      <v-img :src="daftarpet.asih.assets.profil"></v-img>
                   </v-card-media>
 
                   <v-row justify="center" class="mt-4" no-gutters>
                     <v-col md="8">
-                          <p class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold" v-text="item.NamePet"></p>
+                          <p class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold" v-text="daftarpet.asih.nama"></p>
                     </v-col>
                   </v-row>       
                   <v-row justify="center" no-gutters >
                     <v-col md="9">
-                          <p class="subtitle-2 text-center grey--text  font-weight-regular">{{item.DescPet}}</p>
+                          <p class="subtitle-2 text-center grey--text  font-weight-regular">{{daftarpet.asih.deskripsi}}</p>
                     </v-col>
                   </v-row>                
                   
@@ -61,7 +58,75 @@
                       <v-btn block
                       color="teal darken-4 white--text" 
                       class="subtitle-2 font-weight-bold"
-                      router to="/PraTestMAI">PILIH
+                      @click="pilihAsih()">PILIH
+                      </v-btn>
+                  </v-card-actions>
+                        
+                </v-card>
+
+              </v-col>
+        <!-- Joni -->
+              <v-col md="3">
+                <v-card 
+                color="white"
+                min-height="200px"
+                max-height="400px"
+                width="auto"
+                >
+                  
+                    <v-card-media justify-center >
+                      <v-img :src="daftarpet.joni.assets.profil"></v-img>
+                    </v-card-media>
+
+                  <v-row justify="center" class="mt-4" no-gutters>
+                    <v-col md="8">
+                          <p class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold" v-text="daftarpet.joni.nama"></p>
+                    </v-col>
+                  </v-row>       
+                  <v-row justify="center" no-gutters >
+                    <v-col md="9">
+                          <p class="subtitle-2 text-center grey--text  font-weight-regular">{{daftarpet.joni.deskripsi}}</p>
+                    </v-col>
+                  </v-row>                
+                  
+                  <v-card-actions>
+                      <v-btn block
+                      color="teal darken-4 white--text" 
+                      class="subtitle-2 font-weight-bold"
+                      @click="pilihJoni()">PILIH
+                      </v-btn>
+                  </v-card-actions>
+                        
+                </v-card>
+
+              </v-col>
+        <!-- BUDI  -->
+              <v-col md="3">
+                <v-card 
+                color="white"
+                min-height="200px"
+                max-height="400px"
+                >
+                  <v-card-media justify-center >
+                      <v-img :src="daftarpet.budi.assets.profil"></v-img>
+                  </v-card-media>
+
+                  <v-row justify="center" class="mt-4" no-gutters>
+                    <v-col md="8">
+                          <p class="subtitle-1 text-center grey--text  text--darken-3 font-weight-bold" v-text="daftarpet.budi.nama"></p>
+                    </v-col>
+                  </v-row>       
+                  <v-row justify="center" no-gutters >
+                    <v-col md="9">
+                          <p class="subtitle-2 text-center grey--text  font-weight-regular">{{daftarpet.budi.deskripsi}}</p>
+                    </v-col>
+                  </v-row>                
+                  
+                  <v-card-actions>
+                      <v-btn block
+                      color="teal darken-4 white--text" 
+                      class="subtitle-2 font-weight-bold"
+                      @click="pilihBudi()">PILIH
                       </v-btn>
                   </v-card-actions>
                         
@@ -73,43 +138,144 @@
            
         </v-container>
 
-        
+        <v-card>{{namaUN}} {{nimUN}}{{emailUN}}== {{userNow}}</v-card>
 
 
       </v-img>
+      
     </div>
 
 </template>
 
 <script>
+
+import axios from 'axios'
+
+
 export default {
     data: () => ({
       
+        SrcBgPilihPet: require('@/assets/bg/bgdaun.jpg'),
+    
+        daftarpet:[],
+        daftarpetTerpilih:[],
+        idPetTerpilih:0,
 
-      SrcBgPilihPet: require('@/assets/bg/bgdaun.jpg'),
+        userNow:[],
+        namaUN:'',
+        nimUN:'',
+        emailUN:'',
+        passwordUN:'',
+        idUserUN:'',
+        petUN:'',
+        idUN:'',
 
-      items: [
-        {
-          SrcImgPet: require('@/assets/pet/asihprofil.jpg'),
-          NamePet: 'Asih',
-          DescPet:'Hai, aku adalah cendrawasih dari Papua.',
-        },
-        {
-          SrcImgPet: require('@/assets/pet/joniprofil.jpg'),
-          NamePet: 'Joni',
-          DescPet:'Hai, aku adalah orang utan dari Kalimantan.',
-        },
-        {
-          SrcImgPet: require('@/assets/pet/budiprofil.jpg'),
-          NamePet: 'Budi',
-          DescPet:'Hai, aku adalah komodo dari Pulau Komodo.',
-        },
+        idUserNow:0,
 
-        
-      ],
-  
-      
     }),
+
+    mounted:function() {
+        axios.get(`${process.env.VUE_APP_API_HOST}/pet`)
+        .then(response => {
+          this.daftarpet = response.data;
+          console.log('sukses get daftar pet'); 
+        //   this.usersLength= Object.keys(this.usersMudeng).length;
+        })       
+        // axios.get('http://localhost:3000/userNow')
+        // .then(response => {
+        //   this.userNow = response.data;
+        //   console.log('sukses get user now'); })           
+    },
+
+    methods: {
+
+        updatePetUserNow(){
+            axios.get('http://localhost:3000/userNow')
+                .then(response => {
+                this.userNow = response.data;
+                console.log('sukses get user now'); })
+
+            // const namaUserNow = Object.values(this.userNow.nama)
+            // this.namaUN = namaUserNow
+            // const nimUserNow = Object.values(this.userNow.nim)
+            // this.nimUN = nimUserNow
+            // const emailUserNow = Object.values(this.userNow.email)
+            // this.emailUN = emailUserNow
+            // const passwordUserNow = Object.values(this.userNow.password)
+            // this.passwordUN = passwordUserNow
+            // const idUserUserNow = Object.values(this.userNow.idUser)
+            // this.idUserUN = idUserUserNow
+            // const petUserNow = Object.values(this.userNow.pet)
+            // this.petUN = petUserNow
+            // const idUserNow = Object.values(this.userNow.id)
+            // this.idUN = idUserNow
+
+            // axios.put('http://localhost:3000/userNow' + '/' + this.idUserNow + '/',
+            // {
+            //     email: this.userNow.email,
+            //     nama: this.userNow.nama,
+            //     nim: this.userNow.nim,
+            //     password: this.userNow.password,
+            //     idUser: this.userNow.idUser,
+            //     pet: this.daftarpetTerpilih.id
+            // })
+            // .then(res => {console.log(res)})
+            // .catch((err) => {console.log(err); })
+        },
+        pilihAsih(){
+       
+            this.daftarpetTerpilih= this.daftarpet.asih;
+
+            axios.put('http://localhost:3000/petTerpilih' + '/' + this.idPetTerpilih + '/',
+            {
+                assets: this.daftarpetTerpilih.assets,
+                deskripsi: this.daftarpetTerpilih.deskripsi,
+                nama: this.daftarpetTerpilih.nama,
+                idPet: this.daftarpetTerpilih.id,
+                id: this.idPetTerpilih
+            })
+            .then(res => {console.log(res)})
+            .catch((err) => {console.log(err); })
+
+            this.updatePetUserNow();
+        
+        },
+        pilihJoni(){
+          
+            this.daftarpetTerpilih= this.daftarpet.joni;
+
+            axios.put('http://localhost:3000/petTerpilih' + '/' + this.idPetTerpilih + '/',
+            {
+                assets: this.daftarpetTerpilih.assets,
+                deskripsi: this.daftarpetTerpilih.deskripsi,
+                nama: this.daftarpetTerpilih.nama,
+                idPet: this.daftarpetTerpilih.id,
+                id: this.idPetTerpilih
+            })
+            .then(res => {console.log(res)})
+            .catch((err) => {console.log(err); })
+
+            this.updatePetUserNow();
+
+        },
+        pilihBudi(){
+            this.daftarpetTerpilih= this.daftarpet.budi;
+
+            axios.put('http://localhost:3000/petTerpilih' + '/' + this.idPetTerpilih + '/',
+            {
+                assets: this.daftarpetTerpilih.assets,
+                deskripsi: this.daftarpetTerpilih.deskripsi,
+                nama: this.daftarpetTerpilih.nama,
+                idPet: this.daftarpetTerpilih.id,
+                id: this.idPetTerpilih
+            })
+            .then(res => {console.log(res)})
+            .catch((err) => {console.log(err); })
+
+            // this.updatePetUserNow();
+
+        }
+    }
   }
 </script>
 

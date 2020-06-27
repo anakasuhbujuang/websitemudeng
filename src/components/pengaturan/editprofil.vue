@@ -136,7 +136,7 @@ export default {
 
         srcProfpicUser: require('@/assets/profpic/user1.svg'),
         
-        srcDialogSukses: require('@/assets/pet/asihreward200.png'),
+        srcDialogSukses: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihreward200.png?alt=media&token=d4dcb34c-4257-4801-9f26-3fd6abbc4357",
         dialogUpdateProfilSukses: false,
 
 

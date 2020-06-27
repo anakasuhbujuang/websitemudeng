@@ -84,8 +84,8 @@ export default {
       NilaiEvaluasi: 50,
       PointsEvaluasi: 250,
       PassingGradeEvaluasi: 70,
-      SrcFighting: require('@/assets/pet/jonifighting200.png'),
-      SrcReward: require('@/assets/pet/jonireward200.png'),
+      SrcFighting: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihfighting200.png?alt=media&token=8d21bfbe-3f0c-4d03-9165-1d8639acaf70",
+      SrcReward: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihreward200.png?alt=media&token=d4dcb34c-4257-4801-9f26-3fd6abbc4357",
       dialogHasilEvaluasi: false,
       
 

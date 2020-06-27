@@ -89,7 +89,7 @@ export default {
         stateprofil:true,
         statekeamanan:false,
         stateaudio:false,
-        SrcImgPet: require('@/assets/pet/jonipilihmatkul.svg'),
+        SrcImgPet: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihpilihmatkul.png?alt=media&token=bbb93507-6409-43cf-a54d-9a2768b32079",
         IconProfil: mdiAccount,
         IconLock: mdiLock,
         IconAudio: mdiVolumeHigh

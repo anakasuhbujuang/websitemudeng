@@ -15,7 +15,7 @@
 
                     <v-row justify="center">
                       <v-col md="10">
-                         <v-img src="@/assets/pet/asihbingung.png"></v-img>
+                         <v-img src="/assets/pet/asihbingung.png"></v-img>
                       </v-col>
                     </v-row>
                    

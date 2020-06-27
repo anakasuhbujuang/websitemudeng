@@ -1,74 +1,1383 @@
 {
-  "users" :[
-    {"id":1,
-      "NamaPengguna":"Jihaan Nadhiya",
-      "nim":"16/395400/TK/12345",
-      "Email":"jihaan@mail.ugm.ac.id",
-      "Password":"12345678",
-      "srcProfpic":"https://svgshare.com/i/MFU.svg"
+  "usersMudeng": [
+    {
+      "email": "kkkkkkk@gmail.com",
+      "nama": "hkjhk",
+      "nim": "dsadasdad",
+      "password": "wwqewqeqew",
+      "id": 0,
+      "pet": "budi"
     },
-    {"id":2,
-      "NamaPengguna":"Budi Cahyono",
-      "nim":"16/176890/TK/12890",
-      "Email":"budi@mail.ugm.ac.id",
-      "Password":"12345678",
-      "srcProfpic":"https://svgshare.com/i/MFV.svg"
+    {
+      "email": "abcde@gmail",
+      "nama": "abcde",
+      "nim": "12345",
+      "password": "321321313",
+      "id": 1,
+      "pet": "budi"
     },
-    {"id":3,
-      "NamaPengguna":"Sunny Milea",
-      "nim":"16/098765/TK/12678",
-      "Email":"sunny@mail.ugm.ac.id",
-      "Password":"12345678",
-      "srcProfpic":"https://svgshare.com/i/MDS.svg"
+    {
+      "email": "eqwqewq@gmail",
+      "nama": "ewqewqeqw",
+      "nim": "eqweqweqweqwe",
+      "password": "323213213",
+      "id": 2,
+      "pet": "budi"
     },
-    {"id":4,
-      "NamaPengguna":"Teddy Aditya",
-      "nim":"16/456890/TK/12890",
-      "Email":"teddy@mail.ugm.ac.id",
-      "Password":"12345678",
-      "srcProfpic":"https://svgshare.com/i/MDv.svg"
+    {
+      "email": "eqweqwewqeeqee@mail",
+      "nama": "22qewqe",
+      "nim": "eqwewqeqw",
+      "password": "eqwewewqe",
+      "id": 3,
+      "pet": "budi"
+    },
+    {
+      "email": "csdsdf@gmail.com",
+      "nama": "qweqweqeretgfhfg",
+      "nim": "1234324324",
+      "password": "1232131312",
+      "id": 4,
+      "pet": "budi"
     }
-    
   ],
-  "evaluasi":[
-    {"id": 1, 
-      "text": "Node yang berada diatas node tertentu disebut", 
-      "A":"A. Lonecesstor", "B":"B. Tree", "C":"'C. Ancesstor'", "D":"'D. Predecessor'", 
-      "selected":"", "jawabantrue":"'D. Predecessor'"},
-      
-    {"id": 2, 
-      "text": "Node yang berada diatas node tertentu disebut", 
-      "A":"A. Lonecesstor", "B":"B. Tree", "C":"'C. Ancesstor'", "D":"'D. Predecessor'", 
-      "selected":"", "jawabantrue":"'D. Predecessor'"},
-
-    {"id": 3, 
-      "text": "Node yang berada diatas node tertentu disebut", 
-      "A":"A. Lonecesstor", "B":"B. Tree", "C":"'C. Ancesstor'", "D":"'D. Predecessor'", 
-      "selected":"", "jawabantrue":"'D. Predecessor'"},
-
-    {"id": 4, 
-      "text": "Node yang berada diatas node tertentu disebut", 
-      "A":"A. Lonecesstor", "B":"B. Tree", "C":"'C. Ancesstor'", "D":"'D. Predecessor'", 
-      "selected":"", "jawabantrue":"'D. Predecessor'"}
-
+  "userNow": [
+    {
+      "email": "eqwqewq@gmail",
+      "nama": "ewqewqeqw",
+      "nim": "eqweqweqweqwe",
+      "password": "323213213",
+      "idUser": 2,
+      "pet": "budi",
+      "id": 0
+    }
   ],
-
-  "jawabanevaluasi":[
+  "petTerpilih": [
     {
-      "id":1,
-      "jawaban":""
+      "assets": {
+        "bingung": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihbingung.png?alt=media&token=2bf76233-658b-43b9-af1a-4093d5b0cb20",
+        "fighting": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihfighting200.png?alt=media&token=8d21bfbe-3f0c-4d03-9165-1d8639acaf70",
+        "main": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasih.png?alt=media&token=675d7a39-717c-4969-b89a-601f0838eea9",
+        "map": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihmapp.png?alt=media&token=68253a97-857f-4c55-bd68-d6d0e4b2c757",
+        "pilihmatkul": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihpilihmatkul.png?alt=media&token=bbb93507-6409-43cf-a54d-9a2768b32079",
+        "profil": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihprofil.jpg?alt=media&token=bd2a2a01-8f0b-4b91-9e4d-c0f0fae0ffd5",
+        "reward": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihreward200.png?alt=media&token=d4dcb34c-4257-4801-9f26-3fd6abbc4357",
+        "setting": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihsetting.png?alt=media&token=90f71124-ea63-42a6-913e-6c2af30d92a9",
+        "sum": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihsumm.png?alt=media&token=7e88c424-6034-4925-acba-6d8b172afa53",
+        "video": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihvideo.png?alt=media&token=055d4748-ac15-418c-95af-afe7811344cd"
+      },
+      "deskripsi": "Hai, aku adalah cendrawasih dari Papua.",
+      "nama": "Asih",
+      "idPet": "asih",
+      "id": 0
+    }
+  ],
+  "user-history": {
+    "contoh-id": {
+      "contoh-history-id": {
+        "id-materi": "ex-id-materi",
+        "id-matkul": 1,
+        "points": 40,
+        "skor": 30
+      }
+    }
+  },
+  "daftar-pet": {
+    "asih": {
+      "assets": {
+        "bingung": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihbingung.png?alt=media&token=2bf76233-658b-43b9-af1a-4093d5b0cb20",
+        "fighting": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihfighting200.png?alt=media&token=8d21bfbe-3f0c-4d03-9165-1d8639acaf70",
+        "main": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasih.png?alt=media&token=675d7a39-717c-4969-b89a-601f0838eea9",
+        "map": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihmapp.png?alt=media&token=68253a97-857f-4c55-bd68-d6d0e4b2c757",
+        "pilihmatkul": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihpilihmatkul.png?alt=media&token=bbb93507-6409-43cf-a54d-9a2768b32079",
+        "profil": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihprofil.jpg?alt=media&token=bd2a2a01-8f0b-4b91-9e4d-c0f0fae0ffd5",
+        "reward": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihreward200.png?alt=media&token=d4dcb34c-4257-4801-9f26-3fd6abbc4357",
+        "setting": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihsetting.png?alt=media&token=90f71124-ea63-42a6-913e-6c2af30d92a9",
+        "sum": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihsumm.png?alt=media&token=7e88c424-6034-4925-acba-6d8b172afa53",
+        "video": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihvideo.png?alt=media&token=055d4748-ac15-418c-95af-afe7811344cd"
+      },
+      "deskripsi": "Hai, aku adalah cendrawasih dari Papua.",
+      "id": "asih",
+      "nama": "Asih"
+    },
+    "budi": {
+      "assets": {
+        "bingung": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fbudi%2Fbudibingung.png?alt=media&token=037ae71e-7193-44ea-ad26-18bcdbe8f895",
+        "fighting": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fbudi%2Fbudifighting200.png?alt=media&token=be80ab94-e840-487c-aa0c-f2f26e81c5a1",
+        "main": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fbudi%2Fbudi.png?alt=media&token=1aa5dfde-a391-4a3b-863e-38a5f3f8ef5a",
+        "map": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fbudi%2Fbudimapp.png?alt=media&token=0d176730-0a3b-4f3e-883b-daaeead64cdd",
+        "pilihmatkul": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fbudi%2Fbudipilihmatkul.png?alt=media&token=5fa03c3f-38ba-4450-85e3-5de2265334ea",
+        "profil": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fbudi%2Fbudiprofil.jpg?alt=media&token=94b3e52d-a2a0-48a4-85de-33abcf8ce091",
+        "reward": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fbudi%2Fbudireward200.png?alt=media&token=d1cc95dd-1d3a-4435-8e95-6bf549f5f432",
+        "setting": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fbudi%2Fbudisetting.png?alt=media&token=1cbf8b68-aa29-494f-b683-26cdb8f0f65a",
+        "sum": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fbudi%2Fbudisumm.png?alt=media&token=c0b6cc51-ecef-46a9-b4fc-bd2d9a78922f",
+        "video": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fbudi%2Fbudivideo.png?alt=media&token=ee57cfd5-82fc-4b5f-bbcc-48817f4ed82d"
+      },
+      "deskripsi": "Hai, aku adalah komodo dari Pulau Komodo.",
+      "id": "budi",
+      "nama": "Budi"
+    },
+    "joni": {
+      "assets": {
+        "bingung": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fjoni%2Fjonibingung.png?alt=media&token=870c21d9-61ba-44de-9800-165b4a4f09da",
+        "fighting": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fjoni%2Fjonifighting200.png?alt=media&token=d8a436f7-e401-4895-91bc-b7593887c59bhttps://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fjoni%2Fjonifighting200.png?alt=media&token=d8a436f7-e401-4895-91bc-b7593887c59b",
+        "main": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fjoni%2Fjoni.png?alt=media&token=041d8f12-3351-4c25-9ddc-c82503d49a45",
+        "map": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fjoni%2Fjonimapp.png?alt=media&token=3eef6279-2cc9-419a-86ba-c46264713d45",
+        "pilihmatkul": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fjoni%2Fjonipilihmatkul.png?alt=media&token=67717f7c-f82b-4f41-a2a7-2bcb701d1b2c",
+        "profil": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fjoni%2Fjoniprofil.jpg?alt=media&token=126c3471-01ed-4cba-aeb2-ff72641dbf3b",
+        "reward": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fjoni%2Fjonireward200.png?alt=media&token=fa070ced-08ed-49ff-ae88-e5a2a7fd0b10",
+        "setting": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fjoni%2Fjonisetting.png?alt=media&token=e30354fe-f6a0-4a2f-9725-3f6d257b5344",
+        "sum": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fjoni%2Fjonisumm.png?alt=media&token=0cc0ba58-bb20-4c8e-91fa-de8c9d953126",
+        "video": "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fjoni%2Fjonivideo.png?alt=media&token=bfd44f17-965b-42f9-8032-e29cd09c9031"
+      },
+      "deskripsi": "Hai, aku adalah orang utan dari Kalimantan.",
+      "id": "joni",
+      "nama": "Joni"
+    }
+  },
+  "mai-result": {
+    "-MA_i-kyoIyY932zz_MV": {
+      "jawaban": [
+        "setuju",
+        "sangat setuju"
+      ],
+      "knowledge": 100,
+      "requlation": 100,
+      "scrore": "low"
+    },
+    "-MAdKietfWQh_hJ--mDD": {
+      "jawaban": [
+        "setuju",
+        "sangat setuju"
+      ],
+      "knowledge": 100,
+      "requlation": 100,
+      "scrore": "low"
+    }
+  },
+  "mai-test": [
+    {
+      "id": 0,
+      "question": "Saya bertanya kepada diri sendiri, â€Apakah saya sudah mencapai tujuan saya?â€, ketika sedang berupaya mencapai tujuan secara intensif."
     },
     {
-      "id":2,
-      "jawaban":""
+      "id": 1,
+      "question": "Saya mempertimbangkan berbagai pilihan sebelum saya menyelesaikan sebuah permasalahan."
     },
     {
-      "id":3,
-      "jawaban":""
+      "id": 2,
+      "question": "Saya coba menggunakan cara-cara yang pernah saya pakai sebelumnya"
     },
     {
-      "id":4,
-      "jawaban":""
+      "id": 3,
+      "question": "Saya terus menerus mengatur diri selama belajar agar memiliki waktu yang cukup."
+    },
+    {
+      "id": 4,
+      "question": "Saya memahami kekuatan dan kelemahan kecerdasan saya."
+    },
+    {
+      "id": 5,
+      "question": "Saya berpikir tentang apa yang sebenarnya perlu saya pelajari sebelum mengerjakan tugas."
+    },
+    {
+      "id": 6,
+      "question": "Saya menyadari bagaimana baiknya saya menyelesaikan suatu tes."
+    },
+    {
+      "id": 7,
+      "question": "Saya menyusun tujuan-tujuan khusus sebelum saya mengerjakan tugas."
+    },
+    {
+      "id": 8,
+      "question": "Saya bertindak perlahan-lahan dan hati-hati bila mana menjumpai informasi penting."
+    },
+    {
+      "id": 9,
+      "question": "Saya mengetahui macam informasi apa yang paling penting untuk dipelajari."
+    },
+    {
+      "id": 10,
+      "question": "Saya bertanya kepada diri sendiri ketika mempertimbangkan seluruh pilihan untuk memecahkan suatu masalah."
+    },
+    {
+      "id": 11,
+      "question": "Saya terampil/mahir menyusun dan merangkai suatu informasi."
+    },
+    {
+      "id": 12,
+      "question": "Saya secara sadar memusatkan perhatian kepada informasi yang penting."
+    },
+    {
+      "id": 13,
+      "question": "Untuk tiap cara yang saya gunakan, saya mempunyai maksud tertentu."
+    },
+    {
+      "id": 14,
+      "question": "Saya belajar paling baik ketika saya mengetahui topik pembelajaran itu."
+    },
+    {
+      "id": 15,
+      "question": "Saya mengetahui apa yang diharapkan guru untuk saya pelajari."
+    },
+    {
+      "id": 16,
+      "question": "Saya mudah mengingat informasi."
+    },
+    {
+      "id": 17,
+      "question": "Saya menggunakan cara belajar yang berbeda-beda tergantung pada situasi dan kondisi."
+    },
+    {
+      "id": 18,
+      "question": "Setelah saya menyelesaikan suatu tugas, saya bertanya kepada diri sendiri apakah ada cara yang lebih mudah."
+    },
+    {
+      "id": 19,
+      "question": "Saya mengendalikan sendiri kualitas belajar saya."
+    },
+    {
+      "id": 20,
+      "question": "Secara teratur saya melakukan peninjauan kemampuan untuk menolong saya memahami hubungan-hubungan penting"
+    },
+    {
+      "id": 21,
+      "question": "Sebelum memulai sesuatu, saya bertanya kepada diri sendiri tentang hal-hal terkait."
+    },
+    {
+      "id": 22,
+      "question": "Saya mempertimbangkan berbagai cara untuk memecahkan sesuatu masalah sebelum akhirnya memutuskan salah satu diantaranya."
+    },
+    {
+      "id": 23,
+      "question": "Setiap kali selesai belajar, saya membuat rangkuman."
+    },
+    {
+      "id": 24,
+      "question": "Saya menanyakan orang lain bilamana saya tidak memahami sesuatu."
+    },
+    {
+      "id": 25,
+      "question": "Saya dapat memotivasi diri untuk belajar bilamana diperlukan."
+    },
+    {
+      "id": 26,
+      "question": "Saya menyadari cara apa yang digunakan ketika saya belajar."
+    },
+    {
+      "id": 27,
+      "question": "Saya biasa memikirkan manfaat cara-cara belajar yang saya pakai."
+    },
+    {
+      "id": 28,
+      "question": "Saya memanfaatkan kekuatan kecerdasan saya untuk menutupi kekurangan saya."
+    },
+    {
+      "id": 29,
+      "question": "Saya memusatkan perhatian terhadap arti dan manfaat dari informasi yang baru."
+    },
+    {
+      "id": 30,
+      "question": "Saya menemukan contoh-contoh sendiri sehingga informasi menjadi lebih bermakna atau jelas."
+    },
+    {
+      "id": 31,
+      "question": "Saya tergolong adil menilai diri sendiri tentang seberapa baiknya saya memahami sesuatu."
+    },
+    {
+      "id": 32,
+      "question": "Secara otomatis saya sadar menggunakan cara belajar yang berguna."
+    },
+    {
+      "id": 33,
+      "question": "Secara teratur saya istirahat sebentar untuk mengatur pemahaman saya."
+    },
+    {
+      "id": 34,
+      "question": "Saya menyadari/mengetahui bahwa setiap cara yang saya gunakan adalah yang paling efektif atau tepat."
+    },
+    {
+      "id": 35,
+      "question": "Saya bertanya kepada diri sendiri tentang seberapa baik saya mencapai tujuan setelah menyelesaikan tugas."
+    },
+    {
+      "id": 36,
+      "question": "Saya membuat gambar atau bagan untuk menolong saya selama saya belajar."
+    },
+    {
+      "id": 37,
+      "question": "Saya bertanya kepada diri sendiri apakah saya telah mempertimbangkan semua pilihan, setiap kali saya memecahkan suatu masalah."
+    },
+    {
+      "id": 38,
+      "question": "Saya berupaya memahami informasi baru dengan kata-kata saya sendiri."
+    },
+    {
+      "id": 39,
+      "question": "Saya mengubah cara jika saya gagal memahami."
+    },
+    {
+      "id": 40,
+      "question": "Saya menggunakan urutan topik/materi dari buku/teks untuk membantu saya belajar."
+    },
+    {
+      "id": 41,
+      "question": "Saya membaca petunjuk secara teliti sebelum memulai melakukan suatu tugas."
+    },
+    {
+      "id": 42,
+      "question": "Saya bertanya kepada diri sendiri apakah hal yang sedang dibaca berhubungan dengan apa yang telah saya ketahui."
+    },
+    {
+      "id": 43,
+      "question": "Saya memikirkan kembali anggapan saya ketika saya bingung."
+    },
+    {
+      "id": 44,
+      "question": "Saya mengatur waktu saya untuk mencapai tujuan sebaik-baiknya."
+    },
+    {
+      "id": 45,
+      "question": "Saya lebih banyak belajar jika saya tertarik/senang dengan topik."
+    },
+    {
+      "id": 46,
+      "question": "Saya berupaya membagi kegiatan belajar saya menjadi langkah-langkah yang lebih kecil."
+    },
+    {
+      "id": 47,
+      "question": "Saya lebih memperhatikan makna umum dari pada makna khusus."
+    },
+    {
+      "id": 48,
+      "question": "Saya bertanya kepada diri sendiri tentang seberapa baik saya bekerja, pada waktu mempelajari sesuatu hal yang baru."
+    },
+    {
+      "id": 49,
+      "question": "Saya bertanya kepada diri sendiri apakah saya belajar sebanyak yang saya mampu, setiap kali saya menyelesaikan tugas."
+    },
+    {
+      "id": 50,
+      "question": "Saya melupakan informasi baru yang tidak jelas."
+    },
+    {
+      "id": 51,
+      "question": "Saya berhenti dan selanjutnya membaca kembali jika saya bingung."
+    }
+  ],
+  "mata-kuliah": {
+    "kuliah-1": {
+      "info": {
+        "dosen": "Dr. Indriana Hidayah, S.T., M.T.",
+        "id": "kuliah-1",
+        "kode": "TIF 141",
+        "nama": "Algoritma dan Struktur Data",
+        "rkps": "https://drive.google.com/file/d/1EcypDb9ixrB4H6qVKne2-Gryd1gm9RXL/view?usp=sharing",
+        "semester": "Semester Ganjil 2019/2020",
+        "sks": 3
+      },
+      "leaderboard": {
+        "contoh-id": {
+          "nama": "Wisnu",
+          "record": {
+            "materi-1": 60,
+            "materi-2": 30,
+            "materi-3": 100
+          }
+        }
+      }
+    }
+  },
+  "submission": [
+    null,
+    {
+      "materi-1": {
+        "evaluasi": {
+          "contoh-user-id": [
+            null,
+            {
+              "jawaban": "Ancestor",
+              "kunci": "Ancestor"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "apkCardSorting": [
+    {
+      "id": 1,
+      "text": "Node yang berada diatas node tertentu disebut",
+      "A": "A. Lonecesstor",
+      "B": "B. Tree",
+      "C": "C. Ancesstor",
+      "D": "D. Predecessor",
+      "jawabantrue": "D. Predecessor"
+    },
+    {
+      "id": 2,
+      "soal": "Successor  satu level dibawah suatu node disebut",
+      "A": "A. Parent",
+      "B": "B. Child",
+      "C": "C. SubTree",
+      "D": "D. Down Node",
+      "jawabantrue": "B. Child"
+    },
+    {
+      "id": 3,
+      "soal": "Apa itu Tree Height?",
+      "A": "A. Banyaknya tingkatan / level dalam suatu Tree",
+      "B": "B. Banyaknya node dalam suatu Tree",
+      "C": "C. Banyaknya relation dalam suatu Tree",
+      "D": "D. Banyaknya child dalam suatu Tree",
+      "jawabantrue": "A. Banyaknya tingkatan / level dalam suatu Tree"
+    },
+    {
+      "id": 4,
+      "soal": "Banyaknya child dalam suatu Node disebut?",
+      "A": "A. Root",
+      "B": "B. Parents",
+      "C": "C. Size",
+      "D": "D. Degree",
+      "jawabantrue": "D. Degree"
+    }
+  ],
+  "apkCardSearch": [
+    {
+      "id": 1,
+      "soal": "Mengelompokan deret bilangan ke dalam 2 bagian, 4 bagian, 8 bagian, dan seterusnya, merupakan iterasi didalam metode?",
+      "A": "A. Quick Sort",
+      "B": "B. Selection Sort.",
+      "C": "C. Merge Sort",
+      "D": "D. Insertion Sort.",
+      "jawabantrue": "C. Merge Sort"
+    },
+    {
+      "id": 2,
+      "soal": "Di bawah ini yang bukan termasuk teknik pengurutan data adalah",
+      "A": "A. Bubble sort",
+      "B": "B. Tree sort",
+      "C": "C. Selection sort",
+      "D": "D. Head sort",
+      "jawabantrue": "D. Head sort"
+    },
+    {
+      "id": 3,
+      "soal": "Yang termasuk dalam klasifikasi selection sort yaitu",
+      "A": "A. Selection sort dan heap sort",
+      "B": "B. Selection sort dan bubble sort",
+      "C": "C. Bubble sort dan heap sort",
+      "D": "D. Bubble sort dan tree sort",
+      "jawabantrue": "A. Selection sort dan heap sort"
+    },
+    {
+      "id": 4,
+      "soal": "Selection sort merupakan kombinasi dari",
+      "A": "A. Sorting dan inserting",
+      "B": "B. Sorting dan searching",
+      "C": "C. Insering dan cutting",
+      "D": "D. Sorting dan cutting",
+      "jawabantrue": "B. Sorting dan searching"
+    }
+  ],
+  "materiTreeVideo": [
+    {
+      "id": 1,
+      "judul": "Algoritma dan Struktur Data : Tree 1",
+      "thumbnail": "https://i.ytimg.com/vi/i4CglDZfCJU/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAvJvk4k_UNB9nst4pFP-txM1TLZA",
+      "urlVideo": "https://www.youtube.com/watch?v=i4CglDZfCJU"
+    },
+    {
+      "id": 2,
+      "judul": "Algoritma dan Struktur Data : Tree II",
+      "thumbnail": "https://i.ytimg.com/vi/qH6yxkw0u78/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDhlan32jHSvicGZezDFPjAOdXGUA",
+      "urlVideo": "https://www.youtube.com/watch?v=qH6yxkw0u78"
+    },
+    {
+      "id": 3,
+      "judul": "Algoritma dan Struktur Data : Tree III",
+      "thumbnail": "https://i.ytimg.com/vi/oSWTXtMglKE/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBDnlrC2rVwXamNkicEEbc3Mf4T0w",
+      "urlVideo": "https://www.youtube.com/embed/oSWTXtMglKE"
+    }
+  ],
+  "materiTreeSumm": [
+    {
+      "id": 1,
+      "judul": "Algoritma dan Struktur Data : Tree 1",
+      "urlSumm": "//www.slideshare.net/slideshow/embed_code/key/lmSmaSN07udXNK"
+    }
+  ],
+  "materiTreeMapp": [
+    {
+      "id": 1,
+      "judul": "Algoritma dan Struktur Data : Tree 1",
+      "urlMapp": "//www.slideshare.net/slideshow/embed_code/key/xPYpYwu5coz2We"
+    }
+  ],
+  "materiSortingVideo": [
+    {
+      "id": 1,
+      "judul": "Algoritma dan Struktur Data : Sorting 1",
+      "thumbnail": "https://i.ytimg.com/vi/Soe_Q9HLeas/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAvJvk4k_UNB9nst4pFP-txM1TLZA",
+      "urlVideo": "https://www.youtube.com/watch?v=Soe_Q9HLeas"
+    },
+    {
+      "id": 2,
+      "judul": "Algoritma dan Struktur Data : Sorting II",
+      "thumbnail": "https://i.ytimg.com/vi/ojSwS1AyYUE/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDhlan32jHSvicGZezDFPjAOdXGUA",
+      "urlVideo": "https://www.youtube.com/watch?v=ojSwS1AyYUE"
+    },
+    {
+      "id": 3,
+      "judul": "Algoritma dan Struktur Data : Sorting III",
+      "thumbnail": "https://i.ytimg.com/vi/SLauY6PpjW4/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBDnlrC2rVwXamNkicEEbc3Mf4T0w",
+      "urlVideo": "https://www.youtube.com/embed/SLauY6PpjW4"
+    },
+    {
+      "id": 4,
+      "judul": "Algoritma dan Struktur Data : Sorting IV",
+      "thumbnail": "https://i.ytimg.com/vi/6Gv8vg0kcHc/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA5hTiwkz4Tr1w1hSMhPlwtmQeyYw",
+      "urlVideo": "https://www.youtube.com/watch?v=6Gv8vg0kcHc"
+    },
+    {
+      "id": 5,
+      "judul": "Algoritma dan Struktur Data : Sorting V",
+      "thumbnail": "https://i.ytimg.com/vi/KF2j-9iSf4Q/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCCxXm7aoPShOwON74nhMlGYMUkHw",
+      "urlVideo": "https://www.youtube.com/embed/KF2j-9iSf4Q"
+    }
+  ],
+  "materiSortingSumm": [
+    {
+      "id": 1,
+      "judul": "Algoritma dan Struktur Data : Sorting 1",
+      "urlSumm": "//www.slideshare.net/slideshow/embed_code/key/8jhUwwFIouZ8KL"
+    }
+  ],
+  "materiSortingMapp": [
+    {
+      "id": 1,
+      "judul": "Algoritma dan Struktur Data : Sorting 1",
+      "urlMapp": "//www.slideshare.net/slideshow/embed_code/key/fPbw21OYngDtMF"
+    }
+  ],
+  "materiSearchVideo": [
+    {
+      "id": 1,
+      "judul": "Algoritma dan Struktur Data : Search 1",
+      "thumbnail": "https://i.ytimg.com/vi/shs0KM3wKv8/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAvJvk4k_UNB9nst4pFP-txM1TLZA",
+      "urlVideo": "https://www.youtube.com/watch?v=shs0KM3wKv8"
+    },
+    {
+      "id": 2,
+      "judul": "Algoritma dan Struktur Data : Search II",
+      "thumbnail": "https://i.ytimg.com/vi/P3YID7liBug/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDhlan32jHSvicGZezDFPjAOdXGUA",
+      "urlVideo": "https://www.youtube.com/watch?v=P3YID7liBug"
+    },
+    {
+      "id": 3,
+      "judul": "Algoritma dan Struktur Data : Search III",
+      "thumbnail": "https://i.ytimg.com/vi/PbCCfywlIQw/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBDnlrC2rVwXamNkicEEbc3Mf4T0w",
+      "urlVideo": "https://www.youtube.com/embed/PbCCfywlIQw"
+    }
+  ],
+  "materiSearchSumm": [
+    {
+      "id": 1,
+      "judul": "Algoritma dan Struktur Data : Search 1",
+      "urlSumm": "//www.slideshare.net/slideshow/embed_code/key/xpnc18z6kOQJnq"
+    }
+  ],
+  "materiSearchMapp": [
+    {
+      "id": 1,
+      "judul": "Algoritma dan Struktur Data : Search 1",
+      "urlMapp": "//www.slideshare.net/slideshow/embed_code/key/FOyzIhhulhLyfd"
+    }
+  ],
+  "evaluasiTree": [
+    {
+      "id": 1,
+      "soal": "Node yang berada diatas node tertentu disebut",
+      "A": "A. Lonecesstor",
+      "B": "B. Tree",
+      "C": "C. Ancesstor",
+      "D": "D. Predecessor",
+      "jawabantrue": "D. Predecessor"
+    },
+    {
+      "id": 2,
+      "soal": "Predecessor satu level diatas suatu node disebut",
+      "A": "A. Parent",
+      "B": "B. Child",
+      "C": "C. SubTree",
+      "D": "D. Up Node",
+      "jawabantrue": "A. Parent"
+    },
+    {
+      "id": 3,
+      "soal": "Successor  satu level dibawah suatu node disebut",
+      "A": "A. Parent",
+      "B": "B. Child",
+      "C": "C. SubTree",
+      "D": "D. Down Node",
+      "jawabantrue": "B. Child"
+    },
+    {
+      "id": 4,
+      "soal": "Apa itu Tree Height?",
+      "A": "A. Banyaknya tingkatan / level dalam suatu Tree",
+      "B": "B. Banyaknya node dalam suatu Tree",
+      "C": "C. Banyaknya relation dalam suatu Tree",
+      "D": "D. Banyaknya child dalam suatu Tree",
+      "jawabantrue": "A. Banyaknya tingkatan / level dalam suatu Tree"
+    },
+    {
+      "id": 5,
+      "soal": "Apa pengertian dari Leaf pada Tree?",
+      "A": "A. Node-node dalam Tree yang tak memiliki predecessor",
+      "B": "B. Node-node dalam Tree yang memiliki successor",
+      "C": "C. Node-node dalam Tree yang tidak memiliki successor",
+      "D": "D. Node-node dalam Tree yang memiliki SubTree",
+      "jawabantrue": "C. Node-node dalam Tree yang tidak memiliki successor"
+    },
+    {
+      "id": 6,
+      "soal": "Banyaknya child dalam suatu Node disebut?",
+      "A": "A. Root",
+      "B": "B. Parents",
+      "C": "C. Size",
+      "D": "D. Degree",
+      "jawabantrue": "D. Degree"
+    },
+    {
+      "id": 7,
+      "soal": "Apa itu Full Binnary Tree?",
+      "A": "A. Binary Tree yang tiap nodenya (kecuali leaf) tidak memiliki 2 child dan tiap subTree harus tidak mempunyai panjang path yang sama.",
+      "B": "B. Binary Tree yang tiap nodenya (kecuali leaf) memiliki 2 child dan tiap subTree harus mempunyai panjang path yang sama",
+      "C": "C. Binary Tree dengan sub tree boleh memiliki panjang path yang berbeda. Node kecuali leaf memiliki 0 atau 2 child",
+      "D": "D. Binary Tree dengan sub tree boleh memiliki panjang path yang berbeda",
+      "jawabantrue": "C. Binary Tree dengan sub tree boleh memiliki panjang path yang berbeda. Node kecuali leaf memiliki 0 atau 2 child"
+    },
+    {
+      "id": 8,
+      "soal": "Apa itu Arithmetic expressions?",
+      "A": "A. Kelompok binary Tree yang digunakan untuk mengekspresikan notasi aritmatika",
+      "B": "B. Kelompok node yang digunakan pada notasi aritmatika",
+      "C": "C. Notasi aritmatika yang menggambarkan sebuah hubungan parent-child",
+      "D": "D. Notasi aritmatika yang menggambarkan sebuah hubungan antara tree satu dengan yang lain",
+      "jawabantrue": "A. Kelompok binary Tree yang digunakan untuk mengekspresikan notasi aritmatika"
+    }
+  ],
+  "jawabanUserTree": [
+    {
+      "id": 1,
+      "jawaban": ""
+    },
+    {
+      "id": 2,
+      "jawaban": ""
+    },
+    {
+      "id": 3,
+      "jawaban": ""
+    },
+    {
+      "id": 4,
+      "jawaban": ""
+    },
+    {
+      "id": 5,
+      "jawaban": ""
+    },
+    {
+      "id": 6,
+      "jawaban": ""
+    },
+    {
+      "id": 7,
+      "jawaban": ""
+    },
+    {
+      "id": 8,
+      "jawaban": ""
+    }
+  ],
+  "quizTreeVideo": [
+    {
+      "id": 1,
+      "keyword": "Descendant",
+      "value": true
+    },
+    {
+      "id": 2,
+      "keyword": "Child",
+      "value": true
+    },
+    {
+      "id": 3,
+      "keyword": "Leaf",
+      "value": true
+    },
+    {
+      "id": 4,
+      "keyword": "Degree",
+      "value": true
+    },
+    {
+      "id": 5,
+      "keyword": "Subtree",
+      "value": true
+    },
+    {
+      "id": 6,
+      "keyword": "Binary Tree",
+      "value": true
+    },
+    {
+      "id": 7,
+      "keyword": "Skewed binary Tree",
+      "value": true
+    },
+    {
+      "id": 8,
+      "keyword": "PreOrder (Depth First Order)",
+      "value": true
+    },
+    {
+      "id": 9,
+      "keyword": "InOrder (Symetric Order)",
+      "value": true
+    },
+    {
+      "id": 10,
+      "keyword": "Root",
+      "value": true
+    },
+    {
+      "id": 11,
+      "keyword": "Skill Tree",
+      "value": false
+    },
+    {
+      "id": 12,
+      "keyword": "Lost Child",
+      "value": false
+    },
+    {
+      "id": 13,
+      "keyword": "Inner Circle",
+      "value": false
+    },
+    {
+      "id": 14,
+      "keyword": "Legacy",
+      "value": false
+    },
+    {
+      "id": 15,
+      "keyword": "Counting  Star",
+      "value": false
+    },
+    {
+      "id": 16,
+      "keyword": "Palm Tree",
+      "value": false
+    },
+    {
+      "id": 17,
+      "keyword": "Order on Book",
+      "value": false
+    },
+    {
+      "id": 18,
+      "keyword": "Skewed Role",
+      "value": false
+    },
+    {
+      "id": 19,
+      "keyword": "Binnary Valley",
+      "value": false
+    },
+    {
+      "id": 20,
+      "keyword": "Failed Counting",
+      "value": false
+    }
+  ],
+  "quizTreeSumm": [
+    {
+      "id": 1,
+      "keyword": "Predecessor",
+      "jawaban": "Node yang berada diatas node tertentu."
+    },
+    {
+      "id": 2,
+      "keyword": "Descendant",
+      "jawaban": "Seluruh node yang terletak sesudah node tertentu dan terletak pada jalur yang sama"
+    },
+    {
+      "id": 3,
+      "keyword": "Successor",
+      "jawaban": "Node yang berada dibawah node tertentu"
+    },
+    {
+      "id": 4,
+      "keyword": "Root",
+      "jawaban": "Node khusus dalam Tree yang tidak punya predecessor"
+    },
+    {
+      "id": 5,
+      "keyword": "Anchestor",
+      "jawaban": "Seluruh node yang terletak sebelum node tertentu dan terletak pada jalur yang sama"
+    },
+    {
+      "id": 6,
+      "keyword": "Child",
+      "jawaban": "Successor satu level dibawah suatu node"
+    },
+    {
+      "id": 7,
+      "keyword": "Leaf",
+      "jawaban": "node-node dalam Tree yang tak memiliki successor"
+    },
+    {
+      "id": 8,
+      "keyword": "Degree",
+      "jawaban": "banyaknya child yang dimiliki suau node"
+    },
+    {
+      "id": 9,
+      "keyword": "SubTree",
+      "jawaban": "bagian dari Tree yang berupa suatu node beserta descendant nya dan memiliki semua karakteristik dari Tree tersebut"
+    },
+    {
+      "id": 10,
+      "keyword": "Binnary Tree",
+      "jawaban": "Tree dengan syarat bahwa tiap node hanya boleh memiliki dua subTree dan kedua subTree tersebut harus terpisah"
+    }
+  ],
+  "evaluasiSorting": [
+    {
+      "id": 1,
+      "soal": "Yang tidak termasuk klasifikasi sorting yaitu",
+      "A": "A. Exchange sort",
+      "B": "B. Selection sort",
+      "C": "C. Inception sort",
+      "D": "D. Non-comparison sort",
+      "jawabantrue": "C. Insertion sort"
+    },
+    {
+      "id": 2,
+      "soal": "Algoritma quick sort bersifat",
+      "A": "A. Divide dan conquer",
+      "B": "B. Divide dan conquest",
+      "C": "C. Disable dan conquer",
+      "D": "D. Disable dan conquest",
+      "jawabantrue": "A. Divide dan conquer"
+    },
+    {
+      "id": 3,
+      "soal": "Yang termasuk dalam klasifikasi exchange sort yaitu",
+      "A": "A. Heap sort dan Quick sort",
+      "B": "B. Bubble sort dan Quick sort",
+      "C": "C. Heap sort dan Bubble sort",
+      "D": "D. Quick sort dan Radix sort",
+      "jawabantrue": "B. Bubble sort dan Quick sort"
+    },
+    {
+      "id": 4,
+      "soal": "rikut ini beberapa tujuan dari sorting, kecuali :",
+      "A": "A. Memudahkan pencarian",
+      "B": "B. Mudah pengecekan",
+      "C": "C. Memanipulasi pencarian",
+      "D": "D. Mudah perbaiki kesalahan",
+      "jawabantrue": "C. Memanipulasi pencarian"
+    },
+    {
+      "id": 5,
+      "soal": "Faktor yang mempengaruhi sorting, kecuali :",
+      "A": "A. Banyak data yang diurutkan",
+      "B": "B. Memudahkan pencarian",
+      "C": "C. Kapasitas",
+      "D": "D. Tempat penyimpanan data",
+      "jawabantrue": "B. Memudahkan pencarian"
+    },
+    {
+      "id": 6,
+      "soal": "Berikut ini contoh yang benar dari sorting ascending adalah :",
+      "A": "A. 3, 4, 5, 6, 7",
+      "B": "B. 2, 4, 6, 8, 10",
+      "C": "C. 10, 9, 8, 7, 6",
+      "D": "D. 10, 8, 6, 4, 2",
+      "jawabantrue": "A. 3, 4, 5, 6, 7"
+    },
+    {
+      "id": 7,
+      "soal": "Berikut ini contoh yang benar dari sorting descending adalah :",
+      "A": "A. 1, 2, 3, 4, 5",
+      "B": "B. 2, 4, 6, 8, 10",
+      "C": "C. 10, 9, 8, 7, 6",
+      "D": "D. 10, 8, 6, 4, 2",
+      "jawabantrue": "C. 10, 9, 8, 7, 6"
+    },
+    {
+      "id": 8,
+      "soal": "hnik pengurutan data yang paling tepat digunakan untuk tabel data yang sangat besar adalah",
+      "A": "A. Selection sort",
+      "B": "B. Merge sort",
+      "C": "C. Bubble sort",
+      "D": "D. Quick sort",
+      "jawabantrue": "A. Quick sort"
+    }
+  ],
+  "jawabanUserSorting": [
+    {
+      "id": 1,
+      "jawaban": ""
+    },
+    {
+      "id": 2,
+      "jawaban": ""
+    },
+    {
+      "id": 3,
+      "jawaban": ""
+    },
+    {
+      "id": 4,
+      "jawaban": ""
+    },
+    {
+      "id": 5,
+      "jawaban": ""
+    },
+    {
+      "id": 6,
+      "jawaban": ""
+    },
+    {
+      "id": 7,
+      "jawaban": ""
+    },
+    {
+      "id": 8,
+      "jawaban": ""
+    }
+  ],
+  "quizSortingVideo": [
+    {
+      "id": 1,
+      "keyword": "Bubble sort",
+      "value": true
+    },
+    {
+      "id": 2,
+      "keyword": "Exchange sort",
+      "value": true
+    },
+    {
+      "id": 3,
+      "keyword": "Selection sort",
+      "value": true
+    },
+    {
+      "id": 4,
+      "keyword": "Insertion sort",
+      "value": true
+    },
+    {
+      "id": 5,
+      "keyword": "Non-comparison sort",
+      "value": true
+    },
+    {
+      "id": 6,
+      "keyword": "Downheap",
+      "value": true
+    },
+    {
+      "id": 7,
+      "keyword": "Upheap",
+      "value": true
+    },
+    {
+      "id": 8,
+      "keyword": "Concatenation",
+      "value": true
+    },
+    {
+      "id": 9,
+      "keyword": "Quicksort",
+      "value": true
+    },
+    {
+      "id": 10,
+      "keyword": "Raddix",
+      "value": true
+    },
+    {
+      "id": 11,
+      "keyword": "Short node",
+      "value": false
+    },
+    {
+      "id": 12,
+      "keyword": "Middle Heap",
+      "value": false
+    },
+    {
+      "id": 13,
+      "keyword": "Jumpe and Heap",
+      "value": false
+    },
+    {
+      "id": 14,
+      "keyword": "Found selection",
+      "value": false
+    },
+    {
+      "id": 15,
+      "keyword": "Protractedly sort",
+      "value": false
+    },
+    {
+      "id": 16,
+      "keyword": "Cut sort",
+      "value": false
+    },
+    {
+      "id": 17,
+      "keyword": "Cutting",
+      "value": false
+    },
+    {
+      "id": 18,
+      "keyword": "Surface",
+      "value": false
+    },
+    {
+      "id": 19,
+      "keyword": "Missing clue",
+      "value": false
+    },
+    {
+      "id": 20,
+      "keyword": "Hide sort",
+      "value": false
+    }
+  ],
+  "quizSortingSumm": [
+    {
+      "id": 1,
+      "keyword": "Sorting",
+      "jawaban": "proses mengatur sekumpulan objek menurut aturan atau susunan tertentu"
+    },
+    {
+      "id": 2,
+      "keyword": "Exchange sort",
+      "jawaban": "algortima pngurutan dengan melakukan pembandingan antar data, dan melakukan pertukaran apabila urutan yang didapat belum sesuai."
+    },
+    {
+      "id": 3,
+      "keyword": "Non comparison sort",
+      "jawaban": "algoritma pengurutan di mana dalam prosesnya tidak melakukan pembandingan antar dataRoot: Node khusus dalam Tree yang tidak punya predecessor."
+    },
+    {
+      "id": 4,
+      "keyword": "Selection sort",
+      "jawaban": "pengurutan dengan mencari elemen yang tepat untuk diletakkan di posisi yang telah diketahui, dan meletakkannya di posisi tersebut setelah data tersebut ditemukan."
+    },
+    {
+      "id": 5,
+      "keyword": "Insertion sort",
+      "jawaban": "pengurutan dengan mencari tempat yang tepat untuk suatu elemen data yang telah diketahui kedalam subkumpulan data yang telah terurut, kemudian melakukan penyisipan (insertion) data di tempat yang tepat tersebut"
+    },
+    {
+      "id": 6,
+      "keyword": "Radix sort",
+      "jawaban": "mengkategorikan data-data menjadi sub kumpulan data sesuai dengan nilai radix-nya, mengkonkatenasinya, kemudian mengkategorikannya kembali berdasar nilai radix lainnya."
+    },
+    {
+      "id": 7,
+      "keyword": "Pengurutan ascending",
+      "jawaban": "pengurutan dengan konsep jika elemen sekarang lebih besar dari elemen berikutnya maka kedua elemen tersebut ditukar."
+    },
+    {
+      "id": 8,
+      "keyword": "Pengururtan descending",
+      "jawaban": "pengurutan dengan konsep jika elemen sekarang lebih kecil dari elemen berikutnya, maka kedua elemen tersebut ditukar."
+    },
+    {
+      "id": 9,
+      "keyword": "Sheel sorting",
+      "jawaban": "metode mengurutkan data dengan cara membandingkan suatu data dengan data lain yang memiliki jarak tertentu sehingga membentuk sebuah sub-list, kemudikan dilakukan penukaran."
+    },
+    {
+      "id": 10,
+      "keyword": "Downheap",
+      "jawaban": "metode heap dengan membandingkan parent dengan leftchild dan rightchild apabila parent > leftchild atau rightchild maka terjadi pertukaran"
+    }
+  ],
+  "evaluasiSearch": [
+    {
+      "id": 1,
+      "soal": "Teknik pencarian yang menghasilkan record untuk menunjuk tabel indeks",
+      "A": "A. Indeks sekuensial",
+      "B": "B. Sekuensial",
+      "C": "C. Hash",
+      "D": "D. Tree",
+      "jawabantrue": "A. Indeks sekuensial"
+    },
+    {
+      "id": 2,
+      "soal": "Sifat binary search tree, kecuali",
+      "A": "A. Semua item pada left subtree bernilai kurang dari root.",
+      "B": "B. Semua item pada right subtree bernilai lebih atau sama dengan root.",
+      "C": "C. Setiap subtree merupakan BST.",
+      "D": "D. Semua node bernilai nol",
+      "jawabantrue": "D. Semua node bernilai nol"
+    },
+    {
+      "id": 3,
+      "soal": "Operasi binary search tree (BST), kecuali",
+      "A": "A. Traversals",
+      "B": "B. Cutting",
+      "C": "C. Insertion",
+      "D": "D. Deletion",
+      "jawabantrue": "B. Cutting"
+    },
+    {
+      "id": 4,
+      "soal": "Yang termasuk algortima pada binary search tree (BST), yaitu",
+      "A": "A. Mencari node terkecil dan terbesar",
+      "B": "B. Mencari node terkecil dan terputus",
+      "C": "C. Mencari node terbesar dan node yang hilang",
+      "D": "D. Mencari node terputus dan node yang bernilai nol",
+      "jawabantrue": "A. Mencari node terkecil dan terbesar"
+    },
+    {
+      "id": 5,
+      "soal": "Rasio data dengan ukuran tabel hash disebut",
+      "A": "A. Load Search",
+      "B": "B. Save Factor",
+      "C": "C. Load Factor",
+      "D": "D. Load Work",
+      "jawabantrue": "C. Load Factor"
+    },
+    {
+      "id": 6,
+      "soal": "Fungsi hash memetakan item indeks dalam rentang",
+      "A": "A. 0 sampai batas tidak terhingga",
+      "B": "B. 0 sampai H-ukuran-1",
+      "C": "C. -1 sampai H-ukuran-1",
+      "D": "D. Batas tidak terhingga sampai 0",
+      "jawabantrue": "B. 0 sampai H-ukuran-1"
+    },
+    {
+      "id": 7,
+      "soal": "Operasi pada tabel hash, yaitu",
+      "A": "A. Search, read, dan write",
+      "B": "B. Search, read, dan delete",
+      "C": "C. Search, insert, dan delete",
+      "D": "D. Search, insert, dan read",
+      "jawabantrue": "C. Search, insert, dan delete"
+    },
+    {
+      "id": 8,
+      "soal": "Urutan MPFH yang benar, yaitu",
+      "A": "A. Mapping > Searching > Ordering",
+      "B": "B. Mapping > Ordering > Searching ",
+      "C": "C. Ordering > Mapping > Searching",
+      "D": "D. Searching > Ordering > Mapping",
+      "jawabantrue": "B. Mapping > Ordering > Searching"
+    }
+  ],
+  "jawabanUserSearch": [
+    {
+      "id": 1,
+      "jawaban": ""
+    },
+    {
+      "id": 2,
+      "jawaban": ""
+    },
+    {
+      "id": 3,
+      "jawaban": ""
+    },
+    {
+      "id": 4,
+      "jawaban": ""
+    },
+    {
+      "id": 5,
+      "jawaban": ""
+    },
+    {
+      "id": 6,
+      "jawaban": ""
+    },
+    {
+      "id": 7,
+      "jawaban": ""
+    },
+    {
+      "id": 8,
+      "jawaban": ""
+    }
+  ],
+  "quizSearchVideo": [
+    {
+      "id": 1,
+      "keyword": "Binary Search",
+      "value": true
+    },
+    {
+      "id": 2,
+      "keyword": "Sequential Search",
+      "value": true
+    },
+    {
+      "id": 3,
+      "keyword": "Index Sequential Search",
+      "value": true
+    },
+    {
+      "id": 4,
+      "keyword": "Hash Search",
+      "value": true
+    },
+    {
+      "id": 5,
+      "keyword": "Record",
+      "value": true
+    },
+    {
+      "id": 6,
+      "keyword": "Minimal Perfect Hash Function",
+      "value": true
+    },
+    {
+      "id": 7,
+      "keyword": "Array",
+      "value": true
+    },
+    {
+      "id": 8,
+      "keyword": " Binary Search Tree",
+      "value": true
+    },
+    {
+      "id": 9,
+      "keyword": "Traversals",
+      "value": true
+    },
+    {
+      "id": 10,
+      "keyword": "Deletion",
+      "value": true
+    },
+    {
+      "id": 11,
+      "keyword": "Lost Search",
+      "value": false
+    },
+    {
+      "id": 12,
+      "keyword": " Jumpe and Heap",
+      "value": false
+    },
+    {
+      "id": 13,
+      "keyword": "Found selection",
+      "value": false
+    },
+    {
+      "id": 14,
+      "keyword": "Protractedly Search",
+      "value": false
+    },
+    {
+      "id": 15,
+      "keyword": "Jurnal Indeks",
+      "value": false
+    },
+    {
+      "id": 16,
+      "keyword": "Cutting",
+      "value": false
+    },
+    {
+      "id": 17,
+      "keyword": "Surface",
+      "value": false
+    },
+    {
+      "id": 18,
+      "keyword": "Missing clue",
+      "value": false
+    },
+    {
+      "id": 19,
+      "keyword": "Hide Search",
+      "value": false
+    },
+    {
+      "id": 20,
+      "keyword": "Maximum Perfect Hash Function",
+      "value": false
+    }
+  ],
+  "quizSearchSumm": [
+    {
+      "id": 1,
+      "keyword": "Sequential sort",
+      "jawaban": "proses membandingkan setiap elemen larik satu per satu secara beruntun, mulai dari elemen pertama sampai elemen yang dicari ditemukan atau seluruh elemen sudah diperiksa."
+    },
+    {
+      "id": 2,
+      "keyword": "Binary search",
+      "jawaban": "algoritma pencarian dengan cara membagi data menjadi dua bagian setiap kali terjadi proses pencarian untuk menemukan nilai tertentu dalam sebuah larik (array) linear."
+    },
+    {
+      "id": 3,
+      "keyword": "Hash",
+      "jawaban": "algoritma yang memetakan kumpulan data besar dengan variabel panjang, disebut kunci, ke kumpulan data yang lebih kecil dan mempunyai ukuran tetap."
+    },
+    {
+      "id": 4,
+      "keyword": "Minimal perfect hash function (MPHF): ",
+      "jawaban": "fungsi hash sempurna dengan properti yang memecah beberapa kunci m  ke beberapa wadah m  tanpa adanya benturan antar data"
+    },
+    {
+      "id": 5,
+      "keyword": "Mapping MPFH",
+      "jawaban": "mentransformasikan kumpulan kunci dari asal ke tempat baru"
+    },
+    {
+      "id": 6,
+      "keyword": "Collison",
+      "jawaban": "kondisi dimana terdapat dua nilai yang terhubung ke lokasi array yang sama"
+    },
+    {
+      "id": 7,
+      "keyword": "Array",
+      "jawaban": "sebuah variabel yang menyimpan lebih dari 1 buah data yang memiliki tipe data yang sama"
+    },
+    {
+      "id": 8,
+      "keyword": "Insertion",
+      "jawaban": "operai pada BST untuk menambahkan data subtree yang kosong"
+    },
+    {
+      "id": 9,
+      "keyword": "Traversal",
+      "jawaban": ""
+    },
+    {
+      "id": 10,
+      "keyword": "Record",
+      "jawaban": ""
     }
   ]
 }

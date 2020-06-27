@@ -68,7 +68,7 @@ export default {
 
       items: [
         {
-          src: require('@/assets/pet/asihprofil.jpg'),
+          src: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihprofil.jpg?alt=media&token=bd2a2a01-8f0b-4b91-9e4d-c0f0fae0ffd5",
           title: 'Metacognitive Awareness Inventory Test',
           desc:'Yuk, ikuti test ini untuk mengetahui kemampuan metakognisi-mu.',
         },

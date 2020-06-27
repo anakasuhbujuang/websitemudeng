@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 import Routes from './routes'
+import axios from 'axios'
 
 import vuetify from './plugins/vuetify';
 
@@ -9,6 +10,7 @@ import vuetify from './plugins/vuetify';
 import vueHeadful from 'vue-headful';
 Vue.component('vue-headful', vueHeadful);
 
+axios.defaults.withCredentials = true
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 

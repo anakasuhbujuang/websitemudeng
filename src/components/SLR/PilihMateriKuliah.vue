@@ -310,7 +310,7 @@ export default {
         srcProfpicMateri: 'https://svgshare.com/i/MF8.svg',
 
         //DIALOG
-        SrcMateriLocked: require('@/assets/pet/asih200.png'),
+        SrcMateriLocked: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihbingung.png?alt=media&token=2bf76233-658b-43b9-af1a-4093d5b0cb20",
         dialogQuestionSorting: false,
         dialogQuestionSearch: false,
         dialogTestAPK: false,
@@ -320,8 +320,8 @@ export default {
         //dialogHasilTestAPK
         NilaiAPK: 50,
         PassingGradeAPK: 70,
-        SrcFighting: require('@/assets/pet/jonifighting200.png'),
-        SrcReward: require('@/assets/pet/jonireward200.png'),
+        SrcFighting: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihfighting200.png?alt=media&token=8d21bfbe-3f0c-4d03-9165-1d8639acaf70",
+        SrcReward: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihreward200.png?alt=media&token=d4dcb34c-4257-4801-9f26-3fd6abbc4357",
 
         //Materi
          materi: [

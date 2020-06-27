@@ -62,7 +62,7 @@ export default {
      data: () => ({
 
       Nama:'Jihaan Nadhiya',
-      SrcImg: require('@/assets/pet/asihprofil.jpg'),
+      SrcImg: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihprofil.jpg?alt=media&token=bd2a2a01-8f0b-4b91-9e4d-c0f0fae0ffd5",
        
       LvMAI:'High',
       DescMAI:'Metakognisi merupakan konsep tentang bagaimana cara belajar yang tepat dan upaya pengembangannya...',

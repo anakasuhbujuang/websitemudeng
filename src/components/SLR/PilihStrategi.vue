@@ -74,21 +74,21 @@ export default {
       return {
           Strategi: [
         {
-          SrcImgStrategi: require('@/assets/pet/jonivideo.png'),
+          SrcImgStrategi: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihvideo.png?alt=media&token=055d4748-ac15-418c-95af-afe7811344cd",
           NameStrategi: 'Control Video',
           DescStrategi:'Selanjutnya kamu akan belajar melalui media video yang telah kami sediakan.',
           Rekomendasi:'Check',
           Jenis: 'Video',
         },
         {
-          SrcImgStrategi: require('@/assets/pet/jonisumm.png'),
+          SrcImgStrategi: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihsumm.png?alt=media&token=7e88c424-6034-4925-acba-6d8b172afa53",
           NameStrategi: 'Summarization',
           DescStrategi:'Selanjutnya kamu akan belajar dengan membuat ringkasan materi yang ada.',
           Rekomendasi:'',
           Jenis: 'Summary',
         },
         {
-          SrcImgStrategi: require('@/assets/pet/jonimapp.png'),
+          SrcImgStrategi: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihmapp.png?alt=media&token=68253a97-857f-4c55-bd68-d6d0e4b2c757",
           NameStrategi: 'Mind Mapping',
           DescStrategi:'Selanjutnya kamu akan belajar dengan membuat diagram berisi materi yang ada.',
           Rekomendasi:'',

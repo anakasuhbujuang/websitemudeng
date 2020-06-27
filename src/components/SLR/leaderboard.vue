@@ -5,7 +5,7 @@
         <v-toolbar-title class="title font-weight-medium">Leaderboard</v-toolbar-title>
       </v-toolbar>
       
-      <v-img  src="@/assets/bg/bgdaun.jpg">
+      <v-img  src="/assets/bg/bgdaun.jpg">
         <v-row justify="center">
           
           <v-col md="3" class="text-center">
@@ -184,7 +184,7 @@ text-align: center;
 
 /* div.bgdaun{
 
-  background-image: url('~@/assets/bgdaun147.svg');
+  background-image: url('~./bgdaun147.svg');
   background-repeat: no-repeat;
   background-position: top;
   background-attachment: fixed;
@@ -202,7 +202,7 @@ text-align: center;
 } */
 
 /* div.bglead{
-  background-image: url('~@/assets/bglead.png');
+  background-image: url('~@/bglead.png');
   background-repeat: no-repeat;
 } */
 </style>
