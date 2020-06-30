@@ -1,61 +1,46 @@
 <template>
-
-   <div > 
+  <div > 
     <!-- QUESTION BOX START -->
-    
-     <v-row justify="center" dense>
-       
-       <v-col md="12">
-       
-          <!-- QUESTION TEXT START-->
-          <v-form ref="form" v-model="isValidTestAPK" >
-            
-            <todo-item
-            
-            v-for="todo in visibleTodos" 
-            :key="todo.id"
-            v-bind:visibleTodos="visibleTodos"
-            v-bind:currentPage="currentPage"
-            v-bind:todo="todo"
-            :isValidTestAPK="isValidTestAPK"
-            >
-            </todo-item>
-           
-            
-          </v-form>
-
-
-           <!-- QUESTION TEXT END-->
-
+    <v-row justify="center" dense>  
+      <v-col md="12">
+        <!-- QUESTION TEXT START-->
+        <v-form ref="form" v-model="isValidTestAPK" > 
+          <todo-item 
+          v-for="todo in visibleTodos" 
+          :key="todo.id"
+          v-bind:visibleTodos="visibleTodos"
+          v-bind:currentPage="currentPage"
+          v-bind:todo="todo"
+          :isValidTestAPK="isValidTestAPK">
+          </todo-item> 
+        </v-form>
+        <!-- QUESTION TEXT END-->
       </v-col>
     </v-row>
 
-     <v-row justify="center" no-gutters class="mb-2">
-       <v-col md="2"></v-col>
-        <v-col md="8" class="text-center">
-
-           <v-pagination
-            v-model="currentPage"
-            :length="totalPages()"
-            :total-visible="5"
-            v-on:next="updatePage(currentPage)"
-            v-on:previous="updatePage(currentPage)"
-            v-on:input="updatePage(currentPage)"
-            circle
-            color="teal darken-3"
-            :disabled="!isValidTestAPK"
-           ></v-pagination>
-
-       </v-col>
+    <v-row justify="center" no-gutters class="mb-2">
+      <v-col md="2"></v-col> <!--space tambahan aja-->
+      <v-col md="8" class="text-center">
+        <v-pagination
+        v-model="currentPage"
+        :length="totalPages()"
+        :total-visible="5"
+        v-on:next="updatePage(currentPage)"
+        v-on:previous="updatePage(currentPage)"
+        v-on:input="updatePage(currentPage)"
+        circle
+        color="teal darken-3"
+        :disabled="!isValidTestAPK">
+        </v-pagination>
+      </v-col>
       
-       <v-col md="2" class="text-end pr-9 pt-2">
-         <v-btn  :disabled="!isValidTestAPK" v-if="showSubmitLink()" @click="SubmitAPK()" block 
-         color="teal darken-4 white--text" class="subtitle-2 font-weight-bold">Kumpulkan</v-btn>
-       </v-col>
-      
+      <v-col md="2" class="text-end pr-9 pt-2">
+        <v-btn  :disabled="!isValidTestAPK" v-if="showSubmitLink()" @click="SubmitAPK()" block 
+        color="teal darken-4 white--text" class="subtitle-2 font-weight-bold">Kumpulkan</v-btn>
+      </v-col>
      </v-row>
+     
   </div>
-  
 </template>
 
 

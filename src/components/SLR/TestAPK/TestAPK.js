@@ -1,4 +1,8 @@
+//parent of TodoItemTestAPK, child of PilihMateriKuliah
 import TodoItemTestAPK from '@/components/SLR/TestAPK/TodoItemTestAPK.vue';
+
+// import axios from 'axios';
+// window.axios = require('axios');
 
 export default {
   name: 'TestAPK',
@@ -7,9 +11,10 @@ export default {
     'todo-item':TodoItemTestAPK,
   },
 
-  props: {
-    dialogHasilTestAPK: Boolean,
-    dialogAPK: Boolean
+  //child of PilihMateriKuliah
+  props: { 
+    // dialogHasilTestAPK: Boolean,
+    // dialogAPK: Boolean
   }, 
 
   data() {
@@ -19,23 +24,35 @@ export default {
 
       todos: [
         
-        {id: 1, text: "Jelaskan pengertian struktur tree!", jawaban:null},
-        {id: 2, text: "Sebutkan implementasi dari binary tree!", jawaban:null},
-        {id: 3, text: "Apa saja hubungan antar elemen pada struktur tree ?", jawaban:null},
-        {id: 4, text: "Selain binary tree, sebutkan implementasi lainnya!", jawaban:null},
-        
-        
+        {id: 0, question: "Jelaskan pengertian struktur tree!", A:"A. Hehe", B:"B. Hehe", C:"C. Hehe", D:"D. Hehe", selected:''},
+        {id: 1, question: "Sebutkan implementasi dari binary tree!", A:"A. Hehe", B:"B. Hehe", C:"C. Hehe", D:"D. Hehe",selected:''},
+        {id: 2, question: "Apa saja hubungan antar elemen pada struktur tree ?", A:"A. Hehe", B:"B. Hehe", C:"C. Hehe", D:"D. Hehe", selected:''},
+        {id: 3, question: "Selain binary tree, sebutkan implementasi lainnya!", A:"A. Hehe", B:"B. Hehe", C:"C. Hehe", D:"D. Hehe", selected:''},
+    
       ],
-      nextId: 13,
+      // nextId: 13,
       
       page:1,
       currentPage: 1,
    
       pageSize: 2,
       visibleTodos: []
+
+      // axios 
+      // todos: [], //id, question
+      // selected:[
+      //   {jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},
+      // ],
+
+
+
     };
   },
 
+  // created: async function() {
+  //   await this.getSoal();
+  //   this.updateVisibleTodos();
+  // },
   
 
   beforeMount: function() {
@@ -44,11 +61,11 @@ export default {
   
   methods: {
    
-    addTodo(text) {
-      this.todos.push({id: this.nextId, text: text});
-      this.nextId++;
-      this.updateVisibleTodos();
-    },
+    // addTodo(text) {
+    //   this.todos.push({id: this.nextId, text: text});
+    //   this.nextId++;
+    //   this.updateVisibleTodos();
+    // },
 
     SubmitJawaban() {
       this.todos.jawaban;
@@ -61,30 +78,21 @@ export default {
       this.$emit('page:update', pageNumber);
     },
     updateVisibleTodos() {
-     
       this.visibleTodos = this.todos.slice((this.currentPage - 1) * this.pageSize , ((this.currentPage - 1) * this.pageSize) + this.pageSize); 
-
-     
     },
 
-    
     totalPages() {
       return Math.ceil(this.todos.length / this.pageSize);
     },
-    showPreviousLink() {
-      return this.currentPage == 0 ? false : true;
-    },
-    showNextLink() {
-      return this.currentPage == (this.totalPages() - 1) ? false : true;
-    },
+   
     showSubmitLink(){
       return this.currentPage == this.totalPages() ? true : false;
     },
 
+    //child of PilihMateriKuliah
     SubmitAPK(){
       console.log(this.todos);
       this.$emit('SubmitAPK');
-
     },
     validate () {
       if(this.$refs.form.validate()){
@@ -92,6 +100,45 @@ export default {
         console.log(this.todos);
         }
       },
+
+    // AXIOS
+    // async getSoal (){
+    //   try {
+    //     var response = await axios.get(`${process.env.VUE_APP_API_HOST}/mai/soal`)
+    //   } catch(error) {
+    //     return console.log(error)
+    //   }
+
+    //   const questions = response.data
+    //   const todos = []
+    //   questions.map(item => {
+    //     todos.push({
+    //       id: item.id,
+    //       question: item.question,
+    //       selected: ''
+    //     })
+    //   })
+
+    //   this.todos = todos
+    // },
+
+    // async SubmitAPK(){ //MAPPING todos.selected ke jawaban ---->kalo ini disini pasti perlu di emit ke Pilih Materi Kuliah 
+    //   await const jawaban = []
+    //   await this.todos.map(item => {
+    //     if(item.selected != '') {
+    //       jawaban.push(item.selected);
+    //     }
+    //   })
+
+    //  await try {
+    //     var response = await axios.post(`${process.env.VUE_APP_API_HOST}/mai/submit`, { jawaban })
+    //     this.$emit('SubmitAPK');
+		// 	} catch(error) {
+		// 		console.error(error)
+		// 		return
+    //   }
+    // this.$emit('SubmitAPK'); --> 
+    // },
   
   }
 }

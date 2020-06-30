@@ -1,4 +1,5 @@
 <template>
+<!-- PERFORMA-->
   <v-card height="400px" color="white" class="pa-2">
 
     <!--JUDUL CARD-->
@@ -52,16 +53,10 @@
 
 
 <script>
-
-// const gradients = [
-//     ['#42b3f4'],
-    
-//   ]
+// import axios from 'axios';
+// window.axios = require('axios');
 
 export default {
-
-  
-
   name:'cardfour',
 
      data: () => ({
@@ -86,18 +81,27 @@ export default {
               10,
               
             ],
-            hari: [
-              ['Senin'],
-              ['Senin'],
-              ['Senin'],
-              ['Senin'],
-              ['Senin'],
-              ['Senin'],
-              ['Senin'],
-              
-            ],
-     
-
+           
+           //axios
+           valuePerforma:[],
     }),
+
+    created: function(){
+      // await this.getValuePerforma();
+    },
+
+    methods:{
+      // async getValuePerforma (){
+      //   try {
+      //     var response = await axios.get(`${process.env.VUE_APP_API_HOST}/mai/soal`)
+
+      //     this.valuePerforma= response.data;
+      //   } catch(error) {
+      //   return console.log(error)
+      //   }
+      // },
+    }
+
+
   }
 </script>

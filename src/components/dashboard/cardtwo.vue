@@ -1,5 +1,5 @@
 <template>
-    
+  <!-- SKOR MAI-->
   <v-card height="380px" color="white" class="pa-2">
     
     <v-row justify="center" no-gutters class="mt-4">
@@ -18,24 +18,22 @@
               <tr>
                 <td class="text-center">
                   <v-progress-circular
-                      rotate="-90"
-                      size="130"
-                      :value="SkorKnowledge"
-                      width="14"
-                      color="red accent-1"
-                      
-                    >{{SkorKnowledge}}</v-progress-circular>
+                    rotate="-90"
+                    size="130"
+                    :value="SkorKnowledge"
+                    width="14"
+                    color="red accent-1"
+                  >{{SkorKnowledge}}</v-progress-circular>
                 </td>
 
                 <td class="text-center">
                   <v-progress-circular
-                      rotate="-90"
-                      size="130"
-                      :value="SkorKnowledge"
-                      width="14"
-                      color="red accent-1"
-                      
-                    >{{SkorKnowledge}}</v-progress-circular>
+                    rotate="-90"
+                    size="130"
+                    :value="SkorKnowledge"
+                    width="14"
+                    color="red accent-1"
+                  >{{SkorKnowledge}}</v-progress-circular>
                 </td>
               </tr>
 
@@ -58,6 +56,8 @@
 </template>
 
 <script>
+// import axios from 'axios';
+// window.axios = require('axios');
 
 export default {
 
@@ -70,8 +70,26 @@ export default {
       LvSkorKnowledge: 'Kurang',
       SkorRegulation: '50',
       LvSkorRegulation: 'Kurang',
-     
 
+      //Axios
+      maiResult:[],
+  
     }),
+
+    created: function(){
+      // await this.getMaiResult();
+    },
+
+    methods:{
+      // async getMaiResult (){
+      //   try {
+      //     var response = await axios.get(`${process.env.VUE_APP_API_HOST}/mai/soal`)
+
+      //     this.maiResult= response.data;
+      //   } catch(error) {
+      //   return console.log(error)
+      //   }
+      // },
+    }
   }
 </script>

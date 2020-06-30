@@ -1,28 +1,22 @@
-import TodoItemTestMAI from '@/components/TestMAI/TodoItemTestMAI.vue';
-import axios from 'axios';
+//PARENT OF TodoTestMAI
 
+import TodoItemTestMAI from '@/components/TestMAI/TodoItemTestMAI.vue';
+
+import axios from 'axios';
 window.axios = require('axios');
 
 export default {
   name: 'TestMAI',
+
+  components: {
+    'todo-item':TodoItemTestMAI,
+  },
+
   data() {
     return {
 
       isValidTestMAI: true,
-      todos: [
-        
-        {id: 1, text: "Saya bertanya kepada diri sendiri, ”Apakah saya sudah mencapai tujuan saya?”, ketika sedang berupaya mencapai tujuan secara intensif.", selected:''},
-        {id: 2, text: "Saya mempertimbangkan berbagai pilihan sebelum saya menyelesaikan sebuah permasalahan.", selected:'' },
-        {id: 3, text: "Saya coba menggunakan cara-cara yang pernah saya pakai sebelumnya.", selected:'' },
-        {id: 4, text: "Saya terus menerus mengatur diri selama belajar agar memiliki waktu yang cukup.", selected:'' },
-        {id: 5, text: "Saya memahami kekuatan dan kelemahan kecerdasan saya.", selected:'' },
-        {id: 6, text: "Saya berpikir tentang apa yang sebenarnya perlu saya pelajari sebelum mengerjakan tugas.", selected:'' },
-        {id: 7, text: "Saya menyadari bagaimana baiknya saya menyelesaikan suatu tes.", selected:'' },
-        {id: 8, text: "Saya menyusun tujuan-tujuan khusus sebelum saya mengerjakan tugas.", selected:'' },
-        
-      ],
-      // nextId: 13,
-      
+
       page:1,
       currentPage: 1,
    
@@ -37,79 +31,130 @@ export default {
       SrcFighting: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihfighting200.png?alt=media&token=8d21bfbe-3f0c-4d03-9165-1d8639acaf70",
       SrcReward: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihreward200.png?alt=media&token=d4dcb34c-4257-4801-9f26-3fd6abbc4357",
 
+      //AXIOS
+      //axios.soal.mai
+      todos: [], //id, question
+      selected:[
+        {jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},
+        {jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},
+        {jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},
+        {jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},
+      ],
 
+      deskripsiMaiResult: {
+        low: {
+          text: 'Low',
+          deskripsi: `Kemampuan metakognisimu belum baik.\nYuk, berjuang bersama Mudeng.`
+        },
+        medium: {
+          text: 'Medium',
+          deskripsi: `Kemampuan metakognisimu cukup baik.\nYuk, tingkatkan bersama Mudeng.`
+        },
+        high: {
+          text: 'High',
+          deskripsi: 'Kemampuan metakognisimu sudah baik.\nYuk, pertahankan bersama Mudeng.'
+        }
+      },
+      maiResult: '',
+
+      petUser: {}
 
     };
   },
 
-  components: {
-    'todo-item':TodoItemTestMAI,
+  computed: {
+    petAsset: function() {
+      if(this.maiResult === 'high') {
+        return this.petUser.assets.reward
+      }
+      return this.petUser.assets.fighting
+    }
   },
 
-  mounted: function() {
-    axios.get('http://localhost:3000/todos')
-      .then(response => this.todos = response.data)
-      .finally(() => console.log('yeayaa bisa'));
-   
-},
-
-  beforeMount: function() {
+  created: async function() {
+    await this.getPetUser();
+    await this.getSoal();
     this.updateVisibleTodos();
   },
   
   methods: {
-   
-    // addTodo(text) {
-    //   this.todos.push({id: this.nextId, text: text});
-    //   this.nextId++;
-    //   this.updateVisibleTodos();
-    // },
-   
-    // removeTodo(id) {
-    //   let todos = this.todos;
-    //   this.todos = todos.filter((todo) => todo.id != id);
-    //   this.updateVisibleTodos();
-    // },
+
+    //PAGINATION
+
     updatePage(pageNumber) {
       this.currentPage = pageNumber;
       this.updateVisibleTodos();
       this.$emit('page:update', pageNumber);
     },
-    updateVisibleTodos() {
-     
+    updateVisibleTodos() { 
       this.visibleTodos = this.todos.slice((this.currentPage - 1) * this.pageSize , ((this.currentPage - 1) * this.pageSize) + this.pageSize); 
-
+      //this.visibleTodos = ((currentPage -1) * 4, ((current page - 1) * 4) + 4)
+      // ex = current page = 2
+      //visibleTodos = ((2-1)*4, ((2-1)*4)+4)
+      //visibleTodos = (4, 8) => page sebelumnya, quest terakhir di array[4], quest terakhir di current page di Array[8]
     },
 
-    
     totalPages() {
       return Math.ceil(this.todos.length / this.pageSize);
     },
 
-    // showPreviousLink() {
-    //   return this.currentPage == 0 ? false : true;
-    // },
-    // showNextLink() {
-    //   return this.currentPage == (this.totalPages() - 1) ? false : true;
-    // },
     showSubmitLink(){
       return this.currentPage == this.totalPages() ? true : false;
     },
 
-    Submit(){
-      // return axios.put('http://localhost:3000/todos/' , {
-      //      id: this.todos.id,
-      //      text: this.todos.text,
-      //      selected: this.todos.selected,
-      //   }).then(response => {
-      //       console.log(response);
-      // this.dialogHasilTestMAI = true;
-      //   }).catch((err) => {
-      //       console.log(err);
-      //   }).finally(() => console.log('yeayaaput'));
-      console.log(this.todos);
+    //AXIOS GET POST
+    async getSoal (){
+      try {
+        var response = await axios.get(`${process.env.VUE_APP_API_HOST}/mai/soal`)
+      } catch(error) {
+        return console.log(error)
+      }
+
+      const questions = response.data //MAPPING data soal dg (id,soal) ke todos(id,question, selected)
+      const todos = []
+      questions.map(item => {
+        todos.push({
+          id: item.id,
+          question: item.question,
+          selected: ''
+        })
+      })
+
+      this.todos = todos
+    },
+
+    async Submit(){ //MAPPING todos.selected ke jawaban
+      const jawaban = []
+      this.todos.map(item => {
+        if(item.selected != '') {
+          jawaban.push(item.selected)
+        }
+      })
+
+      try {
+        var response = await axios.post(`${process.env.VUE_APP_API_HOST}/mai/submit`, { jawaban })
+			} catch(error) {
+				console.error(error)
+				return
+      }
+      
+      this.maiResult = response.data.score
       this.dialogHasilTestMAI = true;
-    }
-  
+    },
+
+    async getPetUser (){
+      try {
+          var response = await axios.get(`${process.env.VUE_APP_API_HOST}/profile/pet`)
+
+          this.petUser = response.data;
+      } catch(error) {
+          return console.log(error)
+      }
+    },
+
+    MulaiBelajar(){ //Button
+      this.dialogHasilTestMAI = false;
+      this.$router.push('/Dashboard'); //biar ga reload semua
+    },
   }
 }

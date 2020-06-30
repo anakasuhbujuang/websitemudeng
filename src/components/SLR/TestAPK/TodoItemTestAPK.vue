@@ -1,52 +1,57 @@
 <template>
   <div class="todo-item">
 
-     <v-row justify="center" dense no-gutters class="my-2">
+    <v-row justify="center" dense no-gutters class="my-2">
+      <v-col md="1" class="text-center">
+        <v-card-text class="subtitle-2 text-center  grey--text text--darken-3 font-weight-bold ">{{todo.id+ 1}}.</v-card-text>
+      </v-col>
 
-        <v-col md="1" class="text-center">
-          <v-card-text class="subtitle-2 text-center  grey--text text--darken-3 font-weight-bold ">{{todo.id}}.
-          </v-card-text>
-        </v-col>
+      <v-col md="10">
+        <v-card dense flat color="grey lighten-4" class="d-flex justify-center align-center">
+          <v-card-text class="caption text-start  grey--text text--darken-3 font-weight-medium" >{{todo.question}}</v-card-text>   
+        </v-card>
+      </v-col>
+      <v-col md="1"></v-col>
+    </v-row>
 
-        <v-col md="10">
-          <v-card
-            dense
-            color="grey lighten-4"
-            class="d-flex justify-center align-center"
-            flat >
-              <v-card-text class="caption text-start  grey--text text--darken-3 font-weight-medium" >{{todo.text}}
-              </v-card-text>
-              
-          </v-card>
-        </v-col>
-        <v-col md="1"></v-col>
-     </v-row>
-
-     <!-- Isi START-->
-      <v-row  justify="center" dense no-gutters>
-       
+    <!-- Isi START-->
+      <!-- <v-row  justify="center" dense no-gutters>
         <v-col offset-md="1" md="11">
-          <v-card
-            class="justify-center align-center"
-            dense
-            flat>  
-
+          <v-card class="justify-center align-center" dense flat>  
             <v-row justify="start">
               <v-col md="6">
-                
-                    <v-textarea v-model="todo.jawaban" color="teal darken-2" outlined label="Jawaban" 
-                    :rules="rulesjawabanTestAPK"
-                    style="border-radius:5px; " no-resize rows="3"></v-textarea>
-                
-
+                <v-textarea v-model="todo.jawaban" color="teal darken-2" outlined label="Jawaban" 
+                :rules="rulesjawabanTestAPK"
+                style="border-radius:5px; " no-resize rows="3"></v-textarea>               
               </v-col>
             </v-row>
-
-          </v-card>
-          
+          </v-card>   
         </v-col>
-      </v-row>
-      <!-- ISI END -->
+      </v-row> -->
+    <!-- ISI END -->
+
+    <!-- Multiple Choice START-->
+    <v-row  justify="center" dense no-gutters>
+      
+      <v-col offset-md="1" md="11">
+        <v-card class="justify-center align-center" dense flat >  
+          <v-row justify="start">
+            <v-col md="6">
+              <v-radio-group :rules="rulesjawabanevaluasi" class="  grey--text text--darken-3 font-weight-medium" v-model="todo.selected"  column>
+                <v-radio  color="teal darken-3" :label="todo.A" :value="'A'" ></v-radio>
+                <v-radio  color="teal darken-3" :label="todo.B" :value="'B'" ></v-radio>
+                 <v-radio  color="teal darken-3" :label="todo.C" :value="'C'" ></v-radio>
+                <v-radio  color="teal darken-3" :label="todo.D" :value="'D'" ></v-radio>
+              </v-radio-group>
+            </v-col>
+          </v-row>
+        </v-card>
+        
+        
+      </v-col>
+    </v-row>
+    <!-- Multiple Choice END-->
+    
 
   </div>
 </template>
