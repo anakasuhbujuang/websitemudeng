@@ -43,14 +43,13 @@
                 <v-pagination
                 v-model="currentPage"
                 :length="totalPages()"
-                :total-visible="5"
+                :total-visible="13"
                 v-on:next="updatePage(currentPage)"
                 v-on:previous="updatePage(currentPage)"
                 v-on:input="updatePage(currentPage)"
-                circle
-                color="teal darken-3">
+                circle color="teal darken-3"
+                :disabled="!isValidTestMAI">
                 </v-pagination>
-                <!-- :disabled="!isValidTestMAI" -->
               </v-col>
               <v-col md="2" class="text-end pr-9 pt-2">
                 <v-btn  @click="Submit()" :disabled="!isValidTestMAI" v-if="showSubmitLink()" dense block color="teal darken-4 white--text" class="subtitle-2 font-weight-bold">SELESAI</v-btn>

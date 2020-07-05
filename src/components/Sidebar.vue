@@ -79,7 +79,7 @@
 
     <!-- DIALOG LOGOUT  -->
     <v-dialog v-model="dialogLogout" persistent max-width="300px" >
-      <v-card color="white" width="300px" height="350px" style="overflow-x:hidden;">
+      <v-card color="white" width="300px" height="360px" style="overflow-x:hidden;">
         <v-card-media justify-center >
           <v-img :src="petUser.assets.bingung"></v-img>
         </v-card-media>
