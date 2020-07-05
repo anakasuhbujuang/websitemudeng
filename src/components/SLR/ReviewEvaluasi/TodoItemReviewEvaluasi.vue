@@ -6,7 +6,7 @@
       </v-col>
       <v-col md="10">
           <v-card dense flat color="grey lighten-4" class="d-flex justify-center align-center">
-            <v-card-text class="subtitle-2 text-start  grey--text text--darken-3 font-weight-medium" >{{todo.text}}</v-card-text>
+            <v-card-text class="subtitle-2 text-start  grey--text text--darken-3 font-weight-medium" >{{todo.soal}}</v-card-text>
           </v-card>
         </v-col>
         <v-col md="1"></v-col>
@@ -26,7 +26,7 @@
                         <v-icon small color="success" >{{IconSelected}}</v-icon>
                       </v-col>
                       <v-col md="7" class="mt-0 pt-1">
-                        <p class="text-start font-weight-medium caption green--text">{{todo.selected}}</p>
+                        <p class="text-start font-weight-medium caption green--text">{{todo.selected}}. {{strJawabanUser}}</p>
                       </v-col>
                     </v-row>
                   </v-col>
@@ -41,7 +41,7 @@
                         <v-icon small color="error" >{{IconSelected}}</v-icon>
                       </v-col>
                       <v-col md="11" class="mt-0 pt-1">
-                        <p class=" text-start font-weight-medium caption red--text">{{todo.selected}}</p>
+                        <p class=" text-start font-weight-medium caption red--text">{{todo.selected}}. {{strJawabanUser}}</p>
                       </v-col>
                     </v-row>
                   </v-col>
@@ -52,7 +52,7 @@
                         <v-icon small color="success" >{{IconSelected}}</v-icon>
                       </v-col>
                       <v-col md="11" class="mt-0 pt-1">
-                        <p class="text-start font-weight-medium caption green--text">{{todo.jawabantrue}}</p>
+                        <p class="text-start font-weight-medium caption green--text">{{todo.jawabantrue}}. {{strJawabanBenar}}</p>
                       </v-col>
                     </v-row>
                   </v-col>
@@ -78,7 +78,7 @@ export default {
 
   // props: ['todo'],
   props: { 
-    todo:Array, 
+    todo:Object, 
     selectedevaluasi: Array
   },
 
@@ -87,7 +87,24 @@ export default {
      IconSelected : mdiCircleSlice8,
     };
   },
-  
+  computed: {
+    strJawabanBenar() {
+      const indexJawabanTrue = this.todo.jawabantrue.charCodeAt(0) - 65
+      const arrayJawaban = this.todo.pilihan.split(',')
+      
+      return arrayJawaban[indexJawabanTrue]
+    },
+    strJawabanUser() {
+      const indexJawabanUser = this.todo.selected.charCodeAt(0) - 65
+      const arrayJawaban = this.todo.pilihan.split(',')
+      
+      return arrayJawaban[indexJawabanUser]
+    }
+  },
+  created: function() {
+    console.log(this.todo)
+    console.log('item todo review')
+  },
   methods: {
    
     // isValidTestAPK(){

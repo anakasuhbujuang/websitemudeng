@@ -6,12 +6,11 @@
 
           <v-row justify="center" no-gutters class="pt-2 px-4">
             <v-col md="10" >
-              <p class="title red--text text--accent-1 font-weight-medium">{{TitleMateri}} : 
-              <span class="title red--text text--accent-1 font-weight-regular">Tree</span></p>
+              <p class="title red--text text--accent-1 font-weight-medium">{{materi.judul}}</p>
             </v-col>
             <v-col md="2"  >
               <v-btn color="teal darken-4 white--text" block class="subtitle-2 font-weight-bold"
-              @click.stop="dialogSummQuiz = true">LANJUTKAN</v-btn>
+              @click="getQuiz()">LANJUTKAN</v-btn>
             </v-col>
           </v-row>
           
@@ -29,8 +28,7 @@
               </iframe> 
               
               <div style="margin-bottom:5px"> 
-                <strong> <a href="//www.slideshare.net/BintangWijaya5/buku-struktur-data-pages111122" title="Buku struktur data pages-111-122" target="_blank">Buku struktur data pages-111-122</a> 
-                </strong> from <strong><a href="https://www.slideshare.net/BintangWijaya5" target="_blank">BintangWijaya5</a></strong> 
+                <strong><a href="https://www.slideshare.net/BintangWijaya5" target="_blank">Sumber : Slide Share BintangWijaya5</a></strong> 
               </div>
             </v-col>
           </v-row>
@@ -51,19 +49,17 @@
                     <p class="text-center subtitle-2 grey--text">Pilihlah 3 diantara 10 kata kunci di bawah ini. </p>
                   </v-col>
                 </v-row>
-                <v-chip-group column multiple max="3" active-class="teal darken-2 white--text" style="box-shadow:none;" 
-                v-model="selected">
+                <v-chip-group v-model="selected" column multiple max="3" active-class="teal darken-2 white--text" style="box-shadow:none;" >
                   <v-row justify="center"> 
                     <v-col align="center" md="5">
-                      <v-chip v-for="tag in tags" :key="tag">{{ tag}}</v-chip>
+                      <v-chip v-for="tag in quiz" :key="tag">{{tag}}</v-chip>
                     </v-col>
                   </v-row>
                 </v-chip-group>
                 <v-row justify="center" class="mt-12 pt-4">
                   <v-col md="2">
-                    <!-- <p>{{selected}}</p> -->
                       <v-btn  color="teal darken-4 white--text" class="subtitle-2 font-weight-bold"
-                      @click.stop="nextStepSummQuiz()" block >PILIH</v-btn>
+                      @click="nextStepSummQuiz()" block >PILIH</v-btn>
                   </v-col>
                 </v-row>
               </div>
@@ -75,19 +71,9 @@
                   </v-col>
                 </v-row>
                 <v-form v-model="isValidDeskripsi">
-                  <v-row v-for="(selected,i) in selected" :key="i" justify="center" class="mb-4" no-gutters>
+                  <v-row v-for="(item,i) in selected" :key="i" justify="center" class="mb-4" no-gutters>
                     <v-col md="6">
-                      <p v-if="selected === 0" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[0] }} :</p>
-                      <p v-else-if="selected === 1" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[1] }} :</p>
-                      <p v-else-if="selected === 2" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[2] }} :</p>
-                      <p v-else-if="selected === 3" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[3] }} :</p>
-                      <p v-else-if="selected === 4" class="text-start subtitle-2 font-weight-bold grey--text dtext--darken-3">{{ tags[4] }} :</p>
-                      <p v-else-if="selected === 5" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[5] }} :</p>
-                      <p v-else-if="selected === 6" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[6] }} :</p>
-                      <p v-else-if="selected === 7" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[7] }} :</p>
-                      <p v-else-if="selected === 8" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[8] }} :</p>
-                      <p v-else-if="selected === 9" class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ tags[9] }} :</p>
-
+                      <p class="text-start subtitle-2 font-weight-bold grey--text text--darken-3">{{ quiz[item] }} :</p>
                       <v-textarea v-model="isisummary[i]" :rules="rulesdeskripsi"
                       rows="1" no-resize outlined label="Deskripsi" color="teal darken-2" style="border-radius:5px; "></v-textarea>
                     </v-col>
@@ -112,9 +98,8 @@
 </template>
 
 <script>
-// import AfterSumm from '@/components/SLR/AfterSumm.vue'  
-// import axios from 'axios';
-// window.axios = require('axios');
+import axios from 'axios';
+window.axios = require('axios');
 
 export default {
     
@@ -124,15 +109,15 @@ export default {
   },
 
   props: {
-    StateEvaluasiBelajar: Boolean,
-    e1: Number
+    idMatkul: String,
+    idMateri: String,
+    tipeMateri: String,
   },
 
   data () {
     return {
 
     srcBgQuiz: require ('@/assets/bg/bgdaundialog.svg'),
-    // stateevaluasi: false,
     dialogSummQuiz: false,  
     TitleMateri:'Algoritma dan Struktur Data',
     srcPDF:"//www.slideshare.net/slideshow/embed_code/key/lmSmaSN07udXNK",
@@ -141,39 +126,28 @@ export default {
     rulesdeskripsi: 
       [v => !!v || 'Wajib diisi',],
 
-    tags: [
-      'Root', 
-      'Ancestoor', 
-      'Predecessor',
-      'Successor',
-      'Descendant',
-      'Node Child',
-      'Leaf', 
-      'Degree',
-      'SubTree',
-      'Binnary Tree'
-    ],
+    isisummary: {},
 
-    isisummary: ['','','',],
-
-    selected: '',
+    selected: [],
     
     statekeyword: true,
     statedeskripsi: false,
 
     //axios
-    // materi:{},
+    materi:{},
+    quiz:{},
     
     }
   },
 
-  created: function(){
-    // await this.getMateri();
+  created: async function(){
+    await this.getMateri();
   },
 
   methods: {
     nextStepSummQuiz(){
       this.statekeyword=false;
+      console.log(this.selected);
       this.statedeskripsi=true;
     },
     
@@ -182,49 +156,50 @@ export default {
       this.statedeskripsi=false;
     },
 
-    SubmitSummQuiz(){
-    console.log(this.isisummary);
-    this.dialogSummQuiz=false;
-    this.$emit('SubmitSummQuiz');
+     //AXIOS
+    async getMateri(){
+      try {
+        var response = await axios.get(`${process.env.VUE_APP_API_HOST}/matkul/${this.idMatkul}/materi/${this.idMateri}/konten/${this.tipeMateri}`)
+
+        this.materi = response.data;
+        console.log('sukses get materi sum');
+        console.log(response.data);
+      } catch(error) {
+          return console.log(error)
+      }
     },
 
-     //AXIOS
-    // async getMateri(){
-    //   try {
-    //     var response = await axios.get(`${process.env.VUE_APP_API_HOST}/profile/pet`)
+    async getQuiz(){
+      
+      this.dialogSummQuiz = true;
 
-    //     this.materi = response.data;
-    //   } catch(error) {
-    //       return console.log(error)
-    //   }
-    // },
+      try {
+        var response = await axios.get(`${process.env.VUE_APP_API_HOST}/matkul/${this.idMatkul}/materi/${this.idMateri}/quiz/${this.tipeMateri}`)
 
-    // async mapKeywordQuiz(){
+        this.quiz = response.data;
+        console.log('sukses get quiz sum');
+        console.log(response.data);
+      } catch(error) {
+          return console.log(error)
+      }
+    },
 
-    //   try {
-    //     var response = await axios.post(`${process.env.VUE_APP_API_HOST}/mai/submit`, { selected : selected})
-		// 	} catch(error) {
-		// 		console.error(error)
-		// 		return
-    //   }
-    // },
-
-    // async mapSummQuiz(){
-
-    //   try {
-    //     var response = await axios.post(`${process.env.VUE_APP_API_HOST}/mai/submit`, { summ : summ })
-		// 	} catch(error) {
-		// 		console.error(error)
-		// 		return
-    //   }
-    // },
-    // async SubmitMappQuiz(){ //MAPPING todos.selected ke jawaban
-    //   await this.mapKeywordQuiz();
-    //   await this.mapSummQuiz();
-    // 
-    //   this.dialogSummQuiz=false;
-    //   this.$emit('SubmitSummQuiz');
-    // },
+    async SubmitSummQuiz(){ //MAPPING todos.selected ke jawaban
+      try {
+        await axios.post(`${process.env.VUE_APP_API_HOST}/matkul/quiz/sum`, { 
+          idMatkul : this.idMatkul, 
+          idMateri : this.idMateri, 
+          jawaban: Object.values(this.isisummary), 
+          selected: this.selected 
+        })
+			} catch(error) {
+				console.error(error)
+				return
+      }
+    
+      this.dialogSummQuiz=false;
+      this.$emit('SubmitSummQuiz');
+    },
       
   }
    

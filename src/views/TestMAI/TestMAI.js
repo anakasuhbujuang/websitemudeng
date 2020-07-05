@@ -14,7 +14,8 @@ export default {
 
   data() {
     return {
-
+      snackbar: false,
+      timeout: 5000,
       isValidTestMAI: true,
 
       page:1,
@@ -102,6 +103,7 @@ export default {
       return this.currentPage == this.totalPages() ? true : false;
     },
 
+
     //AXIOS GET POST
     async getSoal (){
       try {
@@ -122,8 +124,11 @@ export default {
 
       this.todos = todos
     },
-
+    async getSnackbar(){
+      this.snackbar = true;
+    },
     async Submit(){ //MAPPING todos.selected ke jawaban
+      await this.getSnackbar();
       const jawaban = []
       this.todos.map(item => {
         if(item.selected != '') {

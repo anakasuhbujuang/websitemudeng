@@ -20,20 +20,20 @@
                   <v-progress-circular
                     rotate="-90"
                     size="130"
-                    :value="SkorKnowledge"
+                    :value="maiResult.knowledge"
                     width="14"
                     color="red accent-1"
-                  >{{SkorKnowledge}}</v-progress-circular>
+                  >{{maiResult.knowledge}}</v-progress-circular>
                 </td>
 
                 <td class="text-center">
                   <v-progress-circular
                     rotate="-90"
                     size="130"
-                    :value="SkorKnowledge"
+                    :value="maiResult.requlation"
                     width="14"
                     color="red accent-1"
-                  >{{SkorKnowledge}}</v-progress-circular>
+                  >{{maiResult.requlation}}</v-progress-circular>
                 </td>
               </tr>
 
@@ -42,9 +42,14 @@
                 <td></td>
               </tr>
               <tr>
-                <td class="subtitle-2 text-center grey--text font-weight-regular"><span class="subtitle-1 text-center red--text text--accent-1 font-italic font-weight-bold">Knowledge</span><br>{{LvSkorKnowledge}}</td>
-                <td class="subtitle-2 text-center grey--text font-weight-regular"><span class="subtitle-1 text-center red--text text--accent-1 font-italic font-weight-bold">Regulation</span><br>{{LvSkorRegulation}}</td>
-              
+                <td v-if="maiResult.knowledge == 50 || maiResult.knowledge < 50" class="subtitle-2 text-center grey--text font-weight-regular"><span class="subtitle-1 text-center red--text text--accent-1 font-italic font-weight-bold">Knowledge</span><br>Kurang</td>
+                <td v-else-if="maiResult.knowledge > 50 && maiResult.knowledge <70" class="subtitle-2 text-center grey--text font-weight-regular"><span class="subtitle-1 text-center red--text text--accent-1 font-italic font-weight-bold">Knowledge</span><br>Baik</td>
+                <td v-else-if="maiResult.knowledge > 70" class="subtitle-2 text-center grey--text font-weight-regular"><span class="subtitle-1 text-center red--text text--accent-1 font-italic font-weight-bold">Knowledge</span><br>Sangat Baik</td>
+                
+                <td v-if="maiResult.requlation == 50 || maiResult.regulation < 50" class="subtitle-2 text-center grey--text font-weight-regular"><span class="subtitle-1 text-center red--text text--accent-1 font-italic font-weight-bold">Regulation</span><br>Kurang</td>
+                <td v-else-if="maiResult.requlation > 50 && maiResult.regulation <70" class="subtitle-2 text-center grey--text font-weight-regular"><span class="subtitle-1 text-center red--text text--accent-1 font-italic font-weight-bold">Regulation</span><br>Baik</td>
+                <td v-else-if="maiResult.requlation > 70" class="subtitle-2 text-center grey--text font-weight-regular"><span class="subtitle-1 text-center red--text text--accent-1 font-italic font-weight-bold">Regulation</span><br>Sangat Baik</td>
+
               </tr>
             </template>
           </v-simple-table>
@@ -56,40 +61,42 @@
 </template>
 
 <script>
-// import axios from 'axios';
-// window.axios = require('axios');
+import axios from 'axios';
+window.axios = require('axios');
 
 export default {
 
   name:'cardtwo',
 
-     data: () => ({
+  data: () => ({
 
-      // CARD 2 : Skor MAI
-      SkorKnowledge: '50',
-      LvSkorKnowledge: 'Kurang',
-      SkorRegulation: '50',
-      LvSkorRegulation: 'Kurang',
+    // CARD 2 : Skor MAI
+    SkorKnowledge: '50',
+    LvSkorKnowledge: 'Kurang',
+    SkorRegulation: '50',
+    LvSkorRegulation: 'Kurang',
 
-      //Axios
-      maiResult:[],
-  
-    }),
+    //Axios
+    maiResult:[],
+  }),
 
-    created: function(){
-      // await this.getMaiResult();
+  created: async function(){
+      await this.getMaiResult();
+  },
+
+  methods:{
+    async getMaiResult(){
+      try {
+        var response = await axios.get(`${process.env.VUE_APP_API_HOST}/mai/result`)
+        this.maiResult= response.data;
+        console.log(response.data)
+        console.log('sukses get card 2')
+      } catch(error) {
+      return console.log(error)
+      }
     },
+  },
 
-    methods:{
-      // async getMaiResult (){
-      //   try {
-      //     var response = await axios.get(`${process.env.VUE_APP_API_HOST}/mai/soal`)
+}
 
-      //     this.maiResult= response.data;
-      //   } catch(error) {
-      //   return console.log(error)
-      //   }
-      // },
-    }
-  }
 </script>

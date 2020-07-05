@@ -6,24 +6,21 @@
           <v-list two-line> 
             <v-list-item>
               <v-list-item-avatar size="30">
-                <!-- <v-img :src="sessionUser.profpic"></v-img> -->
                 <v-img :src="srcProfpicUser"></v-img>
               </v-list-item-avatar>
               <v-list-item-content>
                 <v-row justify-center no-gutters>
                   <v-col >
-                    <!-- <v-list-item-title class="subtitle-2 font-weight-medium">{{sessionUser.Nama}}</v-list-item-title> -->
-                    <v-list-item-title class="subtitle-2 font-weight-medium">{{Nama}}</v-list-item-title>
+                    <v-list-item-title class="subtitle-2 font-weight-medium">{{sessionUser.nama}}</v-list-item-title>
                   </v-col>
                 </v-row>
                 <v-row align="top" justify="start" no-gutters>
                   <v-col md="2" class="mr-2" >
-                    <!-- <v-list-item-title class="caption font-weight-regular">Lv.{{sessionUser.level}}</v-list-item-title> -->
-                    <v-list-item-title class="caption font-weight-regular">Lv.{{Level}}</v-list-item-title>
+                    <v-list-item-title class="caption font-weight-regular">Lv.{{sessionUser.level}}</v-list-item-title>
                   </v-col>
                   <v-col md="8" class="pt-2 pb-3">
                     <v-progress-linear
-                    v-model="ValueLevel"
+                    v-model="sessionUser.progress"
                     color="teal lighten-2"
                     rounded
                     height="6px"
@@ -129,7 +126,7 @@ export default {
     dialogLogout: false,
 
     Nama:'Jihaan Nadhiya',
-    srcProfpicUser: require('@/assets/profpic/user1.svg'),
+    srcProfpicUser: require('@/assets/profpic/user.svg'),
     Level:'5',
     ValueLevel:'40',
 
@@ -145,22 +142,21 @@ export default {
     }),
 
   
-  created: function(){
-    // await this.getSessionUser();
-     this.getPetUser();
+  created: async function(){
+    await this.getSessionUser();
+    await this.getPetUser();
   },
 
   methods:{
     
-    // async getSessionUser {
-    //   try {
-    //       var response = await axios.get(`${process.env.VUE_APP_API_HOST}/profile/pet`)
-
-    //       this.sessionUser = response.data;
-    //   } catch(error) {
-    //       return console.log(error)
-    //   }
-    // },
+    async getSessionUser() {
+      try {
+          var response = await axios.get(`${process.env.VUE_APP_API_HOST}/profile/common-profile`)
+          this.sessionUser = response.data;
+      } catch(error) {
+          return console.log(error)
+      }
+    },
 
     async getPetUser (){
       try {
@@ -185,7 +181,7 @@ export default {
       this.$router.push('/Pengaturan'); //biar ga reload semua
     },
     goToMasuk(){ //Button
-      this.$router.push('/Masuk'); //biar ga reload semua
+      this.$router.push('/'); //biar ga reload semua
     },
   }
   }

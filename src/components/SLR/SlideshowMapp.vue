@@ -5,8 +5,7 @@
         <v-card class="pa-5">
           <v-row justify="center" no-gutters class="pt-2 px-4">
             <v-col md="10" >
-              <p class="title red--text text--accent-1 font-weight-medium">{{TitleMateri}} : 
-              <span class="title red--text text--accent-1 font-weight-regular">Sorting PART 1</span></p>
+              <p class="title red--text text--accent-1 font-weight-medium">{{materi.judul}}</p>
             </v-col>
             <v-col md="2"  >
               <v-btn color="teal darken-4 white--text" block class="subtitle-2 font-weight-bold "
@@ -27,9 +26,8 @@
               style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
               
               <div style="margin-bottom:5px"> 
-                <strong> <a href="//www.slideshare.net/BintangWijaya5/asd-sesi-tree-part1" title="Asd sesi tree part1" target="_blank">Asd sesi tree part1</a> 
-                </strong> from <strong><a href="https://www.slideshare.net/BintangWijaya5" target="_blank">BintangWijaya5</a></strong> 
-                </div>
+                <strong><a href="https://www.slideshare.net/BintangWijaya5" target="_blank">Sumber : BintangWijaya5</a></strong>
+              </div>
             </v-col>
           </v-row>
           
@@ -46,7 +44,6 @@
               <v-row class="mb-2">
                 <v-col>
                   <p class="text-center display-1 font-weight-bold grey--text text--darken-3">Quiz</p>
-                  <!-- <p class="text-center subtitle-2 grey--text">Buatlah diagram berisi materi yang telah kamu pelajari.</p> -->
                 </v-col>
               </v-row>
               <v-row justify="center" dense no-gutters>
@@ -124,19 +121,19 @@
 </template>
 
 <script >
-// import axios from 'axios';
-// window.axios = require('axios');
+import axios from 'axios';
+window.axios = require('axios');
 
 export default {
 
  name: 'slideshowsumm',
   components: {
-    // AfterSumm
   },
 
   props: {
-    StateEvaluasiBelajar: Boolean,
-    e1: Number
+    idMatkul: String,
+    idMateri: String,
+    tipeMateri: String,
   },
 
   data () {
@@ -147,7 +144,6 @@ export default {
     contohDiagram : "https://drive.google.com/file/d/1JtZViti0eq_PCk6zynTUeyo9LbJHolWb/view?usp=sharing",
     isValidUnggah: true,
     
-    // stateevaluasi: false,
     dialogMappQuiz: false,  
     TitleMateri:'Algoritma dan Struktur Data',
     srcPPT:"//www.slideshare.net/slideshow/embed_code/key/xPYpYwu5coz2We",
@@ -156,49 +152,49 @@ export default {
     rulesfileinput: [v => !!v || 'Pilih file.',],
     
     //axios
-    // materi:{},
+    materi:{},
     }
   },
 
-  created: function(){
-    // await this.getMateri();
+  created: async function(){
+    await this.getMateri();
   },
 
   methods: {
-    SubmitMappQuiz(){
-      console.log(this.file);
-      this.dialogMappQuiz=false;
-      this.$emit('SubmitMappQuiz');
-      },
-    },
+
 
     //AXIOS
-    // async getMateri(){
-    //   try {
-    //     var response = await axios.get(`${process.env.VUE_APP_API_HOST}/profile/pet`)
+    async getMateri(){
+      try {
+        var response = await axios.get(`${process.env.VUE_APP_API_HOST}/matkul/${this.idMatkul}/materi/${this.idMateri}/konten/${this.tipeMateri}`)
 
-    //     this.materi = response.data;
-    //   } catch(error) {
-    //       return console.log(error)
-    //   }
-    // },
+        this.materi = response.data;
+        console.log('sukses get materi map');
+        console.log(response.data);
+      } catch(error) {
+          return console.log(error)
+      }
+    },
 
-    // async SubmitMappQuiz(){ 
-
-    //   try {
-    //     var response = await axios.post(`${process.env.VUE_APP_API_HOST}/mai/submit`, { jawaban : file }) -> apa id nya?
-		// 	} catch(error) {
-		// 		console.error(error)
-		// 		return
-    //   }
+    async SubmitMappQuiz(){ 
+      const body = new FormData() //mapping body this.file to post to quiz map
+      body.append('idMateri', this.idMateri)
+      body.append('idMatkul', this.idMatkul)
+      body.append('submission', this.file)
+    
+      try {
+        await axios.post(`${process.env.VUE_APP_API_HOST}/matkul/quiz/map`, body)
+			} catch(error) {
+				console.error(error)
+				return
+      }
       
-    //   this.dialogMappQuiz = false;
-    //   this.$emit('SubmitVideoQuiz');
-    // },  
+      this.dialogMappQuiz = false;
+      this.$emit('SubmitMappQuiz');
+    },
+  }  
   
 }
-
-
 </script>
 
 

@@ -49,18 +49,20 @@
                 v-on:input="updatePage(currentPage)"
                 circle
                 color="teal darken-3"
-                :disabled="!isValidTestMAI" >
+                 >
                 </v-pagination>
+                <!-- :disabled="!isValidTestMAI" -->
               </v-col>
               <v-col md="2" class="text-end pr-9 pt-2">
-                <v-btn  :disabled="!isValidTestMAI" v-if="showSubmitLink()" @click="Submit()" dense block
-                color="teal darken-4 white--text" class="subtitle-2 font-weight-bold">SELESAI</v-btn>
+                <v-btn  @click="Submit()" dense block color="teal darken-4 white--text" class="subtitle-2 font-weight-bold">SELESAI</v-btn>
+                <!-- :disabled="!isValidTestMAI" v-if="showSubmitLink()" -->
               </v-col>
             </v-row>
           </v-card>
         </v-col>
       </v-row>
     </v-container>
+    <v-snackbar top color="success" v-model="snackbar" :timeout="timeout">Berhasil dikumpulkan, mohon tunggu sebentar.</v-snackbar>
 
     <!-- DIALOG HASIL MAI START-->
     <v-dialog v-if="dialogHasilTestMAI" v-model="dialogHasilTestMAI" max-width="350px" > 

@@ -6,7 +6,7 @@
       
       <v-row justify="center" no-gutters="" class="mt-4">
         <v-col md="11">
-          <p class="title red--text text--accent-1 font-weight-medium">Hai, {{Nama}} </p>
+          <p class="title red--text text--accent-1 font-weight-medium">Hai, {{sessionUser.nama}} </p>
           <v-divider ></v-divider>
         </v-col>
       </v-row>
@@ -26,10 +26,10 @@
 
           <!-- TEXT CARDD -->
           <v-card-text class="py-0 mb-0 mt-8">
-            <!-- <p class="title grey--text text--darken-4 font-weight-bold">Kemampuan Metakognisi : <span class="red--text  text--accent-1 font-italic font-weight-bold">{{ deskripsiMaiResult[maiResult].text }}</span></p> -->
-            <p class="title grey--text text--darken-4 font-weight-bold">Kemampuan Metakognisi : <span class="red--text  text--accent-1 font-italic font-weight-bold">{{LvMAI  }}</span></p>
-            <!-- <p styles="text-align:justify;" class="subtitle-2 text-start grey--text font-weight-regular" >{{ deskripsiMaiResult[maiResult].deskripsi  }}</p> -->
-            <p styles="text-align:justify;" class="subtitle-2 text-start grey--text font-weight-regular" >{{DescHasilMAI}}</p>
+            <p class="title grey--text text--darken-4 font-weight-bold">Kemampuan Metakognisi : <span class="red--text  text--accent-1 font-italic font-weight-bold">{{ deskripsiMaiResult[maiResult].text }}</span></p>
+            <!-- <p class="title grey--text text--darken-4 font-weight-bold">Kemampuan Metakognisi : <span class="red--text  text--accent-1 font-italic font-weight-bold">{{LvMAI  }}</span></p> -->
+            <p styles="text-align:justify;" class="subtitle-2 text-start grey--text font-weight-regular" >{{ deskripsiMaiResult[maiResult].deskripsi  }}</p>
+            <!-- <p styles="text-align:justify;" class="subtitle-2 text-start grey--text font-weight-regular" >{{DescHasilMAI}}</p> -->
             <p styles="text-align:justify;" class="subtitle-2 text-start grey--text font-weight-regular" >{{ DescMAI }} <a href="#" class="subtitle-2 teal--text text--darken-4 font-weight-bold">baca selengkapnya.</a></p>
                  
           </v-card-text>
@@ -90,14 +90,15 @@ export default {
       },
       maiResult: '',
 
-      petUser: {}
+      petUser: {},
+      sessionUser:{},
 
     }),
 
     
 
     created: async function () {
-      
+      await this.getSessionUser();
       await this.getPetUser();
       await this.getSkorMai();
       
@@ -114,12 +115,23 @@ export default {
           return console.log(error)
         }
       },
+      async getSessionUser() {
+        try {
+            var response = await axios.get(`${process.env.VUE_APP_API_HOST}/profile/common-profile`)
+            this.sessionUser = response.data;
+        } catch(error) {
+            return console.log(error)
+        }
+      },
 
       async getSkorMai(){
         try {
-          var response = await axios.get(`${process.env.VUE_APP_API_HOST}/profile/pet`)
+          var response = await axios.get(`${process.env.VUE_APP_API_HOST}/mai/result`)
 
-          this.maiResult = response.data;
+          this.maiResult = response.data.score;
+          console.log(response.data);
+          console.log('get sukses mai result card 1');
+
         } catch(error) {
           return console.log(error)
         }

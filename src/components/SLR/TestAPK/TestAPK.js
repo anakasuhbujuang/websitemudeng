@@ -1,8 +1,8 @@
 //parent of TodoItemTestAPK, child of PilihMateriKuliah
 import TodoItemTestAPK from '@/components/SLR/TestAPK/TodoItemTestAPK.vue';
 
-// import axios from 'axios';
-// window.axios = require('axios');
+import axios from 'axios';
+window.axios = require('axios');
 
 export default {
   name: 'TestAPK',
@@ -15,61 +15,71 @@ export default {
   props: { 
     // dialogHasilTestAPK: Boolean,
     // dialogAPK: Boolean
+    idMateri: String,
+    idMatkul: String,
   }, 
 
   data() {
     return {
-
+      snackbar: false,
+      timeout: 5000,
       isValidTestAPK: true,
-
-      todos: [
-        
-        {id: 0, question: "Jelaskan pengertian struktur tree!", A:"A. Hehe", B:"B. Hehe", C:"C. Hehe", D:"D. Hehe", selected:''},
-        {id: 1, question: "Sebutkan implementasi dari binary tree!", A:"A. Hehe", B:"B. Hehe", C:"C. Hehe", D:"D. Hehe",selected:''},
-        {id: 2, question: "Apa saja hubungan antar elemen pada struktur tree ?", A:"A. Hehe", B:"B. Hehe", C:"C. Hehe", D:"D. Hehe", selected:''},
-        {id: 3, question: "Selain binary tree, sebutkan implementasi lainnya!", A:"A. Hehe", B:"B. Hehe", C:"C. Hehe", D:"D. Hehe", selected:''},
-    
-      ],
-      // nextId: 13,
       
       page:1,
       currentPage: 1,
    
       pageSize: 2,
-      visibleTodos: []
+      visibleTodos: [],
 
       // axios 
-      // todos: [], //id, question
-      // selected:[
-      //   {jawaban:''},{jawaban:''},{jawaban:''},{jawaban:''},
-      // ],
-
-
+      todos: [], //id, question
+      apkResult:'',
+      petUser:{},
+      dialogHasilTestAPK:false,
+      deskripsiApkResult: {
+        sukses: {
+          text: 'Kamu Lulus Test APK!',
+          deskripsi: `Ternyata kamu sudah cukup memahami materi sebelumnya.\nSilahkan mempelajari materi selanjutnya.`,
+          button: 'Lanjut Belajar'
+        },
+        gagal: {
+          text: `Sayang Sekali,\nKamu Belum Berhasil`,
+          deskripsi: `Kamu perlu memahami kembali\nmateri-materi sebelumnya.\nTerus Berjuang!`,
+          button: 'Pilih Materi'
+        },
+      },
 
     };
   },
 
-  // created: async function() {
-  //   await this.getSoal();
-  //   this.updateVisibleTodos();
-  // },
-  
+  computed: {
+      petAssets: function() {
+        if(this.apkResult === 'sukses') { //kategori : 'sukses', 'gagal'
+          return this.petUser.assets.reward
+        }else if(this.apkResult === 'gagal'){
+          return this.petUser.assets.fighting
+        }
+      },
+    },
 
-  beforeMount: function() {
+  created: async function() {
+    await this.getSoalApk();
     this.updateVisibleTodos();
   },
   
+  
   methods: {
-   
-    // addTodo(text) {
-    //   this.todos.push({id: this.nextId, text: text});
-    //   this.nextId++;
-    //   this.updateVisibleTodos();
-    // },
 
     SubmitJawaban() {
       this.todos.jawaban;
       console.log(this.todos);
+    },
+
+    btnApkResult(){
+      if(this.apkResult === 'sukses'){
+        return this.$emit('nextApkPilihStrategi', this.idMateri)
+      }
+      return this.dialogHasilTestAPK = false;
     },
    
     updatePage(pageNumber) {
@@ -89,11 +99,6 @@ export default {
       return this.currentPage == this.totalPages() ? true : false;
     },
 
-    //child of PilihMateriKuliah
-    SubmitAPK(){
-      console.log(this.todos);
-      this.$emit('SubmitAPK');
-    },
     validate () {
       if(this.$refs.form.validate()){
         this.$emit('SubmitAPK');
@@ -102,43 +107,63 @@ export default {
       },
 
     // AXIOS
-    // async getSoal (){
-    //   try {
-    //     var response = await axios.get(`${process.env.VUE_APP_API_HOST}/mai/soal`)
-    //   } catch(error) {
-    //     return console.log(error)
-    //   }
+    async getSoalApk(){
+      try {
+          var response = await axios.get(`${process.env.VUE_APP_API_HOST}/matkul/${this.idMatkul}/materi/${this.idMateri}/apk`)
+          
+      } catch(error) {
+          return console.log(error)
+      }
+      const questions = response.data
+      const todos = questions.map((item, index) => {
+        return {
+          id: index,
+          soal: item.soal,
+          pilihan: item.pilihan,
+          selected: ''
+        }
+      })
 
-    //   const questions = response.data
-    //   const todos = []
-    //   questions.map(item => {
-    //     todos.push({
-    //       id: item.id,
-    //       question: item.question,
-    //       selected: ''
-    //     })
-    //   })
+      this.todos = todos
+    },
 
-    //   this.todos = todos
-    // },
+    async getSnackbar(){
+      this.snackbar = true;
+    },
 
-    // async SubmitAPK(){ //MAPPING todos.selected ke jawaban ---->kalo ini disini pasti perlu di emit ke Pilih Materi Kuliah 
-    //   await const jawaban = []
-    //   await this.todos.map(item => {
-    //     if(item.selected != '') {
-    //       jawaban.push(item.selected);
-    //     }
-    //   })
+    async SubmitAPK(){ //MAPPING todos.selected ke jawaban ---->kalo ini disini pasti perlu di emit ke Pilih Materi Kuliah
+      await this.getSnackbar(); 
+      const jawaban = []
+      this.todos.map(item => {
+        if(item.selected != '') {
+          jawaban.push(item.selected);
+        }
+      })
+      
+      try {
+        var response = await axios.post(`${process.env.VUE_APP_API_HOST}/matkul/apk/submit`, 
+        { jawaban : jawaban, idMatkul : this.idMatkul, idMateri : this.idMateri })
+			} catch(error) {
+				console.error(error)
+				return
+      }
+      
+      this.apkResult = response.data.result
+      
+      console.log(this.apkResult)
+      await this.getPetUser();
+      this.dialogHasilTestAPK = true;
+      this.$emit('SubmitAPK');
+    },
+    async getPetUser (){
+      try {
+          var response = await axios.get(`${process.env.VUE_APP_API_HOST}/profile/pet`)
 
-    //  await try {
-    //     var response = await axios.post(`${process.env.VUE_APP_API_HOST}/mai/submit`, { jawaban })
-    //     this.$emit('SubmitAPK');
-		// 	} catch(error) {
-		// 		console.error(error)
-		// 		return
-    //   }
-    // this.$emit('SubmitAPK'); --> 
-    // },
+          this.petUser = response.data;
+      } catch(error) {
+          return console.log(error)
+      }
+    },
   
   }
 }

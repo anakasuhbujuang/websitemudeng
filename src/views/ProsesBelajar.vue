@@ -13,7 +13,7 @@
           <v-row justify="center">
             <v-col md="12">
 
-              <v-stepper v-model="e1" style="background-color:#FAFAFA; box-shadow:none; "  >
+              <v-stepper v-model="stepNow" style="background-color:#FAFAFA; box-shadow:none; "  >
                   
                 <!-- CARD 1: STEPPER -->
                 <v-row justify="center">
@@ -34,7 +34,7 @@
                                                             
                               <v-stepper-step
                               :key="`${item.n}-step`"
-                              :complete="e1 > item.n"
+                              :complete="stepNow > item.n"
                               :step="item.n"
                               editable
                               color="teal darken-4"
@@ -60,9 +60,9 @@
                 <!-- STEP 1 : Pilih Mata Kuliah -->
                 <v-stepper-content step="1" class="pa-0 ma-0">
                   <PilihMataKuliah 
-                  :StatePilihMateriKuliah="StatePilihMateriKuliah"
-                  :e1="e1"
-                  @nextStepToPilihMataKuliah="e1=2; StatePilihMateriKuliah=true;"/> <!-- parsing value stateX, value e1, btn nextStepX -->
+                  :stepNow="stepNow"
+                  @pilihMatkul="pilihMatkul"/> 
+                  <!-- parsing value stateX, value stepNow, btn nextStepX -->
                 </v-stepper-content>
 
                 <!-- STEP 2 : Pilih Materi -->
@@ -72,15 +72,13 @@
                       
                       <v-row >
                         <v-col md="8" >
-                          <PilihMateriKuliah v-show="StatePilihMateriKuliah"
-                          :StatePilihStrategi="StatePilihStrategi"
-                          :e1="e1"
-                          @nextStepToPilihStrategi="e1=3; StatePilihStrategi=true; "/> <!-- parsing value stateX, value e1, btn nextStepX -->
-                          <!-- <p>{{e1}} {{StatePilihMateriKuliah}}</p> -->
+                          <PilihMateriKuliah v-if="stepNow === 2" 
+                          :idMatkul="idMatkulDipilih"
+                          @nextStepToPilihStrategi="nextStepToPilihStrategi"/> <!-- parsing value stateX, value stepNow, btn nextStepX -->
                         </v-col>
 
                         <v-col md="4">     
-                          <leaderboard v-show="StatePilihMateriKuliah"/>
+                          <leaderboard v-if="stepNow === 2" :idMatkul="idMatkulDipilih"/>
                         </v-col>
                       </v-row>
                     
@@ -91,39 +89,46 @@
                   
                 <!-- STEP 3: Pilih Strategi -->
                 <v-stepper-content step="3"> 
-                  <PilihStrategi v-show="StatePilihStrategi" 
+                  <PilihStrategi v-if="stepNow ===3 " 
                   :statevideo="statevideo" 
                   :statesumm="statesumm"
                   :statemapp="statemapp"
-                  :e1="e1"
-                  @nextStepVideo="e1=4; statevideo=true; statesumm=false; statemapp=false;"
-                  @nextStepSumm="e1=4; statevideo=false; statesumm=true; statemapp=false;"
-                  @nextStepMapp="e1=4; statevideo=false; statesumm=false; statemapp=true;"
-                  /> <!-- parsing value stateX, value e1, btn nextStepX -->
+                  :stepNow="stepNow"
+                  @nextStepVideo="nextStepVideo"
+                  @nextStepSumm="nextStepSumm"
+                  @nextStepMapp="nextStepMapp"
+                  /> <!-- parsing value stateX, value stepNow, btn nextStepX -->
 
-                  <!-- <p>{{e1}} {{StatePilihStrategi}}</p> --> 
                 </v-stepper-content>
 
                 <!-- STEP 4 : SRL -->
 
                 <v-stepper-content step="4" class="pa-0">
 
-                  <StrategiControlVideo v-show="statevideo"
+                  <StrategiControlVideo v-if="statevideo"
                   :StateEvaluasiBelajar="StateEvaluasiBelajar" 
-                  :e1="e1"
-                  @SubmitVideoQuiz="StateEvaluasiBelajar =true; e1= 5;"></StrategiControlVideo>
+                  :stepNow="stepNow"
+                  :idMatkul="idMatkulDipilih"
+                  :idMateri="idMateriDipilih"
+                  :tipeMateri="tipeMateriDipilih"
+                  @SubmitVideoQuiz="StateEvaluasiBelajar =true; stepNow= 5;"></StrategiControlVideo>
                   
                   <StrategiSummary v-show="statesumm" 
                   :StateEvaluasiBelajar="StateEvaluasiBelajar" 
-                  :e1="e1" 
-                  @SubmitSummQuiz="StateEvaluasiBelajar =true; e1= 5;"></StrategiSummary>
+                  :stepNow="stepNow" 
+                  :idMatkul="idMatkulDipilih"
+                  :idMateri="idMateriDipilih"
+                  :tipeMateri="tipeMateriDipilih"
+                  @SubmitSummQuiz="StateEvaluasiBelajar =true; stepNow= 5;"></StrategiSummary>
                   
                   <StrategiMapping v-show="statemapp"
                   :StateEvaluasiBelajar="StateEvaluasiBelajar" 
-                  :e1="e1" 
-                  @SubmitMappQuiz="StateEvaluasiBelajar =true; e1= 5;"
+                  :stepNow="stepNow" 
+                  :idMatkul="idMatkulDipilih"
+                  :idMateri="idMateriDipilih"
+                  :tipeMateri="tipeMateriDipilih"
+                  @SubmitMappQuiz="StateEvaluasiBelajar =true; stepNow= 5;"
                   ></StrategiMapping>
-                  <!-- <p>{{e1}} {{statevideo}} {{statesumm}} {{statemapp}}</p> -->
                 </v-stepper-content>
 
                 <!-- STEP 5 : Evaluasi Belajar -->
@@ -131,8 +136,10 @@
                   <v-col md="12">
                     <v-card class="" color="white">
                       <v-stepper-content step="5">
-                        <Evaluasi v-show="StateEvaluasiBelajar"/>
-                        <!-- <p>{{e1}} {{StateEvaluasiBelajar}} </p> -->
+                        <Evaluasi v-if="stepNow === 5"
+                        :idMatkul="idMatkulDipilih"
+                        :idMateri="idMateriDipilih"/>
+                        <!-- <p>{{stepNow}} {{StateEvaluasiBelajar}} </p> -->
                       </v-stepper-content>
                     </v-card>
                   </v-col>
@@ -186,35 +193,17 @@
       return {
 
         //STEPPER
-        e1: 1,
+        stepNow: 1,
         // steps: 5,
         steps:[
-          {
-            n: 1,
-            title:'Mata Kuliah',
-          },
-          {
-            n: 2,
-            title:'Materi Belajar',
-          },
-          {
-            n: 3,
-            title:'Strategi Belajar',
-          },
-          {
-            n: 4,
-            title:'SRL',
-          },
-          {
-            n: 5,
-            title:'Evaluasi Belajar',
-          },
-          
-
+          { n: 1, title:'Mata Kuliah',},
+          { n: 2,title:'Materi Belajar',},
+          { n: 3,title:'Strategi Belajar',},
+          { n: 4,title:'SRL',},
+          { n: 5,title:'Evaluasi Belajar',},
         ],
 
         // STEP 1: pilih matkul
-        // SrcImgPet: "https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihpilihmatkul.png?alt=media&token=bbb93507-6409-43cf-a54d-9a2768b32079",
 
         //STEP2: pilih materi
         StatePilihMateriKuliah : false,
@@ -229,56 +218,60 @@
 
         //STEP 5:Eval
         StateEvaluasiBelajar: false,
-            
+        
+        //AXIOS DOES
+        idMatkulDipilih: '',
+        idMateriDipilih:'',
+        tipeMateriDipilih:'',
 
       }
     },
 
     watch: {
       steps (val) {
-        if (this.e1 > val) {
-          this.e1 = val
+        if (this.stepNow > val) {
+          this.stepNow = val
         }
       },
     },
 
     methods: {
 
-      MakeDiagram(){
-      // this.$emit('MakeDiagram');
-      window.open("https://app.diagrams.net/", '_blank');
+      pilihMatkul(idMatkul){
+        console.log(idMatkul);
+        this.idMatkulDipilih = idMatkul;
+        this.stepNow = 2;
       },
-    
-        // nextStep (n) {
-        //   if (n === this.steps) {
-        //     this.e1 = 1
-        //   } else {
-        //     this.e1 = n + 1;
-        //   }
-        // },
 
-        // nextStepVideo (n){
-        //     this.e1 = n + 1;
-        //     this.statevideo=true;
-        //     this.statesumm=false;
-        //     this.statemapp=false;
-        // },
+      nextStepToPilihStrategi(idMateri){
+        this.idMateriDipilih = idMateri;
+        this.stepNow = 3;
+      },
 
-        //  nextStepSumm (n){
-        //     this.e1 = n + 1;
-        //     this.statevideo=false;
-        //     this.statesumm=true;
-        //     this.statemapp=false;
-        //   },
-        
-
-        //  nextStepMapp (n){
-        //     this.e1 = n + 1;
-        //     this.statevideo=false;
-        //     this.statesumm=false;
-        //     this.statemapp=true;
-          
-        // },
+      nextStepVideo(tipeMateri){
+        console.log(tipeMateri);
+        this.tipeMateriDipilih = tipeMateri;
+        this.stepNow=4; 
+        this.statevideo=true; 
+        this.statesumm=false; 
+        this.statemapp=false;
+      },
+      nextStepSumm(tipeMateri){
+        console.log(tipeMateri);
+        this.tipeMateriDipilih = tipeMateri;
+        this.stepNow=4; 
+        this.statevideo=false; 
+        this.statesumm=true; 
+        this.statemapp=false;
+      },
+      nextStepMapp(tipeMateri){
+        console.log(tipeMateri);
+        this.tipeMateriDipilih = tipeMateri;
+        this.stepNow=4; 
+        this.statevideo=false; 
+        this.statesumm=false; 
+        this.statemapp=true;
+      },
 
     },
   }

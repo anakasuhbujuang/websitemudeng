@@ -7,16 +7,18 @@
             <v-col md="7">
               <v-row justify="center" no-gutters="" class="pt-4">
                 <v-col md="11">
-                  <p class="title grey--text text--darken-3 font-weight-medium">{{this.activeVideo.title}} </p>
+                  <!-- <p class="title grey--text text--darken-3 font-weight-medium">{{this.activeVideo.title}} </p> -->
+                  <p  v-if="activeVideo" class="title grey--text text--darken-3 font-weight-medium">{{activeVideo.judul}} </p>
                   <v-divider ></v-divider>
                 </v-col>
               </v-row>
 
               <v-row class="pa-5">
                 <v-col class="text-center" md="12">
-                  <div >
+                  <div v-if="activeVideo">
                     <iframe width="580px" height="320px" frameborder="0" allow="encrypted-media" allowfullscreen
-                    :src="this.activeVideo.youtubeURL" ></iframe>
+                    :src="activeVideo.url" ></iframe>
+                    <!-- :src="this.activeVideo.youtubeURL" ></iframe> -->
                   </div>
                 </v-col>
               </v-row>
@@ -35,14 +37,12 @@
                   <div style="height:360px;width:auto;overflow-y:scroll;overflow-x:hidden;">
                     <div style="height:150%;">
                       <div class="video-list">
-                        <div v-for="video in videos" :key="video.id"  @click="chooseVideo(video)"  class="thumbnail">
+                        <div v-for="(video,index) in materi" :key="video.id"  @click="chooseVideo(index)"  class="thumbnail">
                           <div class="thumbnail-img">
                           <img :src="video.thumbnail" />
                           </div>
                           <div class="thumbnail-info">
-                          <h3>{{video.title}}</h3>
-                          <!-- <p>{{video.creator}}</p>
-                          <p class="thumbnail-views">{{video.views}} Views</p> -->
+                          <h3>{{video.judul}}</h3>
                           </div>
                         </div>
                       </div>
@@ -54,7 +54,8 @@
               <v-row justify="end" class="pr-11">
                 <v-col md="4">
                   <v-btn color="teal darken-4 white--text" block class="subtitle-2 font-weight-bold" 
-                  @click.stop="dialogQuizControlVideo = true">Lanjutkan</v-btn>
+                  @click="getQuiz()">Lanjutkan</v-btn>
+                  <!-- @click.stop="dialogQuizControlVideo = true">Lanjutkan</v-btn> -->
                 </v-col>
               </v-row>
 
@@ -72,11 +73,10 @@
                     <v-row justify="space-around">
                       <v-col md="9">
                         <v-form v-model="isValidQuizControlVideo" lazy-validation>
-                          <v-chip-group column max="10" multiple active-class="teal darken-3 white--text" 
-                          style="box-shadow:none;" v-model="selected">
+                          <v-chip-group v-model="selected" column max="10" multiple active-class="teal darken-3 white--text" style="box-shadow:none;" >
                             <v-row>
                               <v-col align="center">
-                                <v-chip v-for="tag in tags" :key="tag">{{ tag }}
+                                <v-chip v-for="tag in quiz" :key="tag">{{ tag }}
                                 </v-chip>
                               </v-col>
                             </v-row>
@@ -107,47 +107,47 @@
 </template>
 
 <script>
-// import AfterVideo from '@/components/SLR/AfterVideo.vue'
-// import axios from 'axios';
-// window.axios = require('axios');
+import axios from 'axios';
+window.axios = require('axios');
 
-let videos = [
-  {
-    id: 1,
-    title: "Algoritma dan Struktur Data : Tree I",
-    thumbnail:
-      "https://i.ytimg.com/vi/i4CglDZfCJU/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAvJvk4k_UNB9nst4pFP-txM1TLZA",
-    youtubeURL: "https://www.youtube.com/embed/i4CglDZfCJU",
-  },
-  {
-    id: 2,
-    title: "Algoritma dan Struktur Data : Tree II",
-    thumbnail:
-      "https://i.ytimg.com/vi/qH6yxkw0u78/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDhlan32jHSvicGZezDFPjAOdXGUA",
-    youtubeURL: "https://www.youtube.com/embed/qH6yxkw0u78",
-  },
-  {
-    id: 3,
-    title: "Algoritma dan Struktur Data : Tree II",
-    thumbnail:
-      "https://i.ytimg.com/vi/oSWTXtMglKE/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBDnlrC2rVwXamNkicEEbc3Mf4T0w",
-    youtubeURL: "https://www.youtube.com/embed/oSWTXtMglKE",
-  },
-  // {
-  //   id: 4,
-  //   title: "Talking Tech with Neil deGrasse Tyson!",
-  //   thumbnail:
-  //     "https://i.ytimg.com/vi/pqQrL1K0Z5g/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA5hTiwkz4Tr1w1hSMhPlwtmQeyYw",
-  //   youtubeURL: "https://www.youtube.com/embed/pqQrL1K0Z5g",
-  // },
-  // {
-  //   id: 5,
-  //   title: "The Apple Ecosystem: Explained!",
-  //   thumbnail:
-  //     "https://i.ytimg.com/vi/KB4_WIPE7vo/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCCxXm7aoPShOwON74nhMlGYMUkHw",
-  //   youtubeURL: "https://www.youtube.com/embed/KB4_WIPE7vo",
-  // }
-];
+
+// let videos = [
+//   {
+//     id: 1,
+//     title: "Algoritma dan Struktur Data : Tree I",
+//     thumbnail:
+//       "https://i.ytimg.com/vi/i4CglDZfCJU/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAvJvk4k_UNB9nst4pFP-txM1TLZA",
+//     youtubeURL: "https://www.youtube.com/embed/i4CglDZfCJU",
+//   },
+//   {
+//     id: 2,
+//     title: "Algoritma dan Struktur Data : Tree II",
+//     thumbnail:
+//       "https://i.ytimg.com/vi/qH6yxkw0u78/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDhlan32jHSvicGZezDFPjAOdXGUA",
+//     youtubeURL: "https://www.youtube.com/embed/qH6yxkw0u78",
+//   },
+//   {
+//     id: 3,
+//     title: "Algoritma dan Struktur Data : Tree II",
+//     thumbnail:
+//       "https://i.ytimg.com/vi/oSWTXtMglKE/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBDnlrC2rVwXamNkicEEbc3Mf4T0w",
+//     youtubeURL: "https://www.youtube.com/embed/oSWTXtMglKE",
+//   },
+//   // {
+//   //   id: 4,
+//   //   title: "Talking Tech with Neil deGrasse Tyson!",
+//   //   thumbnail:
+//   //     "https://i.ytimg.com/vi/pqQrL1K0Z5g/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA5hTiwkz4Tr1w1hSMhPlwtmQeyYw",
+//   //   youtubeURL: "https://www.youtube.com/embed/pqQrL1K0Z5g",
+//   // },
+//   // {
+//   //   id: 5,
+//   //   title: "The Apple Ecosystem: Explained!",
+//   //   thumbnail:
+//   //     "https://i.ytimg.com/vi/KB4_WIPE7vo/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCCxXm7aoPShOwON74nhMlGYMUkHw",
+//   //   youtubeURL: "https://www.youtube.com/embed/KB4_WIPE7vo",
+//   // }
+// ];
 
 
 export default {
@@ -158,8 +158,11 @@ export default {
   },
 
   props: {
-    StateEvaluasiBelajar: Boolean,
-    e1: Number
+    // StateEvaluasiBelajar: Boolean,
+    // e1: Number
+    idMatkul: String,
+    idMateri: String,
+    tipeMateri: String,
   },
 
   data () {
@@ -168,61 +171,91 @@ export default {
       srcBgQuiz: require ('@/assets/bg/bgdaundialog.svg'),
       dialogQuizControlVideo: false,
       isValidQuizControlVideo: true,
-      videos,
-      activeVideo: videos[0],
+      // videos,
+      // activeVideo: videos[0],
+      
 
-      tags: [
-        'Root', 'Ancestoor', 'Predecessor','Successor','Descendant','Node Child','Leaf', 'Degree','SubTree','Binnary Tree','Skewed binary Tree','PreOrder (Depth First Order)','InOrder (Symetric Order)',
-        'Lost Child','Inner Circle','Legacy','Counting  Star','Palm Tree','Order on Book','Skewed Role','Binnary Valley','Failed Counting','Silk Tree',
-        ],
+      selected: [],
 
-      selected: '',
 
-      //axios
-      // materi:{},
+      //AXIOS
+      // materi,
+      materi:[],
+      activeVideoIndex: 0,
+      quiz:{},      
     }
   },
 
-  created: function(){
-    // await this.getMateri();
+  computed: {
+    activeVideo() {
+      if(this.materi.length == 0) {
+        return null
+      }
+
+      return this.materi[this.activeVideoIndex]
+    }
+  },
+
+  created: async function(){
+    await this.getMateri();
   },
   methods:{
-    chooseVideo(video){
+    chooseVideo(indexVideo){
       //SET VIDEO AS ACTIVE VIDEO
-      this.activeVideo = video;
+      this.activeVideoIndex = indexVideo;
+      
       //INCREASE THE VIDEOS VIEWS BY 1
       // video.views += 1;
     },
 
-    SubmitVideoQuiz(){
-      console.log(this.selected);
-      this.dialogQuizControlVideo = false;
-      this.$emit('SubmitVideoQuiz');
-    },
-
-    //AXIOS
-    // async getMateri(){
-    //   try {
-    //     var response = await axios.get(`${process.env.VUE_APP_API_HOST}/profile/pet`)
-
-    //     this.materi = response.data;
-    //   } catch(error) {
-    //       return console.log(error)
-    //   }
-    // },
-
-    // async SubmitVideoQuiz(){ //MAPPING todos.selected ke jawaban
-
-    //   try {
-    //     var response = await axios.post(`${process.env.VUE_APP_API_HOST}/mai/submit`, { selected : selected })
-		// 	} catch(error) {
-		// 		console.error(error)
-		// 		return
-    //   }
-      
+    // SubmitVideoQuiz(){
+    //   console.log(this.selected);
     //   this.dialogQuizControlVideo = false;
     //   this.$emit('SubmitVideoQuiz');
     // },
+
+    //AXIOS
+    async getMateri(){
+      try {
+        var response = await axios.get(`${process.env.VUE_APP_API_HOST}/matkul/${this.idMatkul}/materi/${this.idMateri}/konten/${this.tipeMateri}`)
+
+        this.materi = response.data;
+        console.log('sukses get materi video');
+        console.log(response.data);
+      } catch(error) {
+          return console.log(error)
+      }
+    },
+
+    async getQuiz(){
+      
+      this.dialogQuizControlVideo = true;
+
+      try {
+        var response = await axios.get(`${process.env.VUE_APP_API_HOST}/matkul/${this.idMatkul}/materi/${this.idMateri}/quiz/${this.tipeMateri}`)
+
+        this.quiz = response.data;
+        console.log('sukses get quiz video');
+        console.log(response.data);
+      } catch(error) {
+          return console.log(error)
+      }
+    },
+
+    async SubmitVideoQuiz(){ //MAPPING todos.selected ke jawaban
+
+
+      try {
+        await axios.post(`${process.env.VUE_APP_API_HOST}/matkul/quiz/video`, 
+        { idMatkul : this.idMatkul, idMateri : this.idMateri, jawaban: this.selected })
+			} catch(error) {
+				console.error(error)
+				return
+      }
+      
+      this.dialogQuizControlVideo = false;
+      this.$emit('SubmitVideoQuiz');
+    },
   }
 }
 </script>

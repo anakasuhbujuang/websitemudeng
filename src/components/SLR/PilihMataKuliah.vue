@@ -22,28 +22,22 @@
               </v-row>
                     
               <v-row justify="center">
-                <!-- <v-col v-for="(item, index) in daftarMataKuliah" :key="index" md="9"> -->
-                  <v-col md="9" class="pb-4">
-                  
+                <v-col v-for="(item, index) in daftarMataKuliah" :key="index" md="9" class="pb-4">
                   <v-row>
                     <v-col>
-                      <v-btn block color="teal darken-4 white--text"
-                      class="subtitle-2 font-weight-bold"
-                      height="50px" @click="nextStepToPilihMataKuliah()">
-                      ALGORITMA DAN STRUKTUR DATA</v-btn>
-                      <!-- {{item.judul}}</v-btn> -->
+                      <v-btn block color="teal darken-4 white--text" class="subtitle-2 font-weight-bold" height="50px" 
+                      @click="nextStepToPilihMataKuliah(item.id)">
+                      {{item.nama}}</v-btn>
                     </v-col>
                   </v-row>
+                </v-col>
+              </v-row>
 
-                  <v-row justify="end">
-                    <v-col md="5">
-                      <v-btn color="teal darken-2 white--text" block disabled
-                      class="subtitle-2 font-weight-bold"
-                      @click="nextStepToPilihMataKuliah()">TAMBAH KELAS</v-btn>
-                      <!-- @click="nextStepToPilihMataKuliah(item.id)">TAMBAH KELAS</v-btn> -->
-                    </v-col>
-                  </v-row>
-
+              <v-row justify="end">
+                <v-col md="5" class="mr-12 pr-12" >
+                  <v-btn color="teal darken-2 white--text" block disabled
+                  class="subtitle-2 font-weight-bold"
+                  @click="nextStepToPilihMataKuliah()">JOIN CLASS</v-btn>
                 </v-col>
               </v-row>
 
@@ -65,13 +59,13 @@ export default {
   name:'PilihMataKuliah',
   
   props: {
-    StatePilihMataKuliah: Boolean,
-    e1: Number,
+    // StatePilihMataKuliah: Boolean,
+    // e1: Number,
   },
 
   data () {
     return {
-      SrcImgPet:"https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihpilihmatkul.png?alt=media&token=bbb93507-6409-43cf-a54d-9a2768b32079",
+      // SrcImgPet:"https://firebasestorage.googleapis.com/v0/b/e-mudeng.appspot.com/o/pet%2Fasih%2Fasihpilihmatkul.png?alt=media&token=bbb93507-6409-43cf-a54d-9a2768b32079",
     
       //AXIOS
       petUser:{},
@@ -81,19 +75,15 @@ export default {
 
   created: async function() {
     await this.getPetUser();
-  //   await this.getMatakuliah();
+    await this.getDaftarMatKul();
   },
 
   methods: {
     //CHILD want to pass data or function to PARENT
-    nextStepToPilihMataKuliah() {
-        this.$emit('nextStepToPilihMataKuliah')
+  
+    nextStepToPilihMataKuliah(idMatkul) {
+      this.$emit('pilihMatkul', idMatkul);
     },
-
-    // async nextStepToPilihMataKuliah(id) {
-    // await axios.post(`${process.env.VUE_APP_API_HOST}/profile/pet`, { id: id }) //id:
-    // this.$emit('nextStepToPilihMataKuliah')
-    // },
 
     // AXIOS
     async getPetUser (){
@@ -106,15 +96,16 @@ export default {
         }
     },
 
-    // async getMataKuliah (){
-    //   try {
-    //   var response = await axios.get(`${process.env.VUE_APP_API_HOST}/profile/pet`)
+    async getDaftarMatKul (){
+      try {
+      var response = await axios.get(`${process.env.VUE_APP_API_HOST}/matkul/daftar`)
 
-    //   this.daftarMataKuliah = response.data;
-    //   } catch(error) {
-    //       return console.log(error)
-    //     }
-    // },
+      this.daftarMataKuliah = response.data;
+      console.log(response.data)
+      } catch(error) {
+          return console.log(error)
+        }
+    },
           
   }
 

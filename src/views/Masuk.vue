@@ -185,6 +185,7 @@ export default {
     usersMudeng:[], //get data usersMasuk n sort cari akun terdaftar
     toUserNow:[], //action btn Masuk (put to data userNow)
     idUsersMudeng:null, //get id akun yg masuk dr data usersMudeng[i]
+    maiResult:'',
     
     //dialog akun/pass salah / belum terdaftar
     masukFailed:false,
@@ -248,14 +249,29 @@ export default {
         return console.log(error)
       }
 
+      await this.getMaiResult();
+
     // TODO: cek hasil test mai, kalo udah redirect langsung ke home, 
       const userPet = response.data
       if(!userPet) {
         return this.$router.push('/PilihPet')
+      }else if(!this.maiResult){
+        return this.$router.push('/PraTestMai')
+      } else{
+        return this.$router.push('/Dashboard')
       }
-       return this.$router.push('/PraTestMai')
-    }, 
-
+    },
+   
+    async getMaiResult() {
+      try {
+        var response = await axios.get(`${process.env.VUE_APP_API_HOST}/mai/result`)
+        this.maiResult=response.data;
+        console.log=response.data;
+      } catch(error) {
+        return console.log(error)
+      }
+    
+    },
 
     SendEmail(){
       console.log(this.EmailLupaKataSandi) ;
