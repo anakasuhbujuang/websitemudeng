@@ -1,5 +1,5 @@
 import TodoItemEvaluasi from '@/components/SLR/EvaluasiBelajar/TodoItemEvaluasi.vue';
-import ReviewEvaluasi from '@/components/SLR/ReviewEvaluasi/ReviewEvaluasi.vue';
+// import ReviewEvaluasi from '@/components/SLR/ReviewEvaluasi/ReviewEvaluasi.vue';
 import TodoItemReviewEvaluasi from '@/components/SLR/ReviewEvaluasi/TodoItemReviewEvaluasi.vue';
 
 import axios from 'axios';
@@ -13,7 +13,7 @@ export default {
 
   components: {
     'todo-item': TodoItemEvaluasi,
-    ReviewEvaluasi,
+    // ReviewEvaluasi,
     'todo-item-review' : TodoItemReviewEvaluasi
   },
 
@@ -66,11 +66,15 @@ export default {
     };
   },
 
-  created: async function() {
+  // created: async function() {
+  //   await this.getSoal();
+  //   this.updateVisibleTodos();
+  // },
+  mounted: async function() {
     await this.getSoal();
     this.updateVisibleTodos();
   },
-
+  
   computed: {
     petAsset: function() {
       if(this.tagEvaluasiResult === 'sukses') {

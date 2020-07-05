@@ -101,7 +101,7 @@ export default {
       var response = await axios.get(`${process.env.VUE_APP_API_HOST}/matkul/daftar`)
 
       this.daftarMataKuliah = response.data;
-      console.log(response.data)
+      // console.log(response.data)
       } catch(error) {
           return console.log(error)
         }

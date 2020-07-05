@@ -95,8 +95,8 @@
           :key="todo.id"
           v-bind:visibleTodos="visibleTodos"
           v-bind:currentPage="currentPage"
-          v-bind:todo="todo"
-          :selectedevaluasi="todos.selected">
+          v-bind:todo="todo">
+          <!-- :selectedevaluasi="todos.selected" -->
           </todo-item-review>
         </v-col>
       </v-row>

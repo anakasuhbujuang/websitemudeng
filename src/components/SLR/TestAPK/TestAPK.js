@@ -62,7 +62,11 @@ export default {
       },
     },
 
-  created: async function() {
+  // created: async function() {
+  //   await this.getSoalApk();
+  //   this.updateVisibleTodos();
+  // },
+  mounted: async function() {
     await this.getSoalApk();
     this.updateVisibleTodos();
   },

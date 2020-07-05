@@ -77,11 +77,6 @@ export default {
     //PERLU GET JAWABAN TRUE (?)
    
     //PAGINATION
-    // addTodo(text) {
-    //   this.todos.push({id: this.nextId, text: text});
-    //   this.nextId++;
-    //   this.updateVisibleTodos();
-    // },
 
     SubmitJawaban() {
       this.todos.jawaban;

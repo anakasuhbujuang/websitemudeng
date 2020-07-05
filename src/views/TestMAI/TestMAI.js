@@ -74,6 +74,10 @@ export default {
 
   created: async function() {
     await this.getPetUser();
+    // await this.getSoal();
+    // this.updateVisibleTodos();
+  },
+  mounted: async function() {
     await this.getSoal();
     this.updateVisibleTodos();
   },
