@@ -48,14 +48,12 @@
                 v-on:previous="updatePage(currentPage)"
                 v-on:input="updatePage(currentPage)"
                 circle
-                color="teal darken-3"
-                 >
+                color="teal darken-3">
                 </v-pagination>
                 <!-- :disabled="!isValidTestMAI" -->
               </v-col>
               <v-col md="2" class="text-end pr-9 pt-2">
-                <v-btn  @click="Submit()" dense block color="teal darken-4 white--text" class="subtitle-2 font-weight-bold">SELESAI</v-btn>
-                <!-- :disabled="!isValidTestMAI" v-if="showSubmitLink()" -->
+                <v-btn  @click="Submit()" :disabled="!isValidTestMAI" v-if="showSubmitLink()" dense block color="teal darken-4 white--text" class="subtitle-2 font-weight-bold">SELESAI</v-btn>
               </v-col>
             </v-row>
           </v-card>
